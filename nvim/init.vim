@@ -1,17 +1,18 @@
 "dein Scripts-----------------------------
 if &compatible
-	set nocompatible
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=/Users/kei/.config/nvim/plugins/./repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/kameda/.config/nvim/plugins/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/Users/kei/.config/nvim/plugins/.')
+call dein#begin('/Users/kameda/.config/nvim/plugins')
 
 " Let dein manage dein
 " Required:
 call dein#add('Shougo/dein.vim')
+
 
 " Add or remove your plugins here:
 "=== dark matter
@@ -29,7 +30,6 @@ call dein#add('jpo/vim-railscasts-theme')
 "=== visualize
 call dein#add('itchyny/lightline.vim')
 call dein#add('nathanaelkane/vim-indent-guides')
-
 
 "=== html plugin
 call dein#add('tpope/vim-surround')
@@ -57,14 +57,10 @@ call dein#add('groenewege/vim-less')
 call dein#add('elixir-lang/vim-elixir')
 
 "=== file tree
-call dein#add('scrooloose/nerdtree')
+"call dein#add('scrooloose/nerdtree')
 
 "=== rename tab
 call dein#add('gcmt/taboo.vim')
-
-
-
-" You can specify revision/branch/tag.
 
 " Required:
 call dein#end()
@@ -78,6 +74,9 @@ if dein#check_install()
   call dein#install()
 endif
 
+"End dein Scripts-------------------------
+
+
 "Basic Settings---------------------------
 if !has('gui_running')
 	set t_Co=256
@@ -86,6 +85,7 @@ set laststatus=2
 set autoindent
 
 set cindent
+set expandtab
 set shiftwidth=2
 set tabstop=2
 set nu
@@ -112,6 +112,10 @@ let g:deoplete#enable_at_startup = 1
 "Alias---------------------------
 map <C-n> :tabn <CR>
 map <C-p> :tabp <CR>
+map <C-k> :Denite file_rec<CR>
+
+" add jbuilder syntax highlighting
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 
 "Color Scripts-------------------------

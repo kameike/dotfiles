@@ -1,4 +1,4 @@
-escape ^Ss 
+# escape ^Ss 
 
 startup_message off
 altscreen on
