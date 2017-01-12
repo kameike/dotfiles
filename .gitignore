@@ -1,2 +1,6 @@
+*
+!/nvim
+!/nvim/**/*
+!/misc
 nvim/plugins/*
 nvim/.netrwhist

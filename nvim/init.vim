@@ -3,11 +3,16 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=/Users/kameda/.config/nvim/plugins/repos/github.com/Shougo/dein.vim
+"load env
+source ./env.vim
 
 " Required:
-call dein#begin('/Users/kameda/.config/nvim/plugins')
+let g:target_path = ',' . g:config_plugins_path . '/repos/github.com/Shougo/dein.vim'
+let &runtimepath = &runtimepath . target_path
+set runtimepath?
+
+" Required:
+call dein#begin(g:config_plugins_path)
 
 " Let dein manage dein
 " Required:
@@ -113,6 +118,7 @@ let g:deoplete#enable_at_startup = 1
 map <C-n> :tabn <CR>
 map <C-p> :tabp <CR>
 map <C-k> :Denite file_rec<CR>
+map <C-l> :Denite -auto_preview grep<CR>
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
