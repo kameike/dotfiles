@@ -4,3 +4,4 @@
 !/misc
 nvim/plugins/*
 nvim/.netrwhist
+nvim/env.vim

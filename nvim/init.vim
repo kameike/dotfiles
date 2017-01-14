@@ -7,12 +7,11 @@ endif
 source ./env.vim
 
 " Required:
-let g:target_path = ',' . g:config_plugins_path . '/repos/github.com/Shougo/dein.vim'
-let &runtimepath = &runtimepath . target_path
-set runtimepath?
+let &runtimepath = &runtimepath . ',' . g:config_plugins_path . '/repos/github.com/Shougo/dein.vim'
 
 " Required:
 call dein#begin(g:config_plugins_path)
+unlet! g:config_plugins_path
 
 " Let dein manage dein
 " Required:
@@ -125,11 +124,12 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 
 "Color Scripts-------------------------
-" colorscheme solarized
+colorscheme solarized
 " let g:molokai_original = 1
-let g:molokai_original = 1
-colorscheme molokai
-colorscheme railscasts
+"let g:molokai_original = 1
+" colorscheme molokai
+" colorscheme railscasts
+set background=dark
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
