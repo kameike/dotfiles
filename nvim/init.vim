@@ -3,15 +3,12 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-"load env
-source ./env.vim
 
 " Required:
-let &runtimepath = &runtimepath . ',' . g:config_plugins_path . '/repos/github.com/Shougo/dein.vim'
+let &runtimepath = &runtimepath . ',' . $HOME . '/.config/nvim/plugins/repos/github.com/Shougo/dein.vim'
 
 " Required:
-call dein#begin(g:config_plugins_path)
-unlet! g:config_plugins_path
+call dein#begin($HOME . '/.config/nvim/plugins')
 
 " Let dein manage dein
 " Required:

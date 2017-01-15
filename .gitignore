@@ -1,7 +1,6 @@
 *
-!/nvim
-!/nvim/**/*
-!/misc
-nvim/plugins/*
+!*/
+!nvim/**
+!misc/**
 nvim/.netrwhist
-nvim/env.vim
+nvim/plugins/*
