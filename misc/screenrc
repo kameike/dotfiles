@@ -1,4 +1,4 @@
-# escape ^Ss 
+escape ^Ss 
 
 startup_message off
 altscreen on
@@ -9,7 +9,7 @@ maptimeout 0
 defc1 off
 
 
-idefscrollback 10000
+defscrollback 10000
 
 bind r eval 'command -c cresize'
 bind -c cresize j eval 'resize +1'  'command -c cresize'
