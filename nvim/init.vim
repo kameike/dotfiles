@@ -57,6 +57,9 @@ call dein#add('groenewege/vim-less')
 "=== sytax elixir helper
 call dein#add('elixir-lang/vim-elixir')
 
+"=== sytax elixir helper
+call dein#add('wavded/vim-stylus')
+
 "=== file tree
 "call dein#add('scrooloose/nerdtree')
 
