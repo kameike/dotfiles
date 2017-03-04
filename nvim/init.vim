@@ -132,6 +132,7 @@ nmap <Leader>uh <Plug>GitGutterUndoHunk
 nmap <Leader>ph <Plug>GitGutterPreviewHunk
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>gc :Gina commit<CR>
+nmap <Leader>gp :Gina push<CR>
 nmap <Leader>cc :Denite colorscheme<CR>
 
 " add jbuilder syntax highlighting
