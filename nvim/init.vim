@@ -21,7 +21,10 @@ call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/denite.nvim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
-
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim')
+call dein#add('airblade/vim-gitgutter')
+call dein#add('lambdalisue/vim-gita')
 
 "=== color scheime
 call dein#add('altercation/vim-colors-solarized')
@@ -114,10 +117,14 @@ let g:taboo_renamed_tab_format = "[%N:%l]%f%m"
 let g:deoplete#enable_at_startup = 1
 
 "Alias---------------------------
-map <C-n> :tabn <CR>
-map <C-p> :tabp <CR>
-map <C-k> :Denite file_rec<CR>
-map <C-l> :Denite -auto_preview grep<CR>
+nmap <C-n> :tabn <CR>
+nmap <C-p> :tabp <CR>
+nmap f :Denite file_rec<CR>
+nmap <C-l> :Denite -auto_preview grep<CR>
+
+map <Leader>sh <Plug>GitGutterStageHunk
+map <Leader>uh <Plug>GitGutterUndoHunk
+map <Leader>ph <Plug>GitGutterPreviewHunk
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
@@ -133,5 +140,6 @@ set background=dark
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
+let g:vimfiler_as_default_explorer = 1
 hi IndentGuidesOdd  ctermbg=235
 hi IndentGuidesEven ctermbg=236
