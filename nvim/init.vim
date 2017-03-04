@@ -24,7 +24,7 @@ call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
 call dein#add('airblade/vim-gitgutter')
-call dein#add('lambdalisue/vim-gita')
+call dein#add('lambdalisue/gina.vim')
 
 "=== color scheime
 call dein#add('altercation/vim-colors-solarized')
@@ -122,9 +122,11 @@ nmap <C-p> :tabp <CR>
 nmap f :Denite file_rec<CR>
 nmap <C-l> :Denite -auto_preview grep<CR>
 
-map <Leader>sh <Plug>GitGutterStageHunk
-map <Leader>uh <Plug>GitGutterUndoHunk
-map <Leader>ph <Plug>GitGutterPreviewHunk
+nmap <Leader>sh <Plug>GitGutterStageHunk
+nmap <Leader>uh <Plug>GitGutterUndoHunk
+nmap <Leader>ph <Plug>GitGutterPreviewHunk
+nmap <Leader>gs :Gina status<CR>
+nmap <Leader>gc :Gina commit<CR>
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
