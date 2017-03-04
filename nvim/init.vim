@@ -25,6 +25,8 @@ call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('lambdalisue/gina.vim')
+call dein#add('osyo-manga/unite-quickfix')
+call dein#add('ujihisa/unite-colorscheme')
 
 "=== color scheime
 call dein#add('altercation/vim-colors-solarized')
@@ -60,8 +62,11 @@ call dein#add('groenewege/vim-less')
 "=== sytax elixir helper
 call dein#add('elixir-lang/vim-elixir')
 
-"=== sytax elixir helper
+"=== sytax stylus helper
 call dein#add('wavded/vim-stylus')
+
+"=== sytax erlang helper
+call dein#add('vim-erlang/vim-erlang-runtime')
 
 "=== file tree
 "call dein#add('scrooloose/nerdtree')
@@ -119,14 +124,15 @@ let g:deoplete#enable_at_startup = 1
 "Alias---------------------------
 nmap <C-n> :tabn <CR>
 nmap <C-p> :tabp <CR>
-nmap f :Denite file_rec<CR>
 nmap <C-l> :Denite -auto_preview grep<CR>
 
+nmap <Leader>f :Denite file_rec<CR>
 nmap <Leader>sh <Plug>GitGutterStageHunk
 nmap <Leader>uh <Plug>GitGutterUndoHunk
 nmap <Leader>ph <Plug>GitGutterPreviewHunk
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>gc :Gina commit<CR>
+nmap <Leader>cc :Denite colorscheme<CR>
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
@@ -134,13 +140,13 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 "Color Scripts-------------------------
 colorscheme solarized
-" let g:molokai_original = 1
-"let g:molokai_original = 1
-" colorscheme molokai
-" colorscheme railscasts
-set background=dark
 
+" colorscheme rdark-terminal2
+" colorscheme parsec
+
+set background=dark
 let $LANG = "en_US"
+
 let g:indent_guides_auto_colors = 0
 let g:vimfiler_as_default_explorer = 1
 hi IndentGuidesOdd  ctermbg=235
