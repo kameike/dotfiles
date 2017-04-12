@@ -28,10 +28,14 @@ call dein#add('lambdalisue/gina.vim')
 call dein#add('osyo-manga/unite-quickfix')
 call dein#add('ujihisa/unite-colorscheme')
 
+"=== elm
+call dein#add('ambdatoast/elm.vim')
+
 "=== color scheime
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('tomasr/molokai')
 call dein#add('jpo/vim-railscasts-theme')
+call dein#add('NLKNguyen/papercolor-theme')
 
 "=== visualize
 call dein#add('itchyny/lightline.vim')
@@ -108,6 +112,7 @@ syntax on
 highlight whiteSpace cterm=underline ctermfg=lightblue guibg=white
 match whiteSpace /__/
 
+let g:lightline = {'colorscheme': 'PaperColor'}
 
 set ignorecase
 set smartcase
@@ -132,7 +137,6 @@ nmap <Leader>uh <Plug>GitGutterUndoHunk
 nmap <Leader>ph <Plug>GitGutterPreviewHunk
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>gc :Gina commit<CR>
-nmap <Leader>gp :Gina push<CR>
 nmap <Leader>cc :Denite colorscheme<CR>
 
 " add jbuilder syntax highlighting
@@ -144,8 +148,10 @@ colorscheme solarized
 
 " colorscheme rdark-terminal2
 " colorscheme parsec
+" set background=light
+colorscheme PaperColor
+set background=light
 
-set background=dark
 let $LANG = "en_US"
 
 let g:indent_guides_auto_colors = 0
