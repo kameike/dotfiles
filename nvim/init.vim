@@ -29,7 +29,10 @@ call dein#add('osyo-manga/unite-quickfix')
 call dein#add('ujihisa/unite-colorscheme')
 
 "=== elm
-call dein#add('ambdatoast/elm.vim')
+call dein#add('lambdatoast/elm.vim')
+
+"=== toml
+call dein#add('cespare/vim-toml')
 
 "=== color scheime
 call dein#add('altercation/vim-colors-solarized')
