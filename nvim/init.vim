@@ -23,10 +23,12 @@ call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
+call dein#add('Shougo/neosnippet')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('lambdalisue/gina.vim')
 call dein#add('osyo-manga/unite-quickfix')
 call dein#add('ujihisa/unite-colorscheme')
+
 
 "=== elm
 call dein#add('lambdatoast/elm.vim')
@@ -95,6 +97,11 @@ endif
 
 "End dein Scripts-------------------------
 
+
+"Snipet -------------------------
+let g:neosnippet#snippets_directory='~/.config/nvim/snipets/'
+imap <C-o> <Plug>(neosnippet_expand_or_jump)
+smap <C-o> <Plug>(neosnippet_expand_or_jump)
 
 "Basic Settings---------------------------
 if !has('gui_running')

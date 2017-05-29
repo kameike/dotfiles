@@ -1,0 +1,9 @@
+snippet     if_file_exist
+  if [ -f ${1:filename} ]; then
+    ${2:Content}
+  fi
+
+snippet     dev_null
+abbr        put everything to null
+  > /dev/null 2>&1
+
