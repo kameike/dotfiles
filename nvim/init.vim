@@ -137,6 +137,7 @@ let g:taboo_renamed_tab_format = "[%N:%l]%f%m"
 let g:deoplete#enable_at_startup = 1
 
 "Alias---------------------------
+let mapleader = "\<Space>"
 nmap <C-n> :tabn <CR>
 nmap <C-p> :tabp <CR>
 nmap <C-l> :Denite -auto_preview grep<CR>
