@@ -24,3 +24,49 @@ snippet sourceModel
 
 snippet targetModel
   $\mathit{${0:name}^\star}$
+
+snippet comment
+  %===================
+  % ${1:comment}
+  %===================
+
+snippet twoImage
+  \begin{figure}[]
+  \caption{${1:caption}}
+  \label{${1:label}}
+    \begin{minipage}{0.5\hsize}
+      \centering
+      \includegraphics[width=\textwidth]{${2:imagename1}}
+      \subcaption{${3:subcaption1}}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+      \centering
+      \includegraphics[width=\textwidth]{${2:imagename3}}
+      \subcaption{${3:subcaption3}}
+    \end{minipage}
+  \end{figure}
+
+snippet threeImage
+  \begin{figure}[]
+  \caption{${1:caption}}
+  \label{${1:label}}
+    \begin{minipage}{0.33\hsize}
+      \centering
+      \includegraphics[width=\textwidth]{${2:imagename1}}
+      \subcaption{${3:subcaption1}}
+    \end{minipage}
+    \begin{minipage}{0.33\hsize}
+      \centering
+      \includegraphics[width=\textwidth]{${2:imagename2}}
+      \subcaption{${3:subcaption2}}
+    \end{minipage}
+    \begin{minipage}{0.33\hsize}
+      \centering
+      \includegraphics[width=\textwidth]{${2:imagename3}}
+      \subcaption{${3:subcaption3}}
+    \end{minipage}
+  \end{figure}
+
+
+
+
