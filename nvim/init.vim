@@ -30,6 +30,9 @@ call dein#add('osyo-manga/unite-quickfix')
 call dein#add('ujihisa/unite-colorscheme')
 
 
+"=== slim
+call dein#add('slim-template/vim-slim')
+
 "=== elm
 call dein#add('lambdatoast/elm.vim')
 

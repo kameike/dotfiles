@@ -5,4 +5,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 stty stop undef
 stty start undef
 
-alias screen= screen-4.5.1
+
+alias addallcommit='git add --all && git commit'
+alias serval='git commit -a && git push origin HEAD'
