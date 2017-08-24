@@ -23,6 +23,7 @@ call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/vimfiler.vim')
 call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neoyank.vim')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('lambdalisue/gina.vim')
 call dein#add('ujihisa/unite-colorscheme')
@@ -152,13 +153,29 @@ nmap <Leader>ff :Denite -auto_preview grep<CR>
 nmap <Leader>gc :Gina commit<CR>
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>oo :Denite file_rec<CR>
+nmap <Leader>pp :Denite -auto_preview grep<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
 nmap <Leader>w :w<CR>
 
 vmap <leader>ss :sort<CR>
 
+
+
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+   \             ['*~', '*.o', '*.exe', '*.bak',
+   \             '.DS_Store', '*.pyc', '*.sw[po]', '*.class',
+   \             '.hg/', '.git/', '.bzr/', '.svn/',
+   \             'tags', 'tags-*', 'node_modules/*', 'bundler/*', 'public/*'
+	 \	])
+
+
+call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs'])
+
+
+
 "Commands-----------------------
 command! EditSorce execute 'vnew $MYVIMRC'
+
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
