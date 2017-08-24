@@ -142,6 +142,7 @@ let mapleader = "\<Space>"
 nmap <C-n> :tabn <CR>
 nmap <C-p> :tabp <CR>
 
+
 nmap <Leader>aac :w<CR>:Gina add --all<CR>:Gina commit<CR>:Gina push origin HEAD<CR>
 nmap <Leader>cc :q<CR>
 nmap <Leader>esource :e $MYVIMRC<CR>
