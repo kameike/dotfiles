@@ -141,20 +141,19 @@ let g:deoplete#enable_at_startup = 1
 let mapleader = "\<Space>"
 nmap <C-n> :tabn <CR>
 nmap <C-p> :tabp <CR>
-nmap <C-l> :Denite -auto_preview grep<CR>
 
 nmap <Leader>aac :Gina add --all<CR>:Gina commit<CR>:Gina push origin HEAD<CR>
 nmap <Leader>cc :q<CR>
-nmap <Leader>f :Denite file_rec<CR>
+nmap <Leader>oo :Denite file_rec<CR>
+nmap <leader>ff :Denite -auto_preview grep<CR>
 nmap <Leader>gc :Gina commit<CR>
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>ph <Plug>GitGutterPreviewHunk
 nmap <Leader>sh <Plug>GitGutterStageHunk
 nmap <Leader>source :so $MYVIMRC<CR>
+nmap <Leader>esource :e $MYVIMRC<CR>
 nmap <Leader>uh <Plug>GitGutterUndoHunk
 nmap <Leader>w :w<CR>
-
-
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
