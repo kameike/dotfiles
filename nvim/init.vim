@@ -146,6 +146,7 @@ nmap <C-p> :tabp <CR>
 nmap <Leader>aac :w<CR>:Gina add --all<CR>:Gina commit<CR>:Gina push origin HEAD<CR>
 nmap <Leader>cc :q<CR>
 nmap <Leader>esource :e $MYVIMRC<CR>
+nmap <Leader>ff :Denite -auto_preview grep<CR>
 nmap <Leader>gc :Gina commit<CR>
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>oo :Denite file_rec<CR>
@@ -154,7 +155,11 @@ nmap <Leader>sh <Plug>GitGutterStageHunk
 nmap <Leader>source :so $MYVIMRC<CR>
 nmap <Leader>uh <Plug>GitGutterUndoHunk
 nmap <Leader>w :w<CR>
-nmap <leader>ff :Denite -auto_preview grep<CR>
+
+vmap <leader>ss :sort<CR>
+
+"Commands-----------------------
+" command EditSorce e $MYVIMRC
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
