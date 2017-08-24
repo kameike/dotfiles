@@ -21,12 +21,10 @@ call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/denite.nvim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('lambdalisue/gina.vim')
-call dein#add('osyo-manga/unite-quickfix')
 call dein#add('ujihisa/unite-colorscheme')
 
 
@@ -145,29 +143,27 @@ nmap <C-n> :tabn <CR>
 nmap <C-p> :tabp <CR>
 nmap <C-l> :Denite -auto_preview grep<CR>
 
+nmap <Leader>aac :Gina add --all<CR>:Gina commit<CR>
+nmap <Leader>cc :q<CR>
 nmap <Leader>f :Denite file_rec<CR>
-nmap <Leader>sh <Plug>GitGutterStageHunk
-nmap <Leader>uh <Plug>GitGutterUndoHunk
-nmap <Leader>ph <Plug>GitGutterPreviewHunk
-nmap <Leader>gs :Gina status<CR>
 nmap <Leader>gc :Gina commit<CR>
-nmap <Leader>cc :Denite colorscheme<CR>
+nmap <Leader>gs :Gina status<CR>
+nmap <Leader>ph <Plug>GitGutterPreviewHunk
+nmap <Leader>sh <Plug>GitGutterStageHunk
+nmap <Leader>source :so $MYVIMRC<CR>
+nmap <Leader>uh <Plug>GitGutterUndoHunk
+nmap <Leader>w :w<CR>
+
+
 
 " add jbuilder syntax highlighting
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
-
 "Color Scripts-------------------------
-colorscheme solarized
-
-" colorscheme rdark-terminal2
-" colorscheme parsec
-" set background=light
 colorscheme PaperColor
 set background=light
 
 let $LANG = "en_US"
-
 let g:indent_guides_auto_colors = 0
 let g:vimfiler_as_default_explorer = 1
 hi IndentGuidesOdd  ctermbg=235
