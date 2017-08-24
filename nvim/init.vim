@@ -143,7 +143,7 @@ nmap <C-n> :tabn <CR>
 nmap <C-p> :tabp <CR>
 nmap <C-l> :Denite -auto_preview grep<CR>
 
-nmap <Leader>aac :Gina add --all<CR>:Gina commit<CR>
+nmap <Leader>aac :Gina add --all<CR>:Gina commit<CR>:Gina push origin HEAD<CR>
 nmap <Leader>cc :q<CR>
 nmap <Leader>f :Denite file_rec<CR>
 nmap <Leader>gc :Gina commit<CR>
