@@ -153,6 +153,7 @@ nmap <Leader>gc :Gina commit<CR>
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>oo :Denite file_rec<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
+nmap <Leader>update :call dein#update()
 nmap <Leader>w :w<CR>
 
 vmap <leader>ss :sort<CR>
