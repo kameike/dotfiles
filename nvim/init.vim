@@ -17,12 +17,13 @@ call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
 "=== dark matter
-call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/vimfiler.vim')
+call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('lambdalisue/gina.vim')
 call dein#add('ujihisa/unite-colorscheme')
