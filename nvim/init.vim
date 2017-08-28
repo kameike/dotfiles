@@ -17,10 +17,12 @@ call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
 "=== dark matter
-call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neoyank.vim')
@@ -155,10 +157,10 @@ nmap <Leader>gs :Gina status<CR>
 nmap <Leader>oo :Denite file_rec<CR>
 nmap <Leader>pp :Denite -auto_preview grep<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
+nmap <Leader>update :call dein#update()
 nmap <Leader>w :w<CR>
 
 vmap <leader>ss :sort<CR>
-
 
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
@@ -170,8 +172,9 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 
 
 call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs'])
+call denite#custom#source('grep', 'matchers', ['matcher_ignore_globs'])
 
-
+" 'matcher_fuzzy'
 
 "Commands-----------------------
 command! EditSorce execute 'vnew $MYVIMRC'
