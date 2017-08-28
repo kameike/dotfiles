@@ -159,6 +159,20 @@ nmap <Leader>w :w<CR>
 
 vmap <leader>ss :sort<CR>
 
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',[
+          \                 '*~', '*.o', '*.exe', '*.bak',
+          \                 '.DS_Store', '*.pyc', '*.sw[po]', '*.class',
+          \                 '.hg/', '.git/', '.bzr/', '.svn/',
+          \                 'tags', 'tags-*', 'node_modules/*', 'build/*'
+          \		]) 
+
+call denite#custom#source(
+\ 'file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
+
+call denite#custom#source(
+\ 'grep', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
+
+
 "Commands-----------------------
 command! EditSorce execute 'vnew $MYVIMRC'
 
