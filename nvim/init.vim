@@ -154,7 +154,7 @@ nmap <Leader>ff :Denite -auto_preview grep<CR>
 nmap <Leader>ga :Gina add --all<CR>
 nmap <Leader>gb :Gina branch<CR>
 nmap <Leader>gc :Gina commit<CR>
-nmap <Leader>ggg :w<CR>:Gina add --all<CR>:Gina commit
+nmap <Leader>ggg :w<CR>:Gina add --all<CR>:Gina commit<CR>
 nmap <Leader>gp :Gina push origin HEAD<CR>
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>oo :Denite file_rec<CR>
