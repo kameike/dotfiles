@@ -87,6 +87,9 @@ call dein#add('vim-erlang/vim-erlang-runtime')
 "=== rename tab
 call dein#add('gcmt/taboo.vim')
 
+
+call dein#add('junegunn/vim-easy-align')
+
 " Required:
 call dein#end()
 
@@ -180,6 +183,13 @@ call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matc
 
 "Commands-----------------------
 command! EditSorce execute 'vnew $MYVIMRC'
+
+"Align------
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+"
+" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 " add jbuilder syntax highlighting
