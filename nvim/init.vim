@@ -89,6 +89,7 @@ call dein#add('gcmt/taboo.vim')
 
 
 call dein#add('junegunn/vim-easy-align')
+call dein#add('neovimhaskell/haskell-vim')
 
 " Required:
 call dein#end()
@@ -153,6 +154,7 @@ nmap <C-p> :tabp <CR>
 "nmap <Leader>sh <Plug>GitGutterStageHunk
 "nmap <Leader>uh <Plug>GitGutterUndoHunk
 nmap <Leader>cc :q<CR>
+nmap <Leader>br :bufdo e!<CR>
 nmap <Leader>ff :Denite -auto_preview grep<CR>
 nmap <Leader>ga :Gina add --all<CR>
 nmap <Leader>gb :Gina branch<CR>
