@@ -87,6 +87,10 @@ call dein#add('vim-erlang/vim-erlang-runtime')
 "=== rename tab
 call dein#add('gcmt/taboo.vim')
 
+
+call dein#add('junegunn/vim-easy-align')
+call dein#add('neovimhaskell/haskell-vim')
+
 " Required:
 call dein#end()
 
@@ -150,6 +154,7 @@ nmap <C-p> :tabp <CR>
 "nmap <Leader>sh <Plug>GitGutterStageHunk
 "nmap <Leader>uh <Plug>GitGutterUndoHunk
 nmap <Leader>cc :q<CR>
+nmap <Leader>br :bufdo e!<CR>
 nmap <Leader>ff :Denite -auto_preview grep<CR>
 nmap <Leader>ga :Gina add --all<CR>
 nmap <Leader>gb :Gina branch<CR>
@@ -180,6 +185,13 @@ call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matc
 
 "Commands-----------------------
 command! EditSorce execute 'vnew $MYVIMRC'
+
+"Align------
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+"
+" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 " add jbuilder syntax highlighting
