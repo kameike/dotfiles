@@ -170,7 +170,7 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
    \             ['*~', '*.o', '*.exe', '*.bak',
    \             '.DS_Store', '*.pyc', '*.sw[po]', '*.class',
    \             '.hg/', '.git/', '.bzr/', '.svn/',
-   \             'tags', 'tags-*', 'node_modules/*', 'bundler/*', 'public/*'
+   \             'tags', 'tags-*', 'node_modules/*', '*/bundler/*', 'public/*'
 	 \	])
 
 
