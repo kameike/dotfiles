@@ -29,6 +29,7 @@ call dein#add('Shougo/neoyank.vim')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('lambdalisue/gina.vim')
 call dein#add('ujihisa/unite-colorscheme')
+call dein#add('fatih/vim-go')
 
 
 "=== slim
@@ -153,7 +154,7 @@ nmap <C-p> :tabp <CR>
 "nmap <Leader>ph <Plug>GitGutterPreviewHunk
 "nmap <Leader>sh <Plug>GitGutterStageHunk
 "nmap <Leader>uh <Plug>GitGutterUndoHunk
-nmap <Leader>cc :q<CR>
+nmap <Leader>c $a,<ESC>j
 nmap <Leader>br :bufdo e!<CR>
 nmap <Leader>ff :Denite -auto_preview grep<CR>
 nmap <Leader>ga :Gina add --all<CR>
@@ -164,11 +165,16 @@ nmap <Leader>gp :Gina push origin HEAD<CR>
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>oo :Denite file_rec<CR>
 nmap <Leader>pp :Denite -auto_preview grep<CR>
+nmap <Leader>mm :w<CR>:make<CR>
+nmap <Leader>mr :w<CR>:make run<CR>
+nmap <Leader>pp :Denite -auto_preview grep<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
 nmap <Leader>update :call dein#update()
 nmap <Leader>w :w<CR>
 
 vmap <leader>ss :sort<CR>
+imap <C-F>  <ESC>O
+
 
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
@@ -184,7 +190,8 @@ call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matc
 
 
 "Commands-----------------------
-command! EditSorce execute 'vnew $MYVIMRC'
+command! EditSorce execute 'tabe $MYVIMRC'
+command! EditSnipet execute 'vnew ~/.config/nvim/snipets'
 
 "Align------
 " Start interactive EasyAlign in visual mode (e.g. vipga)
