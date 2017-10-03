@@ -3,9 +3,10 @@ export PATH=$HOME/.rbenv/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 alias d-clean='docker rm -v $(docker ps -aq -f status=exited)'
+alias sync-config='git -C ~/.config commit -a -m"upadte" &&  git -C ~/.config pull'
+alias sweep-branch='git branch -D `git branch --merged | grep -v \* | xargs`'
 
 stty stop undef
 stty start undef
-
 
 
