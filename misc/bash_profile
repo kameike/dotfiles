@@ -1,7 +1,9 @@
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 git -C ~/.config commit -a -m"upadte"
-git -C ~/.config pull
+git -C ~/.config pull origin master
+git -C ~/.config push origin HEAD
 
 test -r ~/.bashrc && . ~/.bashrc
