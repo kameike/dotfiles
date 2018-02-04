@@ -173,7 +173,8 @@ nmap <Leader>update :call dein#update()
 nmap <Leader>w :w<CR>
 
 vmap <leader>ss :sort<CR>
-imap <C-F>  <ESC>O
+imap <C-O><C-O>  <ESC>O
+imap <C-O><C-N>  <ESC>jo
 
 
 
