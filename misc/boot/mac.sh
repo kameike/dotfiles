@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 brew install neovim/neovim/neovim
 brew install python3
 pip3 install neovim
