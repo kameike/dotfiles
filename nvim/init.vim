@@ -89,6 +89,10 @@ call dein#add('vim-erlang/vim-erlang-runtime')
 call dein#add('gcmt/taboo.vim')
 
 
+
+call dein#add('leafgarland/typescript-vim')
+
+
 call dein#add('junegunn/vim-easy-align')
 call dein#add('neovimhaskell/haskell-vim')
 
