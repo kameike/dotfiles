@@ -158,7 +158,6 @@ nmap <C-p> :tabp <CR>
 "nmap <Leader>ph <Plug>GitGutterPreviewHunk
 "nmap <Leader>sh <Plug>GitGutterStageHunk
 "nmap <Leader>uh <Plug>GitGutterUndoHunk
-nmap <Leader>c $a,<ESC>j
 nmap <Leader>br :bufdo e!<CR>
 nmap <Leader>ff :Denite -auto_preview grep<CR>
 nmap <Leader>ga :Gina add --all<CR>
