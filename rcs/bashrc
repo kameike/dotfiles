@@ -1,0 +1,19 @@
+export GOPATH=$HOME/go
+
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/Library/Python/3.6/bin/:$PATH
+export PATH=$HOME/go/bin/:$PATH
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+alias d-clean='docker rm -v $(docker ps -aq -f status=exited)'
+alias sync-config='git -C ~/.config commit -a -m"upadte" ||  git -C ~/.config pull origin master || git -C ~/.config push origin HEAD || exec bash'
+
+alias screen-cd-here='pwd | xargs screen -X chdir'
+alias sweep-branch='git branch -D `git branch --merged | grep -v \* | xargs`'
+
+stty stop undef
+stty start undef
+
+

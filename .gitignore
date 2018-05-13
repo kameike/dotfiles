@@ -3,5 +3,6 @@
 !nvim/**
 !misc/**
 !iterm/**
+!rcs/**
 nvim/.netrwhist
 nvim/plugins/*

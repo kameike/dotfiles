@@ -218,7 +218,7 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 "Color Scripts-------------------------
 colorscheme PaperColor
-set background=dark
+set background=light
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
