@@ -168,6 +168,11 @@ let mapleader = "\<Space>"
 nmap <C-n> :tabn <CR>
 nmap <C-p> :tabp <CR>
 
+"nice grep
+function! GitGrep(flg) 
+  execute 'vimgrep '. a:flg . ' `git ls-files` | cw'
+endfunction
+command! -nargs=1 GitGrep :call GitGrep(<f-args>)
 
 "nmap <Leader>ph <Plug>GitGutterPreviewHunk
 "nmap <Leader>sh <Plug>GitGutterStageHunk
@@ -181,7 +186,6 @@ nmap <Leader>ggg :w<CR>:Gina add --all<CR>:Gina commit<CR>
 nmap <Leader>gp :Gina push origin HEAD<CR>
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>oo :Denite file_rec<CR>
-"nmap <Leader>pp :Denite -auto_preview grep<CR>
 nmap <Leader>pp "*p
 nmap <Leader>yy "*yy
 vmap <Leader>yy "*y
@@ -190,6 +194,19 @@ nmap <Leader>mr :w<CR>:make run<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
 nmap <Leader>update :call dein#update()<r>
 nmap <Leader>w :w<CR>
+
+
+call denite#custom#source('file'    , 'matchers', ['matcher_cpsm', 'matcher_fuzzy'])
+call denite#custom#source('buffer'  , 'matchers', ['matcher_regexp'])
+call denite#custom#source('file_mru', 'matchers', ['matcher_regexp'])
+
+
+
+call denite#custom#var('file_rec', 'command', ['git', 'ls-files'])
+
+call denite#custom#alias('source', 'file/rec/git', 'file/rec')
+call denite#custom#var('file/rec/git', 'command',
+      \ ['git', 'ls-files', '-co', '--exclude-standard'])
 
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
@@ -227,3 +244,4 @@ let g:indent_guides_auto_colors = 0
 let g:vimfiler_as_default_explorer = 1
 hi IndentGuidesOdd  ctermbg=235
 hi IndentGuidesEven ctermbg=236
+
