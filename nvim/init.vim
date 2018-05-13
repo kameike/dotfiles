@@ -4,100 +4,113 @@ if &compatible
 endif
 
 
-" Required:
-let &runtimepath = &runtimepath . ',' . $HOME . '/.config/nvim/plugins/repos/github.com/Shougo/dein.vim'
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
 " Required:
-call dein#begin($HOME . '/.config/nvim/plugins')
-
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
-
-
-" Add or remove your plugins here:
-"=== dark matter
-call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimfiler.vim')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neoyank.vim')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('lambdalisue/gina.vim')
-call dein#add('ujihisa/unite-colorscheme')
-call dein#add('fatih/vim-go')
-
-
-"=== slim
-call dein#add('slim-template/vim-slim')
-
-"=== elm
-call dein#add('lambdatoast/elm.vim')
-
-"=== toml
-call dein#add('cespare/vim-toml')
-
-"=== color scheime
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('tomasr/molokai')
-call dein#add('jpo/vim-railscasts-theme')
-call dein#add('NLKNguyen/papercolor-theme')
-
-"=== visualize
-call dein#add('itchyny/lightline.vim')
-call dein#add('nathanaelkane/vim-indent-guides')
-
-"=== html plugin
-call dein#add('tpope/vim-surround')
-
-"=== html plugin
-"http://emmet.io/
-"call dein#add('mattn/emmet-vim')
-
-"=== excute buffer code
-call dein#add('thinca/vim-quickrun')
-
-"=== sytax checker
-call dein#add('scrooloose/syntastic')
-
-"=== sytax js helper
-call dein#add('pangloss/vim-javascript')
-
-"=== sytax jsx helper
-call dein#add('mxw/vim-jsx')
-
-"=== sytax less helper
-call dein#add('groenewege/vim-less')
-
-"=== sytax elixir helper
-call dein#add('elixir-lang/vim-elixir')
-
-"=== sytax stylus helper
-call dein#add('wavded/vim-stylus')
-
-"=== sytax erlang helper
-call dein#add('vim-erlang/vim-erlang-runtime')
-
-"=== file tree
-"call dein#add('scrooloose/nerdtree')
-
-"=== rename tab
-call dein#add('gcmt/taboo.vim')
-
-
-
-call dein#add('leafgarland/typescript-vim')
-
-
-call dein#add('junegunn/vim-easy-align')
-call dein#add('neovimhaskell/haskell-vim')
+set runtimepath+=/Users/kei/.config/nvim/plugins/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#end()
+if dein#load_state('/Users/kei/.config/nvim/plugins')
+
+  " Required:
+  filetype plugin indent on
+  syntax enable
+
+  " Required:
+  call dein#begin($HOME . '/.config/nvim/plugins')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('Shougo/dein.vim')
+
+
+  " Add or remove your plugins here:
+  "=== dark matter
+  call dein#add('Shougo/denite.nvim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('Shougo/vimfiler.vim')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neoyank.vim')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('lambdalisue/gina.vim')
+  call dein#add('ujihisa/unite-colorscheme')
+  call dein#add('fatih/vim-go')
+
+
+  "=== slim
+  call dein#add('slim-template/vim-slim')
+
+  "=== elm
+  call dein#add('lambdatoast/elm.vim')
+
+  "=== toml
+  call dein#add('cespare/vim-toml')
+
+  "=== color scheime
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('tomasr/molokai')
+  call dein#add('jpo/vim-railscasts-theme')
+  call dein#add('NLKNguyen/papercolor-theme')
+
+  "=== visualize
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('nathanaelkane/vim-indent-guides')
+
+  "=== html plugin
+  call dein#add('tpope/vim-surround')
+
+  "=== html plugin
+  "http://emmet.io/
+  "call dein#add('mattn/emmet-vim')
+
+  "=== excute buffer code
+  call dein#add('thinca/vim-quickrun')
+
+  "=== sytax checker
+  call dein#add('scrooloose/syntastic')
+
+  "=== sytax js helper
+  call dein#add('pangloss/vim-javascript')
+
+  "=== sytax jsx helper
+  call dein#add('mxw/vim-jsx')
+
+  "=== sytax less helper
+  call dein#add('groenewege/vim-less')
+
+  "=== sytax elixir helper
+  call dein#add('elixir-lang/vim-elixir')
+
+  "=== sytax stylus helper
+  call dein#add('wavded/vim-stylus')
+
+  "=== sytax erlang helper
+  call dein#add('vim-erlang/vim-erlang-runtime')
+
+  "=== file tree
+  "call dein#add('scrooloose/nerdtree')
+
+  "=== rename tab
+  call dein#add('gcmt/taboo.vim')
+
+
+
+  call dein#add('leafgarland/typescript-vim')
+
+
+  call dein#add('junegunn/vim-easy-align')
+  call dein#add('neovimhaskell/haskell-vim')
+
+  " Required:
+  call dein#end()
+endif
 
 " Required:
 filetype plugin indent on
@@ -118,7 +131,7 @@ smap <C-o> <Plug>(neosnippet_expand_or_jump)
 
 "Basic Settings---------------------------
 if !has('gui_running')
-	set t_Co=256
+  set t_Co=256
 endif
 set laststatus=2
 set autoindent
@@ -186,6 +199,7 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 
 
 call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
+
 
 "Commands-----------------------
 command! EditSource execute 'tabe $MYVIMRC'
