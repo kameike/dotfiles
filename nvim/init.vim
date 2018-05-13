@@ -10,10 +10,11 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/kei/.config/nvim/plugins/repos/github.com/Shougo/dein.vim
+let &runtimepath = &runtimepath . ',' . $HOME . '/.config/nvim/plugins/repos/github.com/Shougo/dein.vim'
+
 
 " Required:
-if dein#load_state('/Users/kei/.config/nvim/plugins')
+if dein#load_state($HOME . '/.config/nvim/plugins')
 
   " Required:
   filetype plugin indent on
@@ -180,14 +181,15 @@ nmap <Leader>ggg :w<CR>:Gina add --all<CR>:Gina commit<CR>
 nmap <Leader>gp :Gina push origin HEAD<CR>
 nmap <Leader>gs :Gina status<CR>
 nmap <Leader>oo :Denite file_rec<CR>
-nmap <Leader>pp :Denite -auto_preview grep<CR>
+"nmap <Leader>pp :Denite -auto_preview grep<CR>
+nmap <Leader>pp "*p
+nmap <Leader>yy "*yy
+vmap <Leader>yy "*y
 nmap <Leader>mm :w<CR>:make<CR>
 nmap <Leader>mr :w<CR>:make run<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
 nmap <Leader>update :call dein#update()<r>
 nmap <Leader>w :w<CR>
-
-vmap <leader>ss :sort<CR>
 
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
