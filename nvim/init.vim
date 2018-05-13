@@ -170,15 +170,11 @@ nmap <Leader>oo :Denite file_rec<CR>
 nmap <Leader>pp :Denite -auto_preview grep<CR>
 nmap <Leader>mm :w<CR>:make<CR>
 nmap <Leader>mr :w<CR>:make run<CR>
-nmap <Leader>pp :Denite -auto_preview grep<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
-nmap <Leader>update :call dein#update()
+nmap <Leader>update :call dein#update()<r>
 nmap <Leader>w :w<CR>
 
 vmap <leader>ss :sort<CR>
-imap <C-O><C-O>  <ESC>O
-imap <C-O><C-N>  <ESC>jo
-
 
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
@@ -190,11 +186,9 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 
 
 call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
-"call denite#custom#source('grep', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
-
 
 "Commands-----------------------
-command! EditSorce execute 'tabe $MYVIMRC'
+command! EditSource execute 'tabe $MYVIMRC'
 command! EditSnipet execute 'vnew ~/.config/nvim/snipets'
 
 "Align------
@@ -210,7 +204,7 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 "Color Scripts-------------------------
 colorscheme PaperColor
-set background=light
+set background=dark
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
