@@ -196,29 +196,15 @@ nmap <Leader>update :call dein#update()<r>
 nmap <Leader>w :w<CR>
 
 
-call denite#custom#source('file'    , 'matchers', ['matcher_cpsm', 'matcher_fuzzy'])
-call denite#custom#source('buffer'  , 'matchers', ['matcher_regexp'])
-call denite#custom#source('file_mru', 'matchers', ['matcher_regexp'])
-
-
-
-call denite#custom#var('file_rec', 'command', ['git', 'ls-files'])
-
-call denite#custom#alias('source', 'file/rec/git', 'file/rec')
-call denite#custom#var('file/rec/git', 'command',
-      \ ['git', 'ls-files', '-co', '--exclude-standard'])
-
-
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-   \             ['*~', '*.o', '*.exe', '*.bak',
-   \             '.DS_Store', '*.pyc', '*.sw[po]', '*.class',
-   \             '.hg/', '.git/', '.bzr/', '.svn/',
-   \             'tags', 'tags-*', 'node_modules/*', '*/bundler/*', 'public/*'
-	 \	])
-
+" call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+"    \             ['*~', '*.o', '*.exe', '*.bak',
+"    \             '.DS_Store', '*.pyc', '*.sw[po]', '*.class',
+"    \             '.hg/', '.git/', '.bzr/', '.svn/',
+"    \             'tags', 'tags-*', 'node_modules/*', '*/bundler/*', 'public/*'
+" 	 \	])
 
 call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
-
+call denite#custom#var('file_rec', 'command', ['git', 'ls-files', '`git rev-parse --show-cdup`'])
 
 "Commands-----------------------
 command! EditSource execute 'tabe $MYVIMRC'
