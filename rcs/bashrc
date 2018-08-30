@@ -16,6 +16,8 @@ alias gohiki='cd ~/gohiki && sh yoshina.sh'
 
 alias move-branch="git branch --move `git branch | grep \* | sed 's/\*//'` "
 
+alias pbedit="pbpaste > ~/tmp/current_buffer && nvim  ~/tmp/current_buffer  && cat ~/tmp/current_buffer | pbcopy"
+
 stty stop undef
 stty start undef
 
