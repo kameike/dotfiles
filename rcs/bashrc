@@ -12,8 +12,9 @@ alias sync-config='git -C ~/.config commit -a -m"upadte" ||  git -C ~/.config pu
 
 alias screen-cd-here='pwd | xargs screen -X chdir'
 alias sweep-branch='git branch -D `git branch --merged | grep -v \* | xargs`'
-
 alias gohiki='cd ~/gohiki && sh yoshina.sh'
+
+alias move-branch="git branch --move `git branch | grep \* | sed 's/\*//'` "
 
 stty stop undef
 stty start undef
