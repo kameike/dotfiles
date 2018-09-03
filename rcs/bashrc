@@ -40,7 +40,6 @@ alias md="open ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Docum
 alias clean-desktop="ls ~/Desktop/ | grep -v screen | grep -v buf | xargs -I % mv ~/Desktop/%  ~/Desktop/buf/%"
 alias blog="cd ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents"
 alias b="blog && cp articles/template.md"
-alias editbin="kameike-create-bin"
 
 stty stop undef
 stty start undef
