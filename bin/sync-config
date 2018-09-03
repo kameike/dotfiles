@@ -1,7 +1,7 @@
 #!/bin/sh
 #vim: syntax=sh
 
-set -eu
+set -e
 set +e
 git -C ~/.config add --all || echo "nothing to add"
 git -C ~/.config commit -m"upadte" || echo "nothing to update"
