@@ -5,7 +5,7 @@ set -eu
 
 echo "test0"
 
-echo $HGROGE
+ls $HGROGE
 
 echo "test1"
 
