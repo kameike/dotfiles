@@ -12,6 +12,6 @@ for file in ~/Desktop/*; do
   test "$file" = "$BUFFER_PATH" && continue
   test "$file" = "$DESKTOP/screen" && continue
 
-  echo "==== $file is not need"
+  mv "$file" "$BUFFER_PATH/`basename $file`"
 done
 
