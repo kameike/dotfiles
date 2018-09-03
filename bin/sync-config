@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #vim: syntax=sh
 
 set -e
