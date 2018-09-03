@@ -1,6 +1,12 @@
 #!/bin/bash
 #vim: syntax=sh
 
+echo "test0"
+
+echo $HGROGE
+
+echo "test1"
+
 set -e
 set +e
 git -C ~/.config add --all || echo "nothing to add"
