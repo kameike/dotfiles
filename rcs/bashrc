@@ -18,8 +18,9 @@ git -C ~/.config pull origin master &&
 git -C ~/.config push origin HEAD &&
 source ~/.bashrc'
 
-alias config='nvim ~/.bashrc && source ~/.bashrc'
-alias profile='nvim ~/.bash_profile'
+alias bashrc='nvim ~/.bashrc && source ~/.bashrc'
+alias profile='nvim ~/.bash_profile && source ~/.bash_profile'
+alias config='nvim ~/.config'
 
 alias screen-cd-here='pwd | xargs screen -X chdir'
 alias sweep-branch='git branch -D `git branch --merged | grep -v \* | xargs`'
