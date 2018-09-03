@@ -34,7 +34,6 @@ alias c="reload && clear"
 alias rand="openssl rand -base64 16 | colrm 17"
 alias p="cd ~/pixiv"
 alias md="open ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/tmp.md"
-alias clean-desktop="ls ~/Desktop/ | grep -v screen | grep -v buf | xargs -I % mv ~/Desktop/%  ~/Desktop/buf/%"
 
 stty stop undef
 stty start undef

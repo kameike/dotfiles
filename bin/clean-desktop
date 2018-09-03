@@ -1,4 +1,17 @@
-#!bin/sh
+#!/bin/sh
+#vim: syntax=sh
 
-mkdir ~/Desktop/buf
+set -eu
+
+DESKTOP=$HOME/Desktop
+BUFFER_PATH=$DESKTOP/buf
+
+mkdir -p $DESKTOP/buf
+
+for file in ~/Desktop/*; do
+  test "$file" = "$BUFFER_PATH" && continue
+  test "$file" = "$DESKTOP/screen" && continue
+
+  echo "==== $file is not need"
+done
 
