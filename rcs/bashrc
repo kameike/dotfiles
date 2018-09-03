@@ -13,13 +13,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 alias d-clean='docker rm -v $(docker ps -aq -f status=exited)'
 
-alias sync-config='
-git -C ~/.config add --all &&
-git -C ~/.config commit -m"upadte" &&
-git -C ~/.config pull origin master &&
-git -C ~/.config push origin HEAD &&
-source ~/.bashrc'
-
 alias bashrc='nvim ~/.bashrc && source ~/.bashrc'
 alias profile='nvim ~/.bash_profile && source ~/.bash_profile'
 alias config='nvim ~/.config'
