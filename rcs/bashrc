@@ -10,7 +10,6 @@ echo "load bashrc"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-
 alias d-clean='docker rm -v $(docker ps -aq -f status=exited)'
 
 alias bashrc='nvim ~/.bashrc && source ~/.bashrc'
