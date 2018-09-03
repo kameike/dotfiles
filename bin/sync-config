@@ -2,7 +2,7 @@
 #vim: syntax=sh
 
 git -C ~/.config add --all
-git -C ~/.config commit -m"upadte"
+git -C ~/.config commit -m"upadte" || echo "nothing to update"
 git -C ~/.config pull origin master 
 git -C ~/.config push origin HEAD 
 
