@@ -1,0 +1,28 @@
+#!/bin/sh
+#vim: syntax=sh
+
+if test ! $1; then
+  echo "need some file name"
+  exit 1
+fi
+
+if test $2; then
+  echo "too mach args"
+  exit 1
+fi
+
+TARGET_FILE=$1
+
+if test ! $CONFIG_PATH; then
+  echo "need to set \$CONFIG_PATH"
+fi
+
+TARGET_PATH=$CONFIG_PATH/bin/$TARGET_FILE
+
+if test ! -f $TARGET_PATH; then
+  echo "#!/bin/sh" >> $TARGET_PATH
+  echo "#vim: syntax=sh" >> $TARGET_PATH
+  chmod 700 $TARGET_PATH
+fi
+
+nvim $TARGET_PATH

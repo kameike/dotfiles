@@ -1,0 +1,33 @@
+#!/bin/sh
+#vim: syntax=sh
+
+if test ! "$BLOG_PATH"; then
+  echo "need blog path"
+  exit 1
+fi
+
+if test ! -d "$BLOG_PATH"; then
+  echo "need blog path exist"
+  exit 1
+fi
+
+if test ! $1; then
+  echo "need file name"
+  exit 1
+fi
+
+FILENAME=$BLOG_PATH/$1.md
+
+if test -f "$FILENAME"; then
+  echo "file $FILENAME already exist"
+  exit 1
+fi
+
+echo "---" >> "$FILENAME"
+echo "tags: プログラミング" >> "$FILENAME"
+echo "license: all-rights-reserved" >> "$FILENAME"
+echo "publishStatus: draft" >> "$FILENAME"
+echo "published: true" >> "$FILENAME"
+echo "---" >> "$FILENAME"
+
+open "$FILENAME"
