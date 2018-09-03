@@ -1,0 +1,6 @@
+#!/bin/sh
+# ↓ここでは~/Pictures/に設定していますが、別のディレクトリももちろん指定できます
+mkdir ~/Desktop/screen
+defaults write com.apple.screencapture location ~/Desktop/screen/
+killall SystemUIServer
+
