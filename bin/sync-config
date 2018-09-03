@@ -1,17 +1,7 @@
 #!/bin/sh
 #vim: syntax=sh
 
-
-echo "pppp"
-
 set -eu
-
-echo "test0"
-
-
-
-echo "test1"
-
 set +e
 git -C ~/.config add --all || echo "nothing to add"
 git -C ~/.config commit -m"upadte" || echo "nothing to update"
