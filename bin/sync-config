@@ -1,7 +1,6 @@
 #!/bin/sh
 #vim: syntax=sh
 
-exit 0
 
 echo "pppp"
 
@@ -9,12 +8,15 @@ set -eu
 
 echo "test0"
 
-ls $HGROGE
+
 
 echo "test1"
 
+set +e
 git -C ~/.config add --all || echo "nothing to add"
 git -C ~/.config commit -m"upadte" || echo "nothing to update"
+set -e
+
 git -C ~/.config pull origin master 
 git -C ~/.config push origin HEAD 
 
