@@ -6,6 +6,7 @@ export PATH=$HOME/.config/bin:$PATH
 export PATH=$HOME/go/bin/:$PATH
 export CONFIG_PATH=$HOME/.config/
 export BLOG_PATH=$HOME/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents
+
 echo "load bashrc"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
