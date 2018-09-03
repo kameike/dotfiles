@@ -6,6 +6,8 @@ export PATH=$HOME/.config/bin:$PATH
 export PATH=$HOME/go/bin/:$PATH
 export CONFIG_PATH=$HOME/.config/
 export BLOG_PATH=$HOME/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents
+export TMP=$HOME/tmp
+export DEV=$HOME/dev
 
 echo "load bashrc"
 
