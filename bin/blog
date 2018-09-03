@@ -1,9 +1,6 @@
 #!/bin/sh
 #vim: syntax=sh
 
-echo "this is test"
-
-set -eu
 
 if test ! -d "$BLOG_PATH"; then
   echo "need blog path exist"
@@ -15,7 +12,9 @@ if test ! $1; then
   exit 1
 fi
 
-FILENAME=$BLOG_PATH/$1.md
+set -eu
+
+FILENAME=$BLOG_PATH/articles/$1.md
 
 echo "create $FILENAME"
 
