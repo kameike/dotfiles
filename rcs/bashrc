@@ -13,10 +13,12 @@ echo "load bashrc"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+unalias -a
+
 alias d-clean='docker rm -v $(docker ps -aq -f status=exited)'
 
 alias bashrc='nvim ~/.bashrc && source ~/.bashrc'
-alias profile='nvim ~/.bash_profile && source ~/.bash_profile'
+alias bash-profile='nvim ~/.bash_profile && source ~/.bash_profile'
 alias config='nvim ~/.config'
 
 alias screen-cd-here='pwd | xargs screen -X chdir'
