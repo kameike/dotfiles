@@ -1,0 +1,13 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+date=`date '+%y-%m-%d'`
+path="$NIPPO_PATH/$date.md"
+
+if test ! -f "$path"; then
+  echo "# $date" >> "$path"
+fi
+
+open "$path"
