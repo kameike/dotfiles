@@ -1,6 +1,20 @@
+export GOPATH=$HOME/go
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/Library/Python/3.6/bin/:$PATH
+export PATH=$HOME/.config/bin:$PATH
+export PATH=$HOME/go/bin/:$PATH
+export CONFIG_PATH=$HOME/.config/
+export MARKDOWN_PATH=$HOME/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents
+export BLOG_PATH=$MARKDOWN_PATH
+export NIPPO_PATH=$MARKDOWN_PATH/nippo
+export TMP=$HOME/tmp
+export DEV=$HOME/dev
+
 echo "load profile"
 
 # init scripts
+test ! -d $NIPPO_PATH && mkdir $NIPPO_PATH
 test ! -d ~/tmp && mkdir ~/tmp
 test ! -d ~/dev && mkdir ~/dev
 test ! -d ~/pixiv && mkdir ~/pixiv
