@@ -1,9 +1,18 @@
 export GOPATH=$HOME/go
+
+# js
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+# ruby
 export PATH=$HOME/.rbenv/bin:$PATH
+# python
 export PATH=$HOME/Library/Python/3.6/bin/:$PATH
-export PATH=$HOME/.config/bin:$PATH
+# go
 export PATH=$HOME/go/bin/:$PATH
+# flutter
+export PATH=$HOME/dev/flutter/bin:$PATH
+# my shell scripts
+export PATH=$HOME/.config/bin:$PATH
+
 export CONFIG_PATH=$HOME/.config/
 export MARKDOWN_PATH=$HOME/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents
 export BLOG_PATH=$MARKDOWN_PATH
