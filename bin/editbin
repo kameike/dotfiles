@@ -22,6 +22,8 @@ TARGET_PATH=$CONFIG_PATH/bin/$TARGET_FILE
 if test ! -f $TARGET_PATH; then
   echo "#!/bin/sh" >> $TARGET_PATH
   echo "#vim: syntax=sh" >> $TARGET_PATH
+  echo "" >> $TARGET_PATH
+  echo "set -eu" >> $TARGET_PATH
   chmod 700 $TARGET_PATH
 fi
 
