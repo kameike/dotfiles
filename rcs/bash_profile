@@ -14,7 +14,7 @@ export DEV=$HOME/dev
 echo "load profile"
 
 # init scripts
-test ! -d $NIPPO_PATH && mkdir $NIPPO_PATH
+test ! -d "$NIPPO_PATH" && mkdir "$NIPPO_PATH"
 test ! -d ~/tmp && mkdir ~/tmp
 test ! -d ~/dev && mkdir ~/dev
 test ! -d ~/pixiv && mkdir ~/pixiv
