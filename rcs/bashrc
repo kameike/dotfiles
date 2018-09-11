@@ -1,7 +1,7 @@
 
 echo "load bashrc"
 
-export PS1="\W "
+export PS1="[\W]"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
