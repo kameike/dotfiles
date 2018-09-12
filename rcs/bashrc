@@ -1,7 +1,7 @@
 
 echo "load bashrc"
 
-export PS1="[\W]"
+export PS1="[\W] "
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -23,6 +23,7 @@ alias gc="git add --all && git commit"
 alias gp="git push \`git remote\` HEAD"
 alias gf="git fetch"
 alias gm="git branch --all | fzf | xargs git merge"
+alias gb="git branch --all"
 alias gch="git branch --all | fzf | xargs git checkout"
 alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
