@@ -23,8 +23,12 @@ alias gc="git add --all && git commit"
 alias gp="git push \`git remote\` HEAD"
 alias gf="git fetch"
 alias gm="git branch --all | fzf | xargs git merge"
+<<<<<<< HEAD
 alias gb="git branch --all"
 alias gch="git branch --all | fzf | xargs git checkout"
+=======
+alias gch="git branch | fzf | xargs git checkout"
+>>>>>>> e8b8e678b72884b9288016b6ba63717ebf3052a0
 alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
 alias reload="source ~/.bashrc"
