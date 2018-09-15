@@ -26,6 +26,10 @@ brew docker
 brew carthage
 brew cocoapods
 
+#flutter
+brew --HEAD libimobiledevice
+brew ideviceinstaller
+
 # Other Homebrew packages
 brew aws-elasticbeanstalk
 brew brew-file
@@ -40,7 +44,6 @@ brew kubernetes-cli
 brew neovim
 brew openssl
 brew pv
-brew python@2
 brew screen
 brew swiftlint
 
@@ -50,6 +53,7 @@ cask macdown
 cask minikube
 cask virtualbox
 cask visual-studio-code
+
 # App Store applications
 appstore 1142151959 JustFocus (1.6.1)
 appstore 409183694 Keynote (8.1)

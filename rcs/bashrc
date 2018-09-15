@@ -1,6 +1,10 @@
 export TMP=$HOME/tmp
 export DEV=$HOME/dev
 export GOPATH=$HOME/go
+export CONFIG_PATH=$HOME/.config/
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # js
 export PATH=$HOME/.nodebrew/current/bin:$PATH
@@ -13,12 +17,14 @@ export PATH=$HOME/go/bin/:$PATH
 # flutter
 export PATH=$DEV/flutter/bin:$PATH
 # my shell scripts
-export PATH=$HOME/.config/bin:$PATH
+export PATH=$CONFIG_PATH/bin:$PATH
 
-export CONFIG_PATH=$HOME/.config/
+# markdown stuff
 export MARKDOWN_PATH=$HOME/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents
 export BLOG_PATH=$MARKDOWN_PATH
 export NIPPO_PATH=$MARKDOWN_PATH/nippo
+
+# prefix
 export PS1="[\W] "
 
 
@@ -57,6 +63,7 @@ alias md="open ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Docum
 alias money="open https://docs.google.com/spreadsheets/d/1TE0p2P0aEgg03fYS0aBa5TvXmdZYpAHrDce-LQwJEbo/edit#gid=0"
 alias github="open https://github.com/notifications" 
 alias kanban="open https://trello.com/b/c7IFYA3m/%E3%82%AB%E3%83%B3%E3%83%90%E3%83%B3" 
+alias editbrewfile="nvim $CONFIG_PATH/brewfile/Brewfile" 
 
 stty stop undef
 stty start undef
