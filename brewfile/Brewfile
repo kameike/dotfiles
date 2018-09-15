@@ -1,4 +1,10 @@
 # vim: syntax=sh
+
+# taps
+tap dart-lang/dart
+tap heroku/brew
+tap neovim/neovim
+
 # lang
 brew elm
 brew python
