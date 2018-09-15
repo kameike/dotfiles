@@ -4,6 +4,7 @@
 tap dart-lang/dart
 tap heroku/brew
 tap neovim/neovim
+tap argon/mas
 
 # lang
 brew elm
@@ -46,6 +47,10 @@ brew openssl
 brew pv
 brew screen
 brew swiftlint
+brew mas
+
+
+
 
 # Other Cask applications
 cask docker
@@ -53,6 +58,7 @@ cask macdown
 cask minikube
 cask virtualbox
 cask visual-studio-code
+cask charles
 
 # App Store applications
 appstore 1142151959 JustFocus (1.6.1)
