@@ -1,7 +1,29 @@
+export TMP=$HOME/tmp
+export DEV=$HOME/dev
+export GOPATH=$HOME/go
+
+# js
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+# ruby
+export PATH=$HOME/.rbenv/bin:$PATH
+# python
+export PATH=$HOME/Library/Python/3.6/bin/:$PATH
+# go
+export PATH=$HOME/go/bin/:$PATH
+# flutter
+export PATH=$DEV/flutter/bin:$PATH
+# my shell scripts
+export PATH=$HOME/.config/bin:$PATH
+
+export CONFIG_PATH=$HOME/.config/
+export MARKDOWN_PATH=$HOME/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents
+export BLOG_PATH=$MARKDOWN_PATH
+export NIPPO_PATH=$MARKDOWN_PATH/nippo
+export PS1="[\W] "
+
 
 echo "load bashrc"
 
-export PS1="[\W] "
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
