@@ -34,6 +34,7 @@ alias p="cd ~/pixiv"
 alias md="open ~/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents/tmp.md"
 alias money="open https://docs.google.com/spreadsheets/d/1TE0p2P0aEgg03fYS0aBa5TvXmdZYpAHrDce-LQwJEbo/edit#gid=0"
 alias github="open https://github.com/notifications" 
+alias kanban="open https://trello.com/b/c7IFYA3m/%E3%82%AB%E3%83%B3%E3%83%90%E3%83%B3" 
 
 stty stop undef
 stty start undef

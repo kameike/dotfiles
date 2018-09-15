@@ -16,12 +16,12 @@ set -eu
 
 FILENAME=$BLOG_PATH/articles/$1.md
 
-echo "create $FILENAME"
-
 if test -f "$FILENAME"; then
-  echo "file $FILENAME already exist"
-  exit 1
+  open "$FILENAME"
+  exit 0
 fi
+
+echo "create $FILENAME"
 
 echo "---" >> "$FILENAME"
 echo "tags: プログラミング" >> "$FILENAME"
