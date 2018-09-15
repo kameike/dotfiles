@@ -1,95 +1,47 @@
+# vim: syntax=sh
+# lang
+brew elm
+brew python
+brew erlang
+brew go
+brew dep
+brew rbenv
+brew ruby-build
+brew node
+brew nodebrew
+
+#utils
+brew git
+brew docker
+
+#ios
+brew carthage
+brew cocoapods
 
 # Other Homebrew packages
-brew autoconf
-brew automake
 brew aws-elasticbeanstalk
 brew brew-file
-brew carthage
-brew cmake
-brew cocoapods
-brew conan
-brew coreutils
-brew ctop
-brew dep
-brew docker
-brew elm
-brew erlang
 brew ffmpeg
-brew fontconfig
-brew freetype
 brew fzf
 brew gd
 brew gdbm
 brew gettext
 brew ghostscript
-brew git
-brew glide
-brew go
-brew graphviz
-brew heroku
-brew heroku-node
-brew icu4c
-brew ideviceinstaller
 brew ios-deploy
-brew jemalloc
-brew jpeg
 brew kubernetes-cli
-brew lame
-brew libffi
-brew libimobiledevice
-brew libplist
-brew libpng
-brew libtasn1
-brew libtermkey
-brew libtiff
-brew libtool
-brew libusb
-brew libuv
-brew libvterm
-brew libxml2
-brew libzip
-brew little-cms2
-brew luajit
-brew mas
-brew mitmproxy
-brew msgpack
-brew mysql
 brew neovim
-brew node
-brew nodebrew
 brew openssl
-brew openssl@1.1
-brew pkg-config
-brew postgresql
-brew protobuf
 brew pv
-brew python
 brew python@2
-brew rbenv
-brew readline
-brew rebar3
-brew redis
-brew ruby-build
 brew screen
-brew sphinx-doc
-brew sqlite
 brew swiftlint
-brew unibilium
-brew usbmuxd
-brew webp
-brew wxmac
-brew x264
-brew xvid
-brew xz
-brew yarn
 
 # Other Cask applications
-cask atom
 cask docker
 cask macdown
-cask mactex
 cask minikube
 cask virtualbox
+cask visutal-studio-code
 
 # App Store applications
 appstore 1142151959 JustFocus (1.6.1)
