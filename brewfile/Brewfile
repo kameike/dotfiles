@@ -15,10 +15,12 @@ brew rbenv
 brew ruby-build
 brew node
 brew nodebrew
+brew dart
 
 #utils
 brew git
 brew docker
+# brew conan
 
 #ios
 brew carthage
@@ -47,8 +49,7 @@ cask docker
 cask macdown
 cask minikube
 cask virtualbox
-cask visutal-studio-code
-
+cask visual-studio-code
 # App Store applications
 appstore 1142151959 JustFocus (1.6.1)
 appstore 409183694 Keynote (8.1)
