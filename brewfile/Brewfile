@@ -15,6 +15,7 @@ brew dep
 brew rbenv
 brew ruby-build
 brew node
+brew yarn
 brew nodebrew
 brew dart
 
