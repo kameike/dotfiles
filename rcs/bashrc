@@ -47,6 +47,7 @@ alias gohiki='cd ~/gohiki && sh yoshina.sh'
 
 alias move-branch="git branch --move \`git branch | grep \* | sed 's/\*//'\` "
 alias pbedit="pbpaste > ~/tmp/current_buffer && nvim  ~/tmp/current_buffer  && cat ~/tmp/current_buffer | pbcopy"
+alias e="pbedit"
 alias gc="git add --all && git commit"
 alias gp="git push \`git remote\` HEAD"
 alias gf="git fetch"
@@ -64,6 +65,8 @@ alias money="open https://docs.google.com/spreadsheets/d/1TE0p2P0aEgg03fYS0aBa5T
 alias github="open https://github.com/notifications" 
 alias kanban="open https://trello.com/b/c7IFYA3m/%E3%82%AB%E3%83%B3%E3%83%90%E3%83%B3" 
 alias editbrewfile="nvim $CONFIG_PATH/brewfile/Brewfile" 
+
+alias break="nippo && sleep 300 && say back to work"
 
 stty stop undef
 stty start undef
