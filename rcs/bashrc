@@ -65,6 +65,7 @@ alias money="open https://docs.google.com/spreadsheets/d/1TE0p2P0aEgg03fYS0aBa5T
 alias github="open https://github.com/notifications" 
 alias kanban="open https://trello.com/b/c7IFYA3m/%E3%82%AB%E3%83%B3%E3%83%90%E3%83%B3" 
 alias editbrewfile="nvim $CONFIG_PATH/brewfile/Brewfile" 
+alias s="screen" 
 
 alias break="nippo && sleep 300 && say back to work"
 
