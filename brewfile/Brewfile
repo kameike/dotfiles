@@ -22,6 +22,7 @@ brew dart
 #utils
 brew git
 brew docker
+brew imagemagick
 # brew conan
 
 #ios
