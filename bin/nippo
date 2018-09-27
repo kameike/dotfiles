@@ -2,6 +2,10 @@
 #vim: syntax=sh
 
 set -eu
+ 
+open 'https://www.notion.so/kameike/e53e0adc006541fc8cad0576d73dff87'
+
+exit 0
 
 date=`date '+%y-%m-%d'`
 path="$NIPPO_PATH/$date.md"
