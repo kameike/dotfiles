@@ -1,26 +1,7 @@
-export GOPATH=$HOME/go
-
-# js
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-# ruby
-export PATH=$HOME/.rbenv/bin:$PATH
-# python
-export PATH=$HOME/Library/Python/3.6/bin/:$PATH
-# go
-export PATH=$HOME/go/bin/:$PATH
-# flutter
-export PATH=$HOME/dev/flutter/bin:$PATH
-# my shell scripts
-export PATH=$HOME/.config/bin:$PATH
-
-export CONFIG_PATH=$HOME/.config/
-export MARKDOWN_PATH=$HOME/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents
-export BLOG_PATH=$MARKDOWN_PATH
-export NIPPO_PATH=$MARKDOWN_PATH/nippo
-export TMP=$HOME/tmp
-export DEV=$HOME/dev
-
 echo "load profile"
+# load bashrc
+test -r ~/.bashrc && . ~/.bashrc
+
 
 # init scripts
 test ! -d "$NIPPO_PATH" && mkdir "$NIPPO_PATH"
@@ -28,9 +9,6 @@ test ! -d ~/tmp && mkdir ~/tmp
 test ! -d ~/dev && mkdir ~/dev
 test ! -d ~/pixiv && mkdir ~/pixiv
 test ! -d ~/go && mkdir ~/go
-
-# load bashrc
-test -r ~/.bashrc && . ~/.bashrc
 
 # sync dotfiles
 git -C ~/.config commit -a -m"upadte"
