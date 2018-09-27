@@ -29,10 +29,12 @@ test ! -d ~/dev && mkdir ~/dev
 test ! -d ~/pixiv && mkdir ~/pixiv
 test ! -d ~/go && mkdir ~/go
 
+# load bashrc
+test -r ~/.bashrc && . ~/.bashrc
+
 # sync dotfiles
 git -C ~/.config commit -a -m"upadte"
 git -C ~/.config pull origin master
 git -C ~/.config push origin HEAD
 
-# load bashrc
-test -r ~/.bashrc && . ~/.bashrc
+
