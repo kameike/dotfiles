@@ -20,7 +20,9 @@ export PATH=$DEV/flutter/bin:$PATH
 export PATH=$CONFIG_PATH/bin:$PATH
 
 # markdown stuff
-export MARKDOWN_PATH=$HOME/Library/Mobile\ Documents/iCloud~com~coderforart~iOS~MWeb/Documents
+export ICLOUD_PATH=$HOME/Library/Mobile\ Documents
+export AUTOMATOR_PATH=$ICLOUD_PATH/com~apple~Automator/Documents
+export MARKDOWN_PATH=$ICLOUD_PATH/iCloud~com~coderforart~iOS~MWeb/Documents
 export BLOG_PATH=$MARKDOWN_PATH
 export NIPPO_PATH=$MARKDOWN_PATH/nippo
 
@@ -67,6 +69,7 @@ alias github="open https://github.com/notifications"
 alias kanban="open https://trello.com/b/c7IFYA3m/%E3%82%AB%E3%83%B3%E3%83%90%E3%83%B3" 
 alias editbrewfile="nvim $CONFIG_PATH/brewfile/Brewfile" 
 alias s="screen" 
+alias close="open '$AUTOMATOR_PATH/killAll.app'" 
 
 alias break="nippo && sleep 300 && say back to work"
 
