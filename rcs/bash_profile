@@ -11,8 +11,4 @@ test ! -d ~/pixiv && mkdir ~/pixiv
 test ! -d ~/go && mkdir ~/go
 
 # sync dotfiles
-git -C ~/.config commit -a -m"upadte"
-git -C ~/.config pull origin master
-git -C ~/.config push origin HEAD
-
-
+sync-config
