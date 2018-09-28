@@ -15,6 +15,7 @@ fi
 time=`date +"%k:%M"`
 
 echo ""  >> "$path"
+echo ""  >> "$path"
 echo "## $time"  >> "$path"
 
 
