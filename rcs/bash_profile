@@ -11,4 +11,4 @@ test ! -d ~/pixiv && mkdir ~/pixiv
 test ! -d ~/go && mkdir ~/go
 
 # sync dotfiles
-nohup sync-config > /dev/null & echo "start update config"
+nohup sync-config  & echo "start update config"
