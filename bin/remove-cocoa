@@ -1,0 +1,6 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+rm -rf ~/Library/Caches/CocoaPods/

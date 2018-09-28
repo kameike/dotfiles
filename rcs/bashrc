@@ -1,7 +1,7 @@
 export TMP=$HOME/tmp
 export DEV=$HOME/dev
 export GOPATH=$HOME/go
-export CONFIG_PATH=$HOME/.config/
+export CONFIG_PATH=$HOME/.config
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"

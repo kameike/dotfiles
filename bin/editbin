@@ -2,8 +2,8 @@
 #vim: syntax=sh
 
 if test ! $1; then
-  echo "need some file name"
-  exit 1
+  ls "$CONFIG_PATH/bin" | fzf | xargs -Ixxx nvim "$CONFIG_PATH/bin/xxx"
+  exit 0
 fi
 
 if test $2; then
