@@ -48,20 +48,18 @@ brew neovim
 brew openssl
 brew pv
 brew screen
-brew swiftlint
 brew mas
-
-
 
 
 # Other Cask applications
 cask docker
+cask iterm2
 cask macdown
 cask minikube
 cask virtualbox
 cask visual-studio-code
 cask charles
-cask realm-studio
+cask slack
 
 # App Store applications
 appstore 1142151959 JustFocus (1.6.1)
@@ -69,4 +67,5 @@ appstore 409183694 Keynote (8.1)
 appstore 1289197285 MindNode (5.1.3)
 appstore 409203825 Numbers (5.1)
 appstore 409201541 Pages (7.1)
-# appstore 497799835 Xcode (9.4.1)
+appstore 497799835 Xcode (9.4.1)
+# brew swiftlint
