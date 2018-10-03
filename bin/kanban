@@ -1,0 +1,6 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+open https://trello.com/b/c7IFYA3m/%E3%82%AB%E3%83%B3%E3%83%90%E3%83%B3
