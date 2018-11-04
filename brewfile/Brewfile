@@ -60,6 +60,7 @@ cask virtualbox
 cask visual-studio-code
 cask charles
 cask slack
+cask notion
 
 # App Store applications
 appstore 1142151959 JustFocus (1.6.1)
