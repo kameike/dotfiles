@@ -43,6 +43,7 @@ if dein#load_state($HOME . '/.config/nvim/plugins')
   call dein#add('lambdalisue/gina.vim')
   call dein#add('ujihisa/unite-colorscheme')
   call dein#add('fatih/vim-go')
+  call dein#add('posva/vim-vue')
 
 
   "=== slim
@@ -94,6 +95,9 @@ if dein#load_state($HOME . '/.config/nvim/plugins')
 
   "=== sytax erlang helper
   call dein#add('vim-erlang/vim-erlang-runtime')
+
+  "=== swift
+  call dein#add('keith/swift.vim')
 
   "=== file tree
   "call dein#add('scrooloose/nerdtree')
@@ -163,10 +167,15 @@ let g:taboo_renamed_tab_format = "[%N:%l]%f%m"
 " Deoplete ---------------------------
 let g:deoplete#enable_at_startup = 1
 
-"Alias---------------------------
-let mapleader = "\<Space>"
-nmap <C-n> :tabn <CR>
-nmap <C-p> :tabp <CR>
+" call deoplete#custom#option('omni_patterns', {
+"       \  'go': ['\h\w\.\w*']
+"       \})
+
+
+"alias---------------------------
+let mapleader = "\<space>"
+nmap <c-n> :tabn <cr>
+nmap <c-p> :tabp <cr>
 
 "nice grep
 function! GitGrep(flg) 
