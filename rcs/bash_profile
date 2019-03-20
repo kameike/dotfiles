@@ -14,3 +14,4 @@ test ! -d ~/go && mkdir ~/go
 # nohup sync-config > /dev/null & echo "start update config"
 
 screen -r 
+export PATH="/usr/local/opt/sqlite/bin:$PATH"

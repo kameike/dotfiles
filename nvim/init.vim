@@ -167,9 +167,9 @@ let g:taboo_renamed_tab_format = "[%N:%l]%f%m"
 " Deoplete ---------------------------
 let g:deoplete#enable_at_startup = 1
 
-" call deoplete#custom#option('omni_patterns', {
-"       \  'go': ['\h\w\.\w*']
-"       \})
+call deoplete#custom#option('omni_patterns', {
+      \  'go': ['\h\w\.\w*'],
+      \})
 
 
 "alias---------------------------
@@ -201,7 +201,7 @@ vmap <Leader>yy "*y
 nmap <Leader>mm :w<CR>:make<CR>
 nmap <Leader>mr :w<CR>:make run<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
-nmap <Leader>update :call dein#update()<r>
+nmap <Leader>update :call dein#update()<CR>
 nmap <Leader>w :w<CR>
 
 
