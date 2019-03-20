@@ -44,6 +44,7 @@ if dein#load_state($HOME . '/.config/nvim/plugins')
   call dein#add('ujihisa/unite-colorscheme')
   call dein#add('fatih/vim-go')
   call dein#add('posva/vim-vue')
+  call dein#add('zchee/deoplete-go')
 
 
   "=== slim
@@ -161,6 +162,10 @@ set incsearch
 set nohlsearch
 set langmenu=en_US.UTF-8
 
+" hoge---
+set rtp+=$GOROOT/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+
 " Tab rename ---------------------------
 let g:taboo_renamed_tab_format = "[%N:%l]%f%m"
 
@@ -203,14 +208,6 @@ nmap <Leader>mr :w<CR>:make run<CR>
 nmap <Leader>source :so $MYVIMRC<CR>
 nmap <Leader>update :call dein#update()<CR>
 nmap <Leader>w :w<CR>
-
-
-" call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-"    \             ['*~', '*.o', '*.exe', '*.bak',
-"    \             '.DS_Store', '*.pyc', '*.sw[po]', '*.class',
-"    \             '.hg/', '.git/', '.bzr/', '.svn/',
-"    \             'tags', 'tags-*', 'node_modules/*', '*/bundler/*', 'public/*'
-" 	 \	])
 
 call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
 call denite#custom#var('file_rec', 'command', ['git', 'ls-files', '`git rev-parse --show-cdup`'])
