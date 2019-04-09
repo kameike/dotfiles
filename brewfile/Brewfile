@@ -9,7 +9,6 @@ tap argon/mas
 # lang
 brew elm
 brew python
-brew install python3
 brew erlang
 brew go
 brew dep
