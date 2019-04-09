@@ -172,9 +172,9 @@ let g:taboo_renamed_tab_format = "[%N:%l]%f%m"
 " Deoplete ---------------------------
 let g:deoplete#enable_at_startup = 1
 
-call deoplete#custom#option('omni_patterns', {
-      \  'go': ['\h\w\.\w*'],
-      \})
+" call deoplete#custom#option('omni_patterns', {
+"       \  'go': ['\h\w\.\w*'],
+"       \})
 
 
 "alias---------------------------
@@ -229,7 +229,7 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 "Color Scripts-------------------------
 colorscheme PaperColor
-set background=light
+set background=dark
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
