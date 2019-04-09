@@ -1,14 +1,7 @@
 #!/bin/sh
 
-if type brew > /dev/null 2>&1; then
-    echo "brew has already installed"
-else
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
 
-
-brew file install
-
+echo "start copy files"
 rm ~/.bash_profile > /dev/null  2>&1
 rm ~/.bashrc > /dev/null  2>&1
 rm ~/.gitconfig > /dev/null  2>&1
@@ -21,3 +14,17 @@ ln -s ~/.config/rcs/gitconfig ~/.gitconfig
 ln -s ~/.config/rcs/gitignore_global ~/.gitignore_global
 ln -s ~/.config/rcs/tmux.conf ~/.tmux.conf
 
+
+echo "install brew"
+if type brew > /dev/null 2>&1; then
+    echo "brew has already installed"
+else
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+echo "install brew files"
+brew file install
+
+
+echo "setup nvim"
+sh ~/.config/nvim/boot.sh
