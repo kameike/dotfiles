@@ -1,5 +1,14 @@
 #!/bin/sh
 
+CONFIG=$HOME/.config
+
+if [ ! $(xcode-select -p 2>/dev/null) ]; then
+  xcode-select --install
+fi
+
+if [ ! -d "$CONFIG" ]; then
+  git clone https://github.com/kameike/env $CONFIG
+fi
 
 echo "start copy files"
 rm ~/.bash_profile > /dev/null  2>&1
