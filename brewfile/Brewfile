@@ -30,10 +30,6 @@ brew imagemagick
 brew carthage
 brew cocoapods
 
-#flutter
-brew --HEAD libimobiledevice
-brew ideviceinstaller
-
 # Other Homebrew packages
 brew aws-elasticbeanstalk
 brew brew-file
@@ -61,12 +57,7 @@ cask virtualbox
 cask visual-studio-code
 cask charles
 cask slack
-cask skitch
 
 # App Store applications
-appstore 409183694 Keynote (8.1)
-appstore 1289197285 MindNode (5.1.3)
-appstore 409203825 Numbers (5.1)
-appstore 409201541 Pages (7.1)
-appstore 497799835 Xcode (9.4.1)
-# brew swiftlint
+appstore 1289197285 MindNode
+appstore 497799835 Xcode
