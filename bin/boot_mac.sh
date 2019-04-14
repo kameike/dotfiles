@@ -14,7 +14,7 @@ brew install argon/mas/mas
 brew install rcmdnk/file/brew-file
 
 if [ ! -d "$CONFIG" ]; then
-  git clone https://github.com/kameike/env $CONFIG
+  git clone git@github.com:kameike/env.git $CONFIG
 fi
 
 echo "start copy files"
