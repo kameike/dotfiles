@@ -7,7 +7,6 @@ tap neovim/neovim
 tap argon/mas
 
 # lang
-brew elm
 brew python
 brew erlang
 brew go
@@ -56,6 +55,7 @@ cask virtualbox
 cask visual-studio-code
 cask charles
 cask slack
+cask google-chrome
 
 # App Store applications
 appstore 1289197285 MindNode
