@@ -35,6 +35,7 @@ brew ffmpeg
 brew fzf
 brew gd
 brew gdbm
+brew tmux
 brew gettext
 brew ghostscript
 brew ios-deploy
@@ -42,12 +43,12 @@ brew kubernetes-cli
 brew neovim
 brew openssl
 brew pv
-brew screen
 brew mas
 
 
 # Other Cask applications
 cask docker
+cask adobe-creative-cloud
 cask iterm2
 cask macdown
 cask minikube
@@ -60,3 +61,4 @@ cask google-chrome
 # App Store applications
 appstore 1289197285 MindNode
 appstore 497799835 Xcode
+
