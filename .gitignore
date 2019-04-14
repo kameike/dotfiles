@@ -2,6 +2,7 @@
 !*/
 !nvim/**
 !misc/**
+!ssh/**
 !iterm/**
 !rcs/**
 !bin/**
