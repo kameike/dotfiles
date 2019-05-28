@@ -12,7 +12,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # ruby
 export PATH=$HOME/.rbenv/bin:$PATH
 # python
-export PATH=$HOME/Library/Python/3.6/bin/:$PATH
+export PATH=$HOME/Library/Python/3.7/bin/:$PATH
 # go
 export PATH=$GOPATH/bin/:$PATH
 export PATH=$GOROOT/bin/:$PATH
@@ -46,7 +46,6 @@ alias bash-profile='nvim ~/.bash_profile && source ~/.bash_profile'
 alias config='nvim ~/.config'
 
 alias screen-cd-here='pwd | xargs screen -X chdir'
-alias sweep-branch='git branch -D `git branch --merged | grep -v \* | xargs`'
 alias gohiki='cd ~/gohiki && sh yoshina.sh'
 alias go-build-linux='GOOS=linux GOARCH=amd64 go build'
 
@@ -73,6 +72,9 @@ alias money="open https://docs.google.com/spreadsheets/d/1TE0p2P0aEgg03fYS0aBa5T
 alias github="open https://github.com/notifications" 
 alias editbrewfile="nvim $CONFIG_PATH/brewfile/Brewfile" 
 alias close="open '$AUTOMATOR_PATH/killAll.app'" 
+
+alias sweep-remort-merged-branch="git branch -a  --merged | grep -v \* | grep -v develop | grep -v master | sed -e 's/remotes\/origin\///g' | xargs git push --delete origin"
+alias sweep-local-branch='git branch -D `git branch --merged | grep -v \* | xargs`'
 
 alias break="nippo && sleep 300 && say back to work"
 

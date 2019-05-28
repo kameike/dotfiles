@@ -5,6 +5,7 @@ tap dart-lang/dart
 tap heroku/brew
 tap neovim/neovim
 tap argon/mas
+tap go-swagger/go-swagger
 
 # lang
 brew python
@@ -22,7 +23,8 @@ brew dart
 brew git
 brew docker
 brew imagemagick
-# brew conan
+brew go-swagger
+
 
 #ios
 brew carthage
@@ -48,6 +50,8 @@ brew mas
 
 # Other Cask applications
 cask docker
+cask sketch
+cask franz
 cask adobe-creative-cloud
 cask iterm2
 cask macdown

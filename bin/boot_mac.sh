@@ -47,7 +47,8 @@ brew file install
 echo "setup nvim"
 sh ~/.config/nvim/boot.sh
 
-pip3 install neovim
+pip3 install neovim --upgrade --user
+pip3 install awscli --upgrade --user
 
 git -C ~/.config/ remote remove origin
 git -C ~/.config/ remote add origin git@github.com:kameike/env
