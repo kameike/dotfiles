@@ -1,17 +1,58 @@
 echo "load profile"
-# load bashrc
+
+
 test -r ~/.bashrc && . ~/.bashrc
-
-
-# init scripts
-test ! -d "$NIPPO_PATH" && mkdir "$NIPPO_PATH"
 test ! -d ~/tmp && mkdir ~/tmp
 test ! -d ~/dev && mkdir ~/dev
-test ! -d ~/pixiv && mkdir ~/pixiv
 test ! -d ~/go && mkdir ~/go
 
-# sync dotfiles
-# nohup sync-config > /dev/null & echo "start update config"
 
-tmux a
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
+if [ "$(uname)" == 'Darwin' ]; then
+  OS='Mac'
+  export OSTYPE='Mac'
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  OS='Linux'
+  export OSTYPE='Linux'
+else
+  echo "Your platform ($(uname -a)) is not supported."
+  exit 1
+fi
+
+export TMP=$HOME/tmp
+export DEV=$HOME/dev
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec/
+export CONFIG_PATH=$HOME/.config
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# go
+export PATH=$GOPATH/bin/:$PATH
+export PATH=$GOROOT/bin/:$PATH
+
+# my shell scripts
+export PATH=$CONFIG_PATH/bin:$PATH
+
+
+# prefix
+export PS1="[\W] "
+
+
+if [ OS = 'Mac' ]; then
+  # js
+  export PATH=$HOME/.nodebrew/current/bin:$PATH
+  # ruby
+  export PATH=$HOME/.rbenv/bin:$PATH
+  # python
+  export PATH=$HOME/Library/Python/3.7/bin/:$PATH
+  # flutter
+  export PATH=$DEV/flutter/bin:$PATH
+
+  # markdown stuff
+  export ICLOUD_PATH=$HOME/Library/Mobile\ Documents
+  export AUTOMATOR_PATH=$ICLOUD_PATH/com~apple~Automator/Documents
+  export MARKDOWN_PATH=$ICLOUD_PATH/iCloud~com~coderforart~iOS~MWeb/Documents
+  export BLOG_PATH=$MARKDOWN_PATH
+  export NIPPO_PATH=$MARKDOWN_PATH/nippo
+fi
+
