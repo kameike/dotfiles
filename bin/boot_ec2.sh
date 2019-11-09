@@ -7,6 +7,7 @@ BINS=$CONFIG/bin
 set -eu
 
 sudo yum install -y git
+echo "ok"
 
 cloneConfig() {
   if [ ! -d "$CONFIG" ]; then
