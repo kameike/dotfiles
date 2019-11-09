@@ -4,7 +4,7 @@
 CONFIG=$HOME/.config
 BINS=$CONFIG/bin
 
-set -eu
+# set -eu
 
 sudo yum install -y git
 echo "ok"
@@ -41,6 +41,8 @@ linkarcs() {
 
 
 cloneConfig
+echo "config done"
 linkarcs
+echo "linkrcs done"
 setupNeovim
-
+echo "neovim done"
