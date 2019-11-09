@@ -6,8 +6,15 @@ BINS=$CONFIG/bin
 
 # set -eu
 
-sudo yum install -y git
-echo "ok"
+
+install() {
+  if type $1 > /dev/null 2>&1; then
+    echo "$1 has already installed"
+    return
+  fi
+
+  sudo yum install -y $1
+}
 
 cloneConfig() {
   if [ ! -d "$CONFIG" ]; then
@@ -15,8 +22,17 @@ cloneConfig() {
   fi
 }
 
+installNode() {
+  if type node > /dev/null 2>&1; then
+    echo "node has already installed"
+    return
+  fi
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+  . ~/.nvm/nvm.sh
+  nvm install node
+}
 setupNeovim() {
-  if type neovim > /dev/null 2>&1; then
+  if type nvim > /dev/null 2>&1; then
     echo "neovim has already installed"
     return
   fi
@@ -40,9 +56,13 @@ linkarcs() {
 }
 
 
+install git
+
 cloneConfig
-echo "config done"
 linkarcs
-echo "linkrcs done"
 setupNeovim
-echo "neovim done"
+
+install tmux
+install nodejs
+install golang
+
