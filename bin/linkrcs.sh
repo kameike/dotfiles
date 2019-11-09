@@ -1,6 +1,5 @@
 #!/bin/sh
 
-set -eu
 
 rm ~/.bash_profile > /dev/null  2>&1
 ln -s ~/.config/rcs/bash_profile ~/.bash_profile

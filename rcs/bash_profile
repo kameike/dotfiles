@@ -1,4 +1,3 @@
-
 test -r ~/.bashrc && . ~/.bashrc
 test ! -d ~/tmp && mkdir ~/tmp
 test ! -d ~/dev && mkdir ~/dev

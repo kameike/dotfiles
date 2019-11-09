@@ -31,6 +31,7 @@ installNode() {
   . ~/.nvm/nvm.sh
   nvm install node
 }
+
 setupNeovim() {
   if type nvim > /dev/null 2>&1; then
     echo "neovim has already installed"
