@@ -18,7 +18,7 @@ install() {
 
 cloneConfig() {
   if [ ! -d "$CONFIG" ]; then
-    git clone https://github.com/kameike/env.git $CONFIG
+    git clone git@github.com:kameike/env.git $CONFIG
   fi
 }
 
@@ -64,6 +64,5 @@ linkarcs
 setupNeovim
 
 install tmux
-install nodejs
 install golang
-
+installNode
