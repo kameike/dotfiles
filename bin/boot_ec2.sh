@@ -41,6 +41,8 @@ linkarcs() {
 
 
 cloneConfig
+echo "config done"
 linkarcs
+echo "linkrcs done"
 setupNeovim
-
+echo "neovim done"
