@@ -4,7 +4,7 @@
 CONFIG=$HOME/.config
 BINS=$CONFIG/bin
 
-set -eu
+# set -eu
 
 sudo yum install -y git
 echo "ok"
