@@ -1,6 +1,0 @@
-#!/bin/sh
-#vim: syntax=sh
-
-set -eu
-
-pod repo update
