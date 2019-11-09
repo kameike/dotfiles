@@ -1,5 +1,3 @@
-echo "load profile"
-
 
 test -r ~/.bashrc && . ~/.bashrc
 test ! -d ~/tmp && mkdir ~/tmp

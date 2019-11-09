@@ -24,8 +24,8 @@ setupNeovim() {
   #!/usr/bin/env bash
   sudo yum groups install -y Development\ tools
   sudo yum install -y cmake
-  sudo yum install -y python34-{devel,pip}
-  sudo pip-3.4 install neovim --upgrade
+  sudo yum install -y python3
+  sudo pip-3 install neovim --upgrade
   (
   cd "$(mktemp -d)"
   git clone https://github.com/neovim/neovim.git

@@ -1,6 +1,4 @@
 
-echo "load bashrc"
-
 
 if [ $OSTYPE = 'Mac' ]; then
   if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
