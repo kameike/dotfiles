@@ -66,3 +66,6 @@ setupNeovim
 install tmux
 install golang
 installNode
+
+$CONFIG/nvim/boot.sh
+rm ~/.ssh/config
