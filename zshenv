@@ -41,3 +41,5 @@ if [ OS = 'Mac' ]; then
   export PATH=$DEV/flutter/bin:$PATH
 fi
 
+
+export TERM=xterm-256color

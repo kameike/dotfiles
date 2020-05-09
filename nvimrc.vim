@@ -4,34 +4,47 @@ if &compatible
 endif
 
 
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
+
+function! s:install_dein() abort
+  echo 'Installing dein.vim'
+  let cmd = 
+        \ 'curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh && ' .
+        \ '(sh ./installer.sh ~/.cache/dein || rm installer.sh)'
+  let out = system(cmd)
+  if v:shell_error
+    echohl ErrorMsg | echom 'Error!: ' . out | echohl None
+  else
+    echo 'dein.vim was install to ~/.cache/dein'
+  endif
+endfunction
+
+let s:dein_repo_path = expand('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+if !isdirectory(s:dein_repo_path)
+  call s:install_dein()
 endif
 
-" Required:
-let &runtimepath = &runtimepath . ',' . $HOME . '/.config/nvim/plugins/repos/github.com/Shougo/dein.vim'
+let s:dein_cache_dir = expand('~/.cache/dein')
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-
 " Required:
-if dein#load_state($HOME . '/.config/nvim/plugins')
+if dein#load_state(s:dein_cache_dir)
 
   " Required:
-  filetype plugin indent on
-  syntax enable
-
-  " Required:
-  call dein#begin($HOME . '/.config/nvim/plugins')
+  call dein#begin(s:dein_cache_dir)
 
   " Let dein manage dein
-  " Required:
-  call dein#add('Shougo/dein.vim')
+  call dein#add(s:dein_repo_path)
 
 
   " Add or remove your plugins here:
   "=== dark matter
   call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neosnippet.vim')
@@ -116,6 +129,11 @@ if dein#load_state($HOME . '/.config/nvim/plugins')
 
   " Required:
   call dein#end()
+  call dein#save_state()
+
+    if dein#check_install()
+        call dein#install()
+    endif
 endif
 
 " Required:

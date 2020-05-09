@@ -1,6 +1,12 @@
 {
-	"nvimrc": "~/.config/nvim/init.vim",
+	"nvimrc.vim": "~/.config/nvim/init.vim",
 	"gitignore": "~/.global.gitignore",
 	"gitconfig": "~/.gitconfig",
-  "iterm.plist": "~/.config/iterm2/com.googlecode.iterm2.plist"
+	"nvim/snipets/dot.snip": "~/.config/nvim/snipets/dot.snip",
+	"nvim/snipets/go.snip": "~/.config/nvim/snipets/go.snip",
+	"nvim/snipets/sh.snip": "~/.config/nvim/snipets/sh.snip",
+	"nvim/snipets/ruby.snip": "~/.config/nvim/snipets/ruby.snip",
+	"nvim/snipets/eruby.snip": "~/.config/nvim/snipets/eruby.snip",
+	"nvim/snipets/tex.snip": "~/.config/nvim/snipets/tex.snip",
+	"iterm.plist": "~/.config/iterm2/com.googlecode.iterm2.plist"
 }

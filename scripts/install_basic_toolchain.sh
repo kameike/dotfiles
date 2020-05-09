@@ -2,6 +2,8 @@
 
 set -eu
 
+
+sudo pip3 install neovim
 # taps
 brew tap neovim/neovim
 
