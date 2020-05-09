@@ -1,4 +1,6 @@
 {
+	"nvimrc": "~/.config/nvim/init.vim",
 	"gitignore": "~/.global.gitignore",
-	"gitconfig": "~/.gitconfig"
+	"gitconfig": "~/.gitconfig",
+  "iterm.plist": "~/.config/iterm2/com.googlecode.iterm2.plist"
 }
