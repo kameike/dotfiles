@@ -1,68 +1,32 @@
 # vim: syntax=sh
 
 # taps
-tap dart-lang/dart
-tap heroku/brew
 tap neovim/neovim
-tap argon/mas
-tap go-swagger/go-swagger
 
 # lang
-brew python
-brew erlang
 brew go
-brew dep
-brew rbenv
-brew ruby-build
-brew node
-brew yarn
-brew nodebrew
-brew dart
 
 #utils
 brew git
 brew docker
-brew imagemagick
-brew go-swagger
-
 
 #ios
 brew carthage
 brew cocoapods
 
 # Other Homebrew packages
-brew aws-elasticbeanstalk
-brew brew-file
 brew ffmpeg
-brew fzf
-brew gd
-brew gdbm
 brew tmux
-brew gettext
-brew ghostscript
-brew ios-deploy
-brew kubernetes-cli
 brew neovim
 brew openssl
-brew pv
-brew mas
 
 
 # Other Cask applications
 cask docker
 cask sketch
-cask franz
-cask adobe-creative-cloud
 cask iterm2
-cask macdown
-cask minikube
-cask virtualbox
-cask visual-studio-code
 cask charles
 cask slack
 cask google-chrome
-
-# App Store applications
-appstore 1289197285 MindNode
-appstore 497799835 Xcode
+# cask adobe-creative-cloud
 
