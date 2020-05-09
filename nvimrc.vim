@@ -58,8 +58,11 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('ujihisa/unite-colorscheme')
   call dein#add('fatih/vim-go')
   call dein#add('posva/vim-vue')
-  call dein#add('zchee/deoplete-go')
 
+  call dein#add('autozimu/LanguageClient-neovim', {
+    \ 'rev': 'next',
+    \ 'build': 'bash install.sh',
+    \ })
 
   "=== slim
   call dein#add('slim-template/vim-slim')
@@ -79,6 +82,7 @@ if dein#load_state(s:dein_cache_dir)
   "=== visualize
   call dein#add('itchyny/lightline.vim')
   call dein#add('nathanaelkane/vim-indent-guides')
+
 
   "=== html plugin
   call dein#add('tpope/vim-surround')
@@ -138,18 +142,23 @@ endif
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
 
 
 "Snipet -------------------------
 let g:neosnippet#snippets_directory='~/.config/nvim/snipets/'
 imap <C-o> <Plug>(neosnippet_expand_or_jump)
 smap <C-o> <Plug>(neosnippet_expand_or_jump)
+
+" use insert mode like emacs
+inoremap <C-d> <Del>
+inoremap <C-h> <BS>
+inoremap <C-a> <home>
+inoremap <C-e> <End>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-f> <right>
+inoremap <C-b> <left>
+
 
 "Basic Settings---------------------------
 if !has('gui_running')
@@ -163,8 +172,18 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set nu
+" signを出し続ける
+set signcolumn=yes
 
+" spell check
+set spelllang=en,cjk
+
+" 再度読み込み
+set autoread
+
+set updatetime=500
 syntax on
+
 
 "white space
 highlight whiteSpace cterm=underline ctermfg=lightblue guibg=white
@@ -176,11 +195,10 @@ set ignorecase
 set smartcase
 set incsearch
 set nohlsearch
-set langmenu=en_US.UTF-8
 
-" hoge---
-set rtp+=$GOROOT/misc/vim
-exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+
+" ぴょこぴょこ出さない
+:set completeopt=noinsert
 
 " Tab rename ---------------------------
 let g:taboo_renamed_tab_format = "[%N:%l]%f%m"
@@ -188,45 +206,53 @@ let g:taboo_renamed_tab_format = "[%N:%l]%f%m"
 " Deoplete ---------------------------
 let g:deoplete#enable_at_startup = 1
 
-" call deoplete#custom#option('omni_patterns', {
-"       \  'go': ['\h\w\.\w*'],
-"       \})
 
+" $GOROOT/misc/vimLangClient
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+let g:LanguageClient_serverCommands = {
+      \ 'go': ['gopls']
+      \ }
+let g:LanguageClient_loadSettings = 1
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 "alias---------------------------
 let mapleader = "\<space>"
 nmap <c-n> :tabn <cr>
 nmap <c-p> :tabp <cr>
 
-"nice grep
-function! GitGrep(flg) 
-  execute 'vimgrep '. a:flg . ' `git ls-files` | cw'
-endfunction
-command! -nargs=1 GitGrep :call GitGrep(<f-args>)
 
-"nmap <Leader>ph <Plug>GitGutterPreviewHunk
-"nmap <Leader>sh <Plug>GitGutterStageHunk
-"nmap <Leader>uh <Plug>GitGutterUndoHunk
 nmap <Leader>br :bufdo e!<CR>
-nmap <Leader>ff :Denite -auto_preview grep<CR>
+nmap <Leader>ff :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 nmap <Leader>ga :Gina add --all<CR>
 nmap <Leader>gb :Gina branch<CR>
 nmap <Leader>gc :Gina commit<CR>
 nmap <Leader>ggg :w<CR>:Gina add --all<CR>:Gina commit<CR>
 nmap <Leader>gp :Gina push origin HEAD<CR>
 nmap <Leader>gs :Gina status<CR>
-nmap <Leader>oo :Denite file_rec<CR>
-nmap <Leader>pp "*p
-nmap <Leader>yy "*yy
-vmap <Leader>yy "*y
-nmap <Leader>mm :w<CR>:make<CR>
-nmap <Leader>mr :w<CR>:make run<CR>
-nmap <Leader>source :so $MYVIMRC<CR>
-nmap <Leader>update :call dein#update()<CR>
-nmap <Leader>w :w<CR>
+nmap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+nmap <Leader>ld :call LanguageClient#textDocument_definition()<CR><CR>
+nmap <Leader>ll :call LanguageClient#textDocument_hover()<CR> 
 
-call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
-call denite#custom#var('file_rec', 'command', ['git', 'ls-files', '`git rev-parse --show-cdup`'])
+nmap <Leader>ug :Unite grep/git<CR>
+nmap <Leader>uf :Unite file_rec/git<CR>
+nmap <Leader>u" :Unite register<CR>
+nmap <Leader>us :Unite source<CR>
+nmap <Leader>ub :Unite buffer<CR>
+nmap <Leader>uw :Unite window<CR>
+nmap <Leader>pp "*p
+nmap <Leader>source :so $MYVIMRC<CR>
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>yy "*yy
+nmap <Leader>ss :<C-u>setl spell! spell?<CR>
+vmap <Leader>yy "*y
+
+
+" call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
+" call denite#custom#var('file_rec', 'command', ['git', 'ls-files', '`git rev-parse --show-cdup`'])
 
 "Commands-----------------------
 command! EditSource execute 'tabe $MYVIMRC'
@@ -250,6 +276,6 @@ set background=dark
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
 let g:vimfiler_as_default_explorer = 1
-hi IndentGuidesOdd  ctermbg=235
-hi IndentGuidesEven ctermbg=236
+" hi IndentGuidesOdd  ctermbg=235
+" hi IndentGuidesEven ctermbg=236
 
