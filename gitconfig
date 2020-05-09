@@ -3,7 +3,7 @@
   name = kameike
   email = kameike@users.noreply.github.com
 [core]
-	excludesfile = /Users/kei/.gitignore_global
+	excludesfile = ~/.global.gitignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

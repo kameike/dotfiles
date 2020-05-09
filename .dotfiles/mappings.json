@@ -1,3 +1,4 @@
 {
-	"gitignore": "~/.global.gitignore"
+	"gitignore": "~/.global.gitignore",
+	"gitconfig": "~/.gitconfig"
 }
