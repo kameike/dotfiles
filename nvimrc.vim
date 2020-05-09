@@ -48,6 +48,7 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/vimfiler.vim')
   call dein#add('Shougo/neosnippet')
@@ -120,10 +121,7 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('gcmt/taboo.vim')
 
 
-
   call dein#add('leafgarland/typescript-vim')
-
-
   call dein#add('junegunn/vim-easy-align')
   call dein#add('neovimhaskell/haskell-vim')
 
