@@ -246,7 +246,7 @@ nmap <Leader>source :so $MYVIMRC<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>yy "*yy
-nmap <Leader>ss :<C-u>setl spell! spell?<CR>
+nmap <Leader>s :<C-u>setl spell! spell?<CR>
 vmap <Leader>yy "*y
 
 
