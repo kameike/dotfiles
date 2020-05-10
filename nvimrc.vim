@@ -4,7 +4,6 @@ if &compatible
 endif
 
 
-
 function! s:install_dein() abort
   echo 'Installing dein.vim'
   let cmd = 
@@ -129,13 +128,12 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('junegunn/vim-easy-align')
   call dein#add('neovimhaskell/haskell-vim')
 
-  " Required:
   call dein#end()
   call dein#save_state()
 
-    if dein#check_install()
-        call dein#install()
-    endif
+  if dein#check_install()
+    call dein#install()
+  endif
 endif
 
 " Required:
@@ -181,7 +179,7 @@ set spelllang=en,cjk
 " 再度読み込み
 set autoread
 
-set updatetime=500
+set updatetime=4000
 syntax on
 
 
@@ -241,6 +239,7 @@ nmap <Leader>uf :Unite file_rec/git<CR>
 nmap <Leader>u" :Unite register<CR>
 nmap <Leader>us :Unite source<CR>
 nmap <Leader>ub :Unite buffer<CR>
+nmap <Leader>ur :Unite register<CR>
 nmap <Leader>uw :Unite window<CR>
 nmap <Leader>pp "*p
 nmap <Leader>source :so $MYVIMRC<CR>
@@ -255,8 +254,33 @@ vmap <Leader>yy "*y
 " call denite#custom#var('file_rec', 'command', ['git', 'ls-files', '`git rev-parse --show-cdup`'])
 
 "Commands-----------------------
-command! EditSource execute 'tabe $MYVIMRC'
+command! EditSource execute 'tabe ~/dotfiles/nvimrc.vim'
 command! EditSnipet execute 'vnew ~/.config/nvim/snipets'
+
+command! RenameInGit call <SID>do_rename()
+
+function! s:do_rename() abort
+  let l:cpath = expand('%:p:h')
+  let l:target = expand('<cword>')
+
+  call inputsave()
+  let l:name = input('Rename from ' . l:target . ' to: ')
+  call inputrestore()
+  let l:cmd = 'git -C '.l:cpath. ' ls-files $(git -C '.l:cpath.' rev-parse --show-toplevel) | sed -e "s/\n/ /g" | xargs echo'
+  let l:out = system(l:cmd)
+  if v:shell_error
+    echohl ErrorMsg | echom 'Error!: ' . out | echohl None
+    return
+  endif
+
+  echo l:out
+  let @a = l:out
+  exec 'argdel *'
+  exec 'argadd ' . l:out
+  exec 'argdo %s/'. l:target .'/'. l:name. '/g | update'
+endfunction
+
+
 
 "Align------
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -275,7 +299,7 @@ set background=dark
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
-let g:vimfiler_as_default_explorer = 1
 " hi IndentGuidesOdd  ctermbg=235
 " hi IndentGuidesEven ctermbg=236
 
+let g:vimfiler_as_default_explorer = 1

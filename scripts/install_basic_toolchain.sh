@@ -35,3 +35,6 @@ brew cask install iterm2
 # cask charles
 # cask sketch
 
+
+brew install readline
+go get -u github.com/nathany/looper

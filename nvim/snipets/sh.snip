@@ -1,9 +1,17 @@
 snippet     if_file_exist
   if [ -f ${1:filename} ]; then
-    ${2:Content}
+    ${0:${VISUAL}}
   fi
 
 snippet     dev_null
 abbr        put everything to null
   > /dev/null 2>&1
+
+
+snippet     if_command_not_exist
+abbr        Check if command exist
+  if !(type ${1:command_name} > /dev/null 2>&1); then
+    ${0:${VISUAL}}
+  fi
+
 
