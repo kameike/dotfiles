@@ -12,6 +12,14 @@ for file in ~/Desktop/*; do
   test "$file" = "$BUFFER_PATH" && continue
   test "$file" = "$DESKTOP/screen" && continue
 
-  mv "$file" "$BUFFER_PATH/`basename $file`"
+
+  target=$BUFFER_PATH/`basename $file`
+
+  if [ -f $target ]; then
+    time=$(date +%s%3)
+    mv "$file" "$BUFFER_PATH/$time`basename $file`"
+  else
+    mv "$file" "$BUFFER_PATH/`basename $file`"
+  fi
 done
 
