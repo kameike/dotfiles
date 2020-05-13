@@ -177,7 +177,6 @@ function! s:split_line() abort
   return [text_before, text_after]
 endfunction
 
-
 "Basic Settings---------------------------
 if !has('gui_running')
   set t_Co=256
@@ -321,3 +320,6 @@ let g:indent_guides_auto_colors = 0
 " hi IndentGuidesEven ctermbg=236
 
 let g:vimfiler_as_default_explorer = 1
+
+"Gitを編集するときにはスペルチェックする
+autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
