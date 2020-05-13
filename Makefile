@@ -16,6 +16,6 @@ sync-dotfiles:
 	@./scripts/sync_dotfiles.sh
 
 
-.PHONY: sync-dotfiles
-sync-dotfiles:
+.PHONY: install-biz-toolchain
+install-biz-toolchain:
 	@./scripts/install_biz_toolchain.sh

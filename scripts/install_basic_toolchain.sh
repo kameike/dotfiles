@@ -28,6 +28,7 @@ brew install openssl
 # Other Cask applications
 brew cask install docker
 brew cask install iterm2
+brew cask install clipy
 # cask slack
 # cask sketch
 # cask google-chrome
