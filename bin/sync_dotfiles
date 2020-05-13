@@ -8,6 +8,8 @@ if [ -z ${DOTFILES_REPO_PATH+x}]; then
   exit 1
 fi
 
+git -C $DOTFILES_REPO_PATH fetch
+git -C $DOTFILES_REPO_PATH merge origin/master
 git -C $DOTFILES_REPO_PATH add --all
 git -C $DOTFILES_REPO_PATH commit -a 
 git -C $DOTFILES_REPO_PATH push origin HEAD
