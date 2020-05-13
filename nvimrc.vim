@@ -247,28 +247,24 @@ nmap <Leader>gc :Gina commit<CR>
 nmap <Leader>ggg :w<CR>:Gina add --all<CR>:Gina commit<CR>
 nmap <Leader>gp :Gina push origin HEAD<CR>
 nmap <Leader>gs :Gina status<CR>
-nmap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
 nmap <Leader>ld :call LanguageClient#textDocument_definition()<CR><CR>
 nmap <Leader>ll :call LanguageClient#textDocument_hover()<CR> 
-
-nmap <Leader>ug :Unite grep/git<CR>
-nmap <Leader>uf :Unite file_rec/git<CR>
-nmap <Leader>u" :Unite register<CR>
-nmap <Leader>us :Unite source<CR>
-nmap <Leader>ub :Unite buffer<CR>
-nmap <Leader>ur :Unite register<CR>
-nmap <Leader>uw :Unite window<CR>
+nmap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
 nmap <Leader>pp "*p
-nmap <Leader>so :so $MYVIMRC<CR>
-nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
+nmap <Leader>so :so $MYVIMRC<CR>
+nmap <Leader>sp  :<C-u>setl spell! spell?<CR>
+nmap <Leader>u" :Unite register<CR>
+nmap <Leader>ub :Unite buffer<CR>
+nmap <Leader>uf :Unite file_rec/git<CR>
+nmap <Leader>ug :Unite grep/git<CR>
+nmap <Leader>ur :Unite register<CR>
+nmap <Leader>us :Unite source<CR>
+nmap <Leader>uw :Unite window<CR>
+nmap <Leader>w :w<CR>
 nmap <Leader>yy "*yy
-nmap <Leader>f  :<C-u>setl spell! spell?<CR>
 vmap <Leader>yy "*y
 
-
-" call denite#custom#source('file_rec', 'matchers', ['matcher_ignore_globs', 'matcher_fuzzy'])
-" call denite#custom#var('file_rec', 'command', ['git', 'ls-files', '`git rev-parse --show-cdup`'])
 
 "Commands-----------------------
 command! EditSource execute 'tabe ~/dotfiles/nvimrc.vim'
@@ -281,7 +277,7 @@ function! s:do_rename() abort
   let l:target = expand('<cword>')
 
   call inputsave()
-  let l:name = input('Rename from ' . l:target . ' to: ')
+  let l:name = input('Rename from ' . l:target . ' to: ', l:target)
   call inputrestore()
   let l:cmd = 'git -C '.l:cpath. ' ls-files $(git -C '.l:cpath.' rev-parse --show-toplevel) | sed -e "s/\n/ /g" | xargs echo'
   let l:out = system(l:cmd)
@@ -296,7 +292,6 @@ function! s:do_rename() abort
   exec 'argadd ' . l:out
   exec 'argdo %s/'. l:target .'/'. l:name. '/g | update'
 endfunction
-
 
 
 "Align------
