@@ -283,7 +283,7 @@ function! s:do_rename() abort
   let l:out = system(l:cmd)
   if v:shell_error
     echohl ErrorMsg | echom 'Error!: ' . out | echohl None
-    return
+   return
   endif
 
   echo l:out
@@ -318,3 +318,4 @@ let g:vimfiler_as_default_explorer = 1
 
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
+autocmd ExitPre  COMMIT_EDITMSG setl nospell
