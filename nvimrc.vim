@@ -275,6 +275,7 @@ command! RenameInGit call <SID>do_rename()
 function! s:do_rename() abort
   let l:cpath = expand('%:p:h')
   let l:target = expand('<cword>')
+  let l:current_buff = bufnr("%")
 
   call inputsave()
   let l:name = input('Rename from ' . l:target . ' to: ', l:target)
@@ -290,7 +291,9 @@ function! s:do_rename() abort
   let @a = l:out
   exec 'argdel *'
   exec 'argadd ' . l:out
-  exec 'argdo %s/'. l:target .'/'. l:name. '/g | update'
+  exec 'argdo %s/'. l:target .'/'. l:name. '/geI | w'
+
+  exec 'buffer ' . l:current_buff 
 endfunction
 
 
@@ -311,9 +314,6 @@ set background=dark
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
-" hi IndentGuidesOdd  ctermbg=235
-" hi IndentGuidesEven ctermbg=236
-
 let g:vimfiler_as_default_explorer = 1
 
 "Gitを編集するときにはスペルチェックする
