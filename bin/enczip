@@ -1,0 +1,22 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+if [ -z ${1+x} ]; then
+  echo "need file to compress"
+  exit 1
+fi
+
+echo "Try to compress $1."
+
+pass=$(openssl rand -base64 40 | colrm 41)
+
+cd `dirname $1`
+
+zip -e --password=$pass `basename $1`.zip `basename $1`
+
+echo "$1 has been encrypted!" 
+echo "Password is $pass"
+
+echo $pass | pbcopy 
