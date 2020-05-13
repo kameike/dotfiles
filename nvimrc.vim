@@ -156,6 +156,25 @@ inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-f> <right>
 inoremap <C-b> <left>
+" inoremap <expr> <C-k> <SID>kill()
+inoremap <C-k> <Del>
+
+" function! s:kill()
+"   let [text_before, text_after] = s:split_line()
+"   if len(text_after) == 0
+"   ¦ normal! J
+"   else
+"   ¦ call setline(line('.'), text_before)
+"   endif
+"   return ''
+" endfunction
+" 
+" function! s:split_line() abort
+"   let line_text = getline(line('.'))
+"   let text_after  = line_text[col('.')-1 :]
+"   let text_before = (col('.') > 1) ? line_text[: col('.')-2] : ''
+"   return [text_before, text_after]
+" endfunction
 
 
 "Basic Settings---------------------------
