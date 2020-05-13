@@ -3,7 +3,7 @@
 
 set -eu
 
-if [ -z ${DOTFILES_REPO_PATH+x}]; then
+if [ -z ${DOTFILES_REPO_PATH+x} ]; then
   echo "Set DOTFILES_REPO_PATH to use this command."
   exit 1
 fi
