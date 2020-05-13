@@ -318,4 +318,3 @@ let g:vimfiler_as_default_explorer = 1
 
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
-autocmd ExitPre  COMMIT_EDITMSG setl nospell
