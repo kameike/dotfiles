@@ -180,8 +180,7 @@ endfunction
 
 "For cute commit message
 
-inoremap <C-g> <C-R>=<SID>git_complete()<CR>
-
+inoremap <C-g> <C-x><C-u>
 
 fun! CompleteGitCommitPrefixes(findstart, base) abort
   if a:findstart
