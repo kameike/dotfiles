@@ -147,7 +147,7 @@ let g:neosnippet#snippets_directory='~/.config/nvim/snipets/'
 imap <C-o> <Plug>(neosnippet_expand_or_jump)
 smap <C-o> <Plug>(neosnippet_expand_or_jump)
 
-" use insert mode like emacs
+"Use insert mode like emacs
 inoremap <C-d> <Del>
 inoremap <C-h> <BS>
 inoremap <C-a> <home>
@@ -176,6 +176,45 @@ function! s:split_line() abort
   let text_before = (col('.') > 1) ? line_text[: col('.')-2] : ''
   return [text_before, text_after]
 endfunction
+
+
+"For cute commit message
+
+inoremap <C-g> <C-R>=<SID>git_complete()<CR>
+
+
+fun! CompleteGitCommitPrefixes(findstart, base) abort
+  if a:findstart
+    let line = getline('.')
+    let start = col('.') - 1
+    while start > 0 && line[start - 1] =~ '\a'
+      let start -= 1
+    endwhile
+    return start
+  else
+    let res = []
+    let target = []
+
+    call add(target, ':sparkles:feat: ')
+    call add(target, ':bug:fix: ')
+    call add(target, ':books:docs: ')
+    call add(target, ':broom:lint: ')
+    call add(target, ':recycle:refactor: ')
+    call add(target, ':rotating_light:test: ')
+    call add(target, ':construction:wip: ')
+
+    for m in target
+      if m =~ '^' . a:base
+        call add(res, m)
+      endif
+    endfor
+    return res
+  endif
+endfun
+set completefunc=CompleteGitCommitPrefixes
+
+
+
 
 "Basic Settings---------------------------
 if !has('gui_running')
@@ -277,10 +316,17 @@ function! s:do_rename() abort
   let l:target = expand('<cword>')
   let l:current_buff = bufnr("%")
 
+
+
   call inputsave()
   let l:name = input('Rename from ' . l:target . ' to: ', l:target)
   call inputrestore()
-  let l:cmd = 'git -C '.l:cpath. ' ls-files $(git -C '.l:cpath.' rev-parse --show-toplevel) | sed -e "s/\n/ /g" | xargs echo'
+
+  let l:git_root =  '$(git -C '.l:cpath.' rev-parse --show-toplevel)'
+  let l:cmd = 'git  -C '.l:cpath. ' ls-files --full-name  ' .l:git_root. ' | sed -e "s|^|'.l:git_root.'/|g" | sed -e "s|\n| |g" | xargs echo'
+
+  let @u = l:cmd
+
   let l:out = system(l:cmd)
   if v:shell_error
     echohl ErrorMsg | echom 'Error!: ' . out | echohl None
