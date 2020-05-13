@@ -156,25 +156,26 @@ inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-f> <right>
 inoremap <C-b> <left>
-" inoremap <expr> <C-k> <SID>kill()
-inoremap <C-k> <Del>
+inoremap <C-k> <C-O>:call <SID>removeAfterCursor()<CR>
+inoremap <expr> <C-y> <SID>pasteFromCtrlK()
 
-" function! s:kill()
-"   let [text_before, text_after] = s:split_line()
-"   if len(text_after) == 0
-"   ¦ normal! J
-"   else
-"   ¦ call setline(line('.'), text_before)
-"   endif
-"   return ''
-" endfunction
-" 
-" function! s:split_line() abort
-"   let line_text = getline(line('.'))
-"   let text_after  = line_text[col('.')-1 :]
-"   let text_before = (col('.') > 1) ? line_text[: col('.')-2] : ''
-"   return [text_before, text_after]
-" endfunction
+function! s:pasteFromCtrlK() abort
+  return @y
+endfunction
+
+function! s:removeAfterCursor() abort
+  echo 'remove after cursor is called'
+  let [tb, ta] = s:split_line()
+  let @y = ta
+  call setline(line('.'), tb)
+endfunction
+
+function! s:split_line() abort
+  let line_text = getline(line('.'))
+  let text_after  = line_text[col('.')-1 :]
+  let text_before = (col('.') > 1) ? line_text[: col('.')-2] : ''
+  return [text_before, text_after]
+endfunction
 
 
 "Basic Settings---------------------------
@@ -259,11 +260,11 @@ nmap <Leader>ub :Unite buffer<CR>
 nmap <Leader>ur :Unite register<CR>
 nmap <Leader>uw :Unite window<CR>
 nmap <Leader>pp "*p
-nmap <Leader>source :so $MYVIMRC<CR>
+nmap <Leader>so :so $MYVIMRC<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>yy "*yy
-nmap <Leader>s :<C-u>setl spell! spell?<CR>
+nmap <Leader>f  :<C-u>setl spell! spell?<CR>
 vmap <Leader>yy "*y
 
 
