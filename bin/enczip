@@ -18,3 +18,5 @@ zip -e --password=$pass `basename $1`.zip `basename $1`
 
 echo "$1 has been encrypted!" 
 echo "Password is $pass"
+
+echo $pass | pbcopy 
