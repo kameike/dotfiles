@@ -8,7 +8,7 @@ function! s:install_dein() abort
   echo 'Installing dein.vim'
   let cmd = 
         \ 'curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh && ' .
-        \ '(sh ./installer.sh ~/.cache/dein || rm installer.sh)'
+        \ '(sh ./installer.sh ~/.cache/dein && rm installer.sh|| rm installer.sh)'
   let out = system(cmd)
   if v:shell_error
     echohl ErrorMsg | echom 'Error!: ' . out | echohl None
