@@ -399,11 +399,18 @@ call defx#custom#column('icon', {
       \ 'root_icon': ' ',
       \ })
 
+nnoremap <silent> <Leader>ff 
+      \:Defx -split=vertical -winwidth=40 -direction=topleft <CR>
+      \:setl winfixwidth <CR>
+
+autocmd BufWritePost * call defx#redraw()
+
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
+  " execute(':vertical resize 40')
   nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('open')
+        \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> c
         \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> m
