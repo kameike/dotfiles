@@ -49,7 +49,7 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('Shougo/unite.vim')
-  call dein#add('Shougo/vimfiler.vim')
+  " call dein#add('Shougo/vimfiler.vim')
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neoyank.vim')
   call dein#add('airblade/vim-gitgutter')
@@ -57,6 +57,11 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('ujihisa/unite-colorscheme')
   call dein#add('fatih/vim-go')
   call dein#add('posva/vim-vue')
+  call dein#add('Shougo/defx.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
   call dein#add('autozimu/LanguageClient-neovim', {
     \ 'rev': 'next',
@@ -278,7 +283,7 @@ nmap <c-p> :tabp <cr>
 
 
 nmap <Leader>br :bufdo e!<CR>
-nmap <Leader>ff :VimFiler -split -simple -winwidth=35 -no-quit<CR>
+" nmap <Leader>ff :VimFiler -project -split -simple -winwidth=35 -no-quit<CR>
 nmap <Leader>ga :Gina add --all<CR>
 nmap <Leader>gb :Gina branch<CR>
 nmap <Leader>gc :Gina commit<CR>
@@ -359,17 +364,107 @@ set background=dark
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
-let g:vimfiler_as_default_explorer = 1
-call vimfiler#custom#profile('default', 'context', {
-      \  'safe': 0,
-      \  'winwidth': 35,
-      \  'explorer': 1,
-      \  'auto_expand': 1,
-      \  'no_quit': 1,
-      \  'direction' : 'rightbelow',
-      \  'parent': 1,
-      \  'split': 1,
-      \  'toggle': 1,
-      \ })
+" let g:vimfiler_as_default_explorer = 1
+
+" call vimfiler#custom#profile('default', 'context', {
+"       \  'safe': 0,
+"       \  'winwidth': 35,
+"       \  'explorer': 1,
+"       \  'auto_expand': 1,
+"       \  'no_quit': 1,
+"       \  'direction' : 'rightbelow',
+"       \  'parent': 1,
+"       \  'split': 1,
+"       \  'toggle': 1,
+"       \ })
+
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
+
+function! s:open_memo()
+  wincmd p
+  " call :VimFiler --project
+endfunction
+
+augroup OpenMemo
+ au!
+ autocmd VimEnter * call s:open_memo()
+augroup END
+
+
+" defx
+call defx#custom#column('icon', {
+      \ 'directory_icon': '▸',
+      \ 'opened_icon': '▾',
+      \ 'root_icon': ' ',
+      \ })
+
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+  " Define mappings
+  nnoremap <silent><buffer><expr> <CR>
+        \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> c
+        \ defx#do_action('copy')
+  nnoremap <silent><buffer><expr> m
+        \ defx#do_action('move')
+  nnoremap <silent><buffer><expr> p
+        \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> l
+        \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> L
+        \ defx#do_action('open', 'vsplit')
+  nnoremap <silent><buffer><expr> P
+        \ defx#do_action('open', 'pedit')
+  nnoremap <silent><buffer><expr> o
+        \ defx#do_action('open_tree', 'toggle')
+  nnoremap <silent><buffer><expr> T
+        \ defx#do_action('open_tree', 'recursive')
+  nnoremap <silent><buffer><expr> K
+        \ defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> N
+        \ defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> M
+        \ defx#do_action('new_multiple_files')
+  nnoremap <silent><buffer><expr> C
+        \ defx#do_action('toggle_columns',
+        \                'mark:indent:icon:filename:type:size:time')
+  nnoremap <silent><buffer><expr> S
+        \ defx#do_action('toggle_sort', 'time')
+  nnoremap <silent><buffer><expr> d
+        \ defx#do_action('remove')
+  nnoremap <silent><buffer><expr> r
+        \ defx#do_action('rename')
+  nnoremap <silent><buffer><expr> !
+        \ defx#do_action('execute_command')
+  nnoremap <silent><buffer><expr> x
+        \ defx#do_action('execute_system')
+  nnoremap <silent><buffer><expr> yy
+        \ defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> .
+        \ defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> ;
+        \ defx#do_action('repeat')
+  nnoremap <silent><buffer><expr> h
+        \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> ~
+        \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> q
+        \ defx#do_action('quit')
+  nnoremap <silent><buffer><expr> <Space>
+        \ defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> *
+        \ defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr> j
+        \ line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr> k
+        \ line('.') == 1 ? 'G' : 'k'
+  nnoremap <silent><buffer><expr> <C-l>
+        \ defx#do_action('redraw')
+  nnoremap <silent><buffer><expr> <C-g>
+        \ defx#do_action('print')
+  nnoremap <silent><buffer><expr> cd
+        \ defx#do_action('change_vim_cwd')
+endfunction
+
+
