@@ -39,3 +39,4 @@ brew cask install clipy
 
 brew install readline
 go get -u github.com/nathany/looper
+go get github.com/junegunn/fzf
