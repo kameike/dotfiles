@@ -360,6 +360,16 @@ set background=dark
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
 let g:vimfiler_as_default_explorer = 1
-
+call vimfiler#custom#profile('default', 'context', {
+      \  'safe': 0,
+      \  'winwidth': 35,
+      \  'explorer': 1,
+      \  'auto_expand': 1,
+      \  'no_quit': 1,
+      \  'direction' : 'rightbelow',
+      \  'parent': 1,
+      \  'split': 1,
+      \  'toggle': 1,
+      \ })
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
