@@ -364,31 +364,19 @@ set background=dark
 
 let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
-" let g:vimfiler_as_default_explorer = 1
-
-" call vimfiler#custom#profile('default', 'context', {
-"       \  'safe': 0,
-"       \  'winwidth': 35,
-"       \  'explorer': 1,
-"       \  'auto_expand': 1,
-"       \  'no_quit': 1,
-"       \  'direction' : 'rightbelow',
-"       \  'parent': 1,
-"       \  'split': 1,
-"       \  'toggle': 1,
-"       \ })
 
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
 
-function! s:open_memo()
-  wincmd p
-  " call :VimFiler --project
+function! s:create_dir_tree_at_sidebar()
+  execute(':Defx -split=vertical -winwidth=40 -direction=topleft')
+  execute(':setl winfixwidth')
+  execute(':wincmd l')
 endfunction
 
-augroup OpenMemo
+augroup DefxAutocmd
  au!
- autocmd VimEnter * call s:open_memo()
+ autocmd VimEnter * call s:create_dir_tree_at_sidebar()
 augroup END
 
 
@@ -404,11 +392,9 @@ nnoremap <silent> <Leader>ff
       \:setl winfixwidth <CR>
 
 autocmd BufWritePost * call defx#redraw()
-
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
-  " execute(':vertical resize 40')
   nnoremap <silent><buffer><expr> <CR>
         \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> c
