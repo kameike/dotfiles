@@ -367,7 +367,9 @@ let g:indent_guides_auto_colors = 0
 
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
+autocmd BufNewFile,BufRead COMMIT_EDITMSG nmap <C-C> :wqa <CR>
 
+" defx
 function! s:create_dir_tree_at_sidebar()
   execute(':Defx -split=vertical -winwidth=40 -direction=topleft')
   execute(':setl winfixwidth')
@@ -380,7 +382,6 @@ augroup DefxAutocmd
 augroup END
 
 
-" defx
 call defx#custom#column('icon', {
       \ 'directory_icon': '▸',
       \ 'opened_icon': '▾',
