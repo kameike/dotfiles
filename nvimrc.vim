@@ -339,9 +339,11 @@ function! s:do_rename() abort
 
   echo l:out
   let @a = l:out
+  let l:cmd = 'buf | %s/'. l:target .'/'. l:name. '/geI | w'
+  let @c = l:cmd
   exec 'argdel *'
   exec 'argadd ' . l:out
-  exec 'argdo %s/'. l:target .'/'. l:name. '/geI | w'
+  exec 'argdo ' . l:cmd
 
   exec 'buffer ' . l:current_buff 
 endfunction
