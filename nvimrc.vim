@@ -307,6 +307,7 @@ nmap <Leader>uw :Unite window<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>yy "*yy
 vmap <Leader>yy "*y
+nmap <Leader>cc :wqa <CR>
 
 
 "Commands-----------------------
@@ -369,7 +370,6 @@ let g:indent_guides_auto_colors = 0
 
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
-autocmd BufNewFile,BufRead COMMIT_EDITMSG nmap <C-C> :wqa <CR>
 
 " defx
 function! s:create_dir_tree_at_sidebar()
