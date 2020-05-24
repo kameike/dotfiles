@@ -7,12 +7,31 @@ sudo pip3 install neovim
 # taps
 brew tap neovim/neovim
 
-# lang
-brew install go
+# install
+install()
+{
+  if !(type $1 > /dev/null 2>&1); then
+    brew install $1
+  else
+    echo $1 is already installed.
+  fi
+} 
+
+cask_install()
+{
+  
+  if !(type $1 > /dev/null 2>&1); then
+    brew cask install $1
+  else
+    echo $1 is already installed.
+  fi
+}
+
 
 #utils
-brew install git
-brew install docker
+install go
+install git
+install docker
 
 #ios
 # brew install carthage
@@ -20,24 +39,24 @@ brew install docker
 
 # Other Homebrew packages
 # brew ffmpeg
-brew install tmux
-brew install neovim
-brew install openssl
-
+install tmux
+install neovim
+install openssl
+install readline
 
 # Other Cask applications
-brew cask install docker
-brew cask install iterm2
-brew cask install clipy
-brew cask install google-chrome
-# cask slack
+cask_install docker
+cask_install iterm2
+cask_install clipy
+cask_install google-chrome
+cask_install slack
+cask_install 1password
 # cask sketch
 # cask adobe-creative-cloud
 # cask charles
 # cask sketch
 
 
-brew install readline
 go get -u github.com/nathany/looper
-go get github.com/junegunn/fzf
+go get -u github.com/junegunn/fzf
 nvim -c GoInstallBinaries -c q
