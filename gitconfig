@@ -1,12 +1,14 @@
 # This is Git's per-user configuration file.
 [user]
-  name = kameike
-  email = kameike@users.noreply.github.com
+	name = kameike
+	email = kameike@users.noreply.github.com
 [core]
-	excludesfile = ~/.global.gitignore
+	excludesfile = /Users/kei/.global.gitignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/kei/.stCommitMsg

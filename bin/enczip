@@ -14,7 +14,7 @@ pass=$(openssl rand -base64 40 | colrm 41)
 
 cd `dirname $1`
 
-zip -e --password=$pass `basename $1`.zip `basename $1`
+zip -re --password=$pass `basename $1`.zip `basename $1`
 
 echo "$1 has been encrypted!" 
 echo "Password is $pass"
