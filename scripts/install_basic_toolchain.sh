@@ -51,6 +51,8 @@ cask_install clipy
 cask_install google-chrome
 cask_install slack
 cask_install 1password
+cask_install notion
+cask_install macdown
 # cask sketch
 # cask adobe-creative-cloud
 # cask charles

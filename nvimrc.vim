@@ -102,10 +102,10 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('scrooloose/syntastic')
 
   "=== sytax js helper
-  call dein#add('pangloss/vim-javascript')
+  call dein#add('othree/yajs.vim')
 
   "=== sytax jsx helper
-  call dein#add('mxw/vim-jsx')
+  call dein#add('maxmellon/vim-jsx-pretty')
 
   "=== sytax less helper
   call dein#add('groenewege/vim-less')

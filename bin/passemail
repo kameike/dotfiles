@@ -1,7 +1,6 @@
 #!/bin/sh
 #vim: syntax=sh
 
-set -eu
 
 mkdir ~/tmp || echo "~/tmp already exist."
 

@@ -22,6 +22,7 @@ alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
 alias c="clear"
 alias rand="openssl rand -base64 32 | colrm 33"
+alias memo="cd '/Users/kei/Library/Mobile Documents/iCloud~com~coderforart~iOS~MWeb/Documents/memo' && nvim ."
 
 alias sweep-remort-merged-branch="git branch -a  --merged | grep -v \* | grep -v develop | grep -v master | sed -e 's/remotes\/origin\///g' | xargs git push --delete origin"
 alias sweep-local-branch='git branch -D `git branch --merged | grep -v \* | xargs`'
