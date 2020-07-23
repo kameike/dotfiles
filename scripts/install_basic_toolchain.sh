@@ -43,6 +43,7 @@ install tmux
 install neovim
 install openssl
 install readline
+install github/gh/gh
 
 # Other Cask applications
 cask_install docker
