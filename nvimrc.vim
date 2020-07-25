@@ -321,8 +321,6 @@ function! s:do_rename() abort
   let l:target = expand('<cword>')
   let l:current_buff = bufnr("%")
 
-
-
   call inputsave()
   let l:name = input('Rename from ' . l:target . ' to: ', l:target)
   call inputrestore()
@@ -349,7 +347,6 @@ function! s:do_rename() abort
   exec 'buffer ' . l:current_buff 
 endfunction
 
-
 "Align------
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -371,6 +368,8 @@ let g:indent_guides_auto_colors = 0
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
 
+
+
 " defx
 function! s:create_dir_tree_at_sidebar()
   execute(':Defx -split=vertical -winwidth=40 -direction=topleft')
@@ -379,10 +378,12 @@ function! s:create_dir_tree_at_sidebar()
 endfunction
 
 augroup DefxAutocmd
- au!
- autocmd VimEnter * call s:create_dir_tree_at_sidebar()
+  au!
+  " autocmd VimEnter * call s:create_dir_tree_at_sidebar()
 augroup END
 
+autocmd BufWritePost * call defx#redraw()
+autocmd FileType defx call s:defx_my_settings()
 
 call defx#custom#column('icon', {
       \ 'directory_icon': '▸',
@@ -391,11 +392,10 @@ call defx#custom#column('icon', {
       \ })
 
 nnoremap <silent> <Leader>ff 
-      \:Defx -split=vertical -winwidth=40 -direction=topleft <CR>
+      \:Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=40 -direction=topleft <CR>
       \:setl winfixwidth <CR>
 
-autocmd BufWritePost * call defx#redraw()
-autocmd FileType defx call s:defx_my_settings()
+
 function! s:defx_my_settings() abort
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>

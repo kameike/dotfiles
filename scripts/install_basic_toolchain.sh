@@ -3,49 +3,53 @@
 set -eu
 
 
-sudo pip3 install neovim
-# taps
-brew tap neovim/neovim
 
+tap() {
+  brew tap $1
+}
+
+pipinstall() {
+  echo ok
+}
+
+brewlist=`brew list --full-name`
 # install
 install()
 {
-  if !(type $1 > /dev/null 2>&1); then
+  if !(echo $brewlist | grep -q $1); then
     brew install $1
   else
     echo $1 is already installed.
   fi
 } 
 
+casklist=`brew cask list --full-name`
 cask_install()
 {
   
-  if !(type $1 > /dev/null 2>&1); then
+  if !(echo $casklist | grep -q $1); then
     brew cask install $1
   else
     echo $1 is already installed.
   fi
 }
 
+tap neovim/neovim
+
+sudo pip3 install --upgrade pip
+sudo pip3 install neovim
 
 #utils
 install go
 install git
 install docker
-
-#ios
-# brew install carthage
-# brew install cocoapods
-
-# Other Homebrew packages
-# brew ffmpeg
 install tmux
 install neovim
 install openssl
 install readline
 install github/gh/gh
+install terraform
 
-# Other Cask applications
 cask_install docker
 cask_install iterm2
 cask_install clipy
@@ -54,12 +58,11 @@ cask_install slack
 cask_install 1password
 cask_install notion
 cask_install macdown
-# cask sketch
-# cask adobe-creative-cloud
-# cask charles
-# cask sketch
 
+cask_install microsoft-word
+cask_install microsoft-powerpoint
+cask_install microsoft-excel
 
-go get -u github.com/nathany/looper
-go get -u github.com/junegunn/fzf
+go get github.com/nathany/looper
+go get github.com/junegunn/fzf
 nvim -c GoInstallBinaries -c q
