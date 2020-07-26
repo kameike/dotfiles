@@ -58,7 +58,6 @@ cask_install slack
 cask_install 1password
 cask_install notion
 cask_install macdown
-
 cask_install microsoft-word
 cask_install microsoft-powerpoint
 cask_install microsoft-excel
