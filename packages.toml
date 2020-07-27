@@ -10,6 +10,10 @@ gorepo="github.com/junegunn/fzf"
 manager=["go"]
 gorepo="github.com/kameike/sacoche"
 
+[dotfiles]
+manager=["go"]
+gorepo="github.com/rhysd/dotfiles"
+
 [neovim-godev]
 manager=["phony"]
 dependency=["neovim", "go"]
@@ -26,6 +30,38 @@ pipname="neovim"
 
 [go]
 manager=["brew"]
+
+[nodebrew]
+manager=["brew"]
+
+[mas]
+manager=["brew"]
+
+[tmp-dir]
+manager=["phony"]
+checkcommand="ls $HOME/tmp"
+tasks=[
+  "mkdir -p $HOME/tmp",
+]
+
+[node-latest]
+manager=["phony"]
+dependency=["nodebrew"]
+checkcommand="which node"
+tasks=[
+  "mkdir -p $HOME/.nodebrew",
+  "mkdir -p $HOME/.nodebrew/src",
+  "nodebrew install-binary latest",
+  "nodebrew use latest",
+]
+
+
+[yubico-authenticator]
+manager=["phony"]
+dependency=["mas"]
+tasks=[
+  "mas install 1497506650"
+]
 
 [git]
 manager=["brew"]
@@ -62,7 +98,11 @@ manager=["brewcask"]
 [clipy]
 manager=["brewcask"]
 
+
 [google-chrome]
+manager=["brewcask"]
+
+[sketch]
 manager=["brewcask"]
 
 [slack]
@@ -79,6 +119,7 @@ manager=["brewcask"]
 
 [microsoft-word]
 manager=["brewcask"]
+
 
 [microsoft-powerpoint]
 manager=["brewcask"]

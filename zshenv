@@ -26,6 +26,7 @@ export DOTFILES_REPO_PATH=$HOME/dotfiles
 # go
 export PATH=$GOPATH/bin/:$PATH
 export PATH=$GOROOT/bin/:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # my shell scripts
 export PATH=$CONFIG_PATH/bin:$PATH
