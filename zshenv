@@ -1,4 +1,4 @@
-# test ! -d ~/tmp && mkdir ~/tmp
+#:checkhealth provider test ! -d ~/tmp && mkdir ~/tmp
 # test ! -d ~/dev && mkdir ~/dev
 # test ! -d ~/go && mkdir ~/go
 
@@ -23,10 +23,17 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export DOTFILES_REPO_PATH=$HOME/dotfiles
 
+# neovim python https://qiita.com/uasi/items/d91b77a55280e4002aae
+export LC_CTYPE=ja_JP.UTF-8
+
 # go
 export PATH=$GOPATH/bin/:$PATH
 export PATH=$GOROOT/bin/:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$PATH:$HOME/.pub-cache/bin
+
+# flutter
+export PATH=$HOME/.config/flutter/bin:$PATH
 
 # my shell scripts
 export PATH=$CONFIG_PATH/bin:$PATH

@@ -16,19 +16,57 @@ gorepo="github.com/rhysd/dotfiles"
 
 [neovim-godev]
 manager=["phony"]
-dependency=["neovim", "go"]
-tasks=["nvim -c GoInstallBinaries -c q"]
+dependency=["neovim", "go", "tmp-dir"]
+checkcommand="cat $HOME/tmp/.check-neovimgoinstalled"
+tasks=[
+  "nvim -c GoInstallBinaries -c q",
+  "touch $HOME/tmp/.check-neovimgoinstalled",
+]
+
+[pod]
+manager=["phony"]
+dependency=["git"]
+checkcommand="which pod"
+tasks=[
+  "sudo gem install cocoapods",
+]
+
+[flutter]
+manager=["phony"]
+dependency=["git"]
+checkcommand="which flutter"
+tasks=[
+  "git -C ~/.config clone https://github.com/flutter/flutter.git -b stable --depth 1",
+]
+
+[flutter-lsp]
+manager=["phony"]
+dependency=["flutter"]
+checkcommand="which dart_language_server"
+tasks=[
+  "flutter pub global activate dart_language_server",
+]
+
+[python]
+manager=["brew"]
+
+[python-neovim-plugin]
+manager=["phony"]
+dependency=["python"]
+checkcommand="pip3 show neovim"
+task=[
+  "pip3 install neovim",
+]
 
 [neovim]
 manager=["brew"]
 dependency=["python-neovim-plugin"]
 brewtap="neovim/neovim"
 
-[python-neovim-plugin]
-manager=["pip"]
-pipname="neovim"
-
 [go]
+manager=["brew"]
+
+[imagemagick]
 manager=["brew"]
 
 [nodebrew]
@@ -56,6 +94,13 @@ tasks=[
 ]
 
 
+[mindnode]
+manager=["phony"]
+dependency=["mas"]
+tasks=[
+  "mas install 1289197285"
+]
+
 [yubico-authenticator]
 manager=["phony"]
 dependency=["mas"]
@@ -78,6 +123,15 @@ manager=["brew"]
 [readline]
 manager=["brew"]
 
+[java]
+manager=["brewcask"]
+
+[android-studio]
+manager=["brewcask"]
+dependency=["java"]
+
+
+
 
 [gh]
 brewname="github/gh/gh"
@@ -97,7 +151,6 @@ manager=["brewcask"]
 
 [clipy]
 manager=["brewcask"]
-
 
 [google-chrome]
 manager=["brewcask"]
@@ -120,9 +173,14 @@ manager=["brewcask"]
 [microsoft-word]
 manager=["brewcask"]
 
-
 [microsoft-powerpoint]
 manager=["brewcask"]
 
 [microsoft-excel]
 manager=["brewcask"]
+
+[adobe-creative-cloud]
+manager=["brewcask"]
+
+# [line]
+# manager=["brewcask"]

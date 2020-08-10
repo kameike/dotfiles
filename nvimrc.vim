@@ -91,6 +91,10 @@ if dein#load_state(s:dein_cache_dir)
   "=== html plugin
   call dein#add('tpope/vim-surround')
 
+  "=== flutter
+  call dein#add('dart-lang/dart-vim-plugin')
+  call dein#add('thosakwe/vim-flutter')
+
   "=== html plugin
   "http://emmet.io/
   "call dein#add('mattn/emmet-vim')
@@ -144,6 +148,7 @@ endif
 " Required:
 filetype plugin indent on
 syntax enable
+
 
 
 
@@ -272,8 +277,12 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
 let g:LanguageClient_serverCommands = {
-      \ 'go': ['gopls']
+      \ 'go': ['gopls'],
+      \ 'dart': ['dart_language_server'],
       \ }
+
+
+
 let g:LanguageClient_loadSettings = 1
 
 "alias---------------------------
