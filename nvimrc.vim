@@ -1,4 +1,4 @@
-"dein Scripts-----------------------------
+"enable_at_startupdein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -39,30 +39,26 @@ if dein#load_state(s:dein_cache_dir)
   "=== dark matter
   call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
 
-  call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-  call dein#add('Shougo/unite.vim')
-  " call dein#add('Shougo/vimfiler.vim')
-  call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neoyank.vim')
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+
   call dein#add('airblade/vim-gitgutter')
   call dein#add('lambdalisue/gina.vim')
   call dein#add('ujihisa/unite-colorscheme')
+
   call dein#add('fatih/vim-go')
   call dein#add('posva/vim-vue')
   call dein#add('Shougo/defx.nvim')
+
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
+  "call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
   call dein#add('autozimu/LanguageClient-neovim', {
     \ 'rev': 'next',
     \ 'build': 'bash install.sh',
@@ -93,17 +89,15 @@ if dein#load_state(s:dein_cache_dir)
 
   "=== flutter
   call dein#add('dart-lang/dart-vim-plugin')
-  call dein#add('thosakwe/vim-flutter')
+  " call dein#add('thosakwe/vim-flutter')
+
 
   "=== html plugin
   "http://emmet.io/
   "call dein#add('mattn/emmet-vim')
 
-  "=== excute buffer code
-  call dein#add('thinca/vim-quickrun')
-
-  "=== sytax checker
-  call dein#add('scrooloose/syntastic')
+  ""=== sytax checker
+  "call dein#add('scrooloose/syntastic')
 
   "=== sytax js helper
   call dein#add('othree/yajs.vim')
@@ -134,8 +128,10 @@ if dein#load_state(s:dein_cache_dir)
 
 
   call dein#add('leafgarland/typescript-vim')
-  call dein#add('junegunn/vim-easy-align')
   call dein#add('neovimhaskell/haskell-vim')
+
+  "===rst
+  call dein#add('rust-lang/rust.vim')
 
   call dein#end()
   call dein#save_state()
@@ -149,24 +145,20 @@ endif
 filetype plugin indent on
 syntax enable
 
-
-
-
 "Snipet -------------------------
 let g:neosnippet#snippets_directory='~/.config/nvim/snipets/'
-imap <C-o> <Plug>(neosnippet_expand_or_jump)
-smap <C-o> <Plug>(neosnippet_expand_or_jump)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 "Use insert mode like emacs
 inoremap <C-d> <Del>
-inoremap <C-h> <BS>
+"Add hock for dart lsp
 inoremap <C-a> <home>
 inoremap <C-e> <End>
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-f> <right>
 inoremap <C-b> <left>
-inoremap <C-k> <C-O>:call <SID>removeAfterCursor()<CR>
 inoremap <expr> <C-y> <SID>pasteFromCtrlK()
 
 function! s:pasteFromCtrlK() abort
@@ -237,6 +229,7 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set nu
+
 " signを出し続ける
 set signcolumn=yes
 
@@ -278,18 +271,30 @@ let g:go_info_mode='gopls'
 
 let g:LanguageClient_serverCommands = {
       \ 'go': ['gopls'],
-      \ 'dart': ['dart_language_server'],
+      \ 'rust': [
+      \   'rls' 
+      \ ]
       \ }
 
-
-
-let g:LanguageClient_loadSettings = 1
+      "\ 'dart': [
+      "\   'dart',
+      "\   '$DART_SDK/bin/snapshots/analysis_server.dart.snapshot',
+      "\   '--lsp'
+      "\ ],
 
 "alias---------------------------
 let mapleader = "\<space>"
 nmap <c-n> :tabn <cr>
 nmap <c-p> :tabp <cr>
 
+
+"dart
+" xmap <Leader>wa <Plug>(coc-codeaction-selected)<CR>
+" nmap <Leader>ww <Plug>(coc-codeaction-selected)<CR>
+" nmap <Leader>wl <Plug>(coc-rename)<CR>
+
+let g:dart_format_on_save = 1
+let g:LanguageClient_loadSettings = 1
 
 nmap <Leader>br :bufdo e!<CR>
 " nmap <Leader>ff :VimFiler -project -split -simple -winwidth=35 -no-quit<CR>
@@ -313,7 +318,6 @@ nmap <Leader>ug :Unite grep/git<CR>
 nmap <Leader>ur :Unite register<CR>
 nmap <Leader>us :Unite source<CR>
 nmap <Leader>uw :Unite window<CR>
-nmap <Leader>w :w<CR>
 nmap <Leader>yy "*yy
 vmap <Leader>yy "*y
 nmap <Leader>cc :wqa <CR>

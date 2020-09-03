@@ -22,6 +22,7 @@ export CONFIG_PATH=$HOME/.config
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export DOTFILES_REPO_PATH=$HOME/dotfiles
+export DART_SDK=$HOME/.config/flutter/bin/cache/dart-sdk
 
 # neovim python https://qiita.com/uasi/items/d91b77a55280e4002aae
 export LC_CTYPE=ja_JP.UTF-8
@@ -34,6 +35,10 @@ export PATH=$PATH:$HOME/.pub-cache/bin
 
 # flutter
 export PATH=$HOME/.config/flutter/bin:$PATH
+
+
+# Rust
+export PATH=$HOME/.cargo/bin:$PATH
 
 # my shell scripts
 export PATH=$CONFIG_PATH/bin:$PATH
