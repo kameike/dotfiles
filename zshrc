@@ -21,7 +21,6 @@ alias gch="git branch --all | fzf | xargs git checkout"
 alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
 alias c="clear"
-alias rand="openssl rand -base64 32 | colrm 33"
 alias memo="cd '/Users/kei/Library/Mobile Documents/iCloud~com~coderforart~iOS~MWeb/Documents/memo' && nvim ."
 
 alias addpackage="nvim ~/dotfiles/packages.toml && sacoche ~/dotfiles/packages.toml"

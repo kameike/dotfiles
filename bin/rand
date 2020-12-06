@@ -1,0 +1,13 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -32
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -32
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -64
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -64
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -128
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -128
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -256
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -256
