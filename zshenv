@@ -3,6 +3,18 @@
 # test ! -d ~/go && mkdir ~/go
 
 
+if [ "$(uname -m)" = 'x86_64' ]; then
+  OS='Mac'
+  export CPUARC='X86_64'
+elif [ "$(uname -m)" = 'arm64' ]; then
+  OS='Linux'
+  export CPUARC='ARM64'
+else
+  echo "Your cpu arc ($(uname -m)) is not supported."
+  exit 1
+fi
+
+
 if [ "$(uname)" = 'Darwin' ]; then
    OS='Mac'
    export OSTYPE='Mac'
@@ -22,6 +34,7 @@ export CONFIG_PATH=$HOME/.config
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export DOTFILES_REPO_PATH=$HOME/dotfiles
+
 
 # neovim python https://qiita.com/uasi/items/d91b77a55280e4002aae
 export LC_CTYPE=ja_JP.UTF-8
@@ -48,6 +61,6 @@ if [ OS = 'Mac' ]; then
   # flutter
   export PATH=$DEV/flutter/bin:$PATH
 fi
-
+export PATH="$HOME/.yarn/bin:$PATH"
 
 export TERM=xterm-256color

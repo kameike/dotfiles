@@ -2,8 +2,6 @@
 
 set -eu
 
-
-
 tap() {
   brew tap $1
 }

@@ -23,29 +23,29 @@ tasks=[
   "touch $HOME/tmp/.check-neovimgoinstalled",
 ]
 
-[pod]
-manager=["phony"]
-dependency=["git"]
-checkcommand="which pod"
-tasks=[
-  "sudo gem install cocoapods",
-]
+# [pod]
+# manager=["phony"]
+# dependency=["git"]
+# checkcommand="which pod"
+# tasks=[
+#   "sudo gem install cocoapods",
+# ]
 
-[flutter]
-manager=["phony"]
-dependency=["git"]
-checkcommand="which flutter"
-tasks=[
-  "git -C ~/.config clone https://github.com/flutter/flutter.git -b stable --depth 1",
-]
+# [flutter]
+# manager=["phony"]
+# dependency=["git"]
+# checkcommand="which flutter"
+# tasks=[
+#   "git -C ~/.config clone https://github.com/flutter/flutter.git -b stable --depth 1",
+# ]
 
-[flutter-lsp]
-manager=["phony"]
-dependency=["flutter"]
-checkcommand="which dart_language_server"
-tasks=[
-  "flutter pub global activate dart_language_server",
-]
+# [flutter-lsp]
+# manager=["phony"]
+# dependency=["flutter"]
+# checkcommand="which dart_language_server"
+# tasks=[
+#   "flutter pub global activate dart_language_server",
+# ]
 
 [python]
 manager=["brew"]
@@ -94,12 +94,12 @@ tasks=[
 ]
 
 
-[mindnode]
-manager=["phony"]
-dependency=["mas"]
-tasks=[
-  "mas install 1289197285"
-]
+# [mindnode]
+# manager=["phony"]
+# dependency=["mas"]
+# tasks=[
+#   "mas install 1289197285"
+# ]
 
 [yubico-authenticator]
 manager=["phony"]
@@ -108,27 +108,27 @@ tasks=[
   "mas install 1497506650"
 ]
 
-[git]
-manager=["brew"]
+# [git]
+# manager=["brew"]
 
-[docker]
-manager=["brew"]
+# [docker]
+# manager=["brew"]
 
 [tmux]
 manager=["brew"]
 
-[openssl]
-manager=["brew"]
+# [openssl]
+# manager=["brew"]
 
 [readline]
 manager=["brew"]
 
-[java]
-manager=["brewcask"]
+# [java]
+# manager=["brewcask"]
 
-[android-studio]
-manager=["brewcask"]
-dependency=["java"]
+# [android-studio]
+# manager=["brewcask"]
+# dependency=["java"]
 
 
 
@@ -142,45 +142,45 @@ manager=["brew"]
 
 
 # GUI APPs
-[docker-gui]
-manager=["brewcask"]
-brewname="docker"
+# [docker-gui]
+# manager=["brewcask"]
+# brewname="docker"
 
-[iterm2]
-manager=["brewcask"]
+# [iterm2]
+# manager=["brewcask"]
 
 [clipy]
 manager=["brewcask"]
 
-[google-chrome]
-manager=["brewcask"]
+# [google-chrome]
+# manager=["brewcask"]
 
-[sketch]
-manager=["brewcask"]
+# [sketch]
+# manager=["brewcask"]
 
-[slack]
-manager=["brewcask"]
+# [slack]
+# manager=["brewcask"]
 
 [1password]
 manager=["brewcask"]
 
-[notion]
-manager=["brewcask"]
+# [notion]
+# manager=["brewcask"]
 
-[macdown]
-manager=["brewcask"]
+# [macdown]
+# manager=["brewcask"]
 
-[microsoft-word]
-manager=["brewcask"]
+# [microsoft-word]
+# manager=["brewcask"]
+# 
+# [microsoft-powerpoint]
+# manager=["brewcask"]
+# 
+# [microsoft-excel]
+# manager=["brewcask"]
 
-[microsoft-powerpoint]
-manager=["brewcask"]
-
-[microsoft-excel]
-manager=["brewcask"]
-
-[adobe-creative-cloud]
-manager=["brewcask"]
+# [adobe-creative-cloud]
+# manager=["brewcask"]
 
 # [line]
 # manager=["brewcask"]

@@ -33,4 +33,4 @@ alias sweep-local-branch='git branch -D `git branch --merged | grep -v \* | xarg
 stty stop undef
 stty start undef
 
-PROMPT='[%T] %c: '
+PROMPT="[%T]`echo $CPUARC` %c: "
