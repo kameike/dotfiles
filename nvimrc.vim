@@ -91,6 +91,8 @@ if dein#load_state(s:dein_cache_dir)
   "=== html plugin
   call dein#add('tpope/vim-surround')
 
+  call dein#add('hashivim/vim-terraform')
+
   "=== flutter
   call dein#add('dart-lang/dart-vim-plugin')
   call dein#add('thosakwe/vim-flutter')

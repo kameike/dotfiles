@@ -10,12 +10,10 @@ mkdir -p $DESKTOP/buf
 
 for file in ~/Desktop/*; do
   test "$file" = "$BUFFER_PATH" && continue
-  test "$file" = "$DESKTOP/screen" && continue
-
 
   target=$BUFFER_PATH/`basename $file`
 
-  if [ -f $target ]; then
+  if [ -f "$target" ]; then
     time=$(date +%s%3)
     mv "$file" "$BUFFER_PATH/$time`basename $file`"
   else
