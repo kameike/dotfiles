@@ -6,7 +6,7 @@ set -eu
 NOTE_PATH=$HOME/dev/note
 
 git -C $NOTE_PATH fetch
-git -C $NOTE_PATH merge origin/master | echo "Repo is uptodate"
+git -C $NOTE_PATH merge origin/main | echo "Repo is uptodate"
 git -C $NOTE_PATH add --all
 git -C $NOTE_PATH commit -a  -m"update"
 git -C $NOTE_PATH push origin HEAD
