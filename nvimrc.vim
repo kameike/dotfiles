@@ -89,7 +89,7 @@ if dein#load_state(s:dein_cache_dir)
 
   "=== flutter
   call dein#add('dart-lang/dart-vim-plugin')
-  " call dein#add('thosakwe/vim-flutter')
+  call dein#add('thosakwe/vim-flutter')
 
 
   "=== html plugin
@@ -149,6 +149,9 @@ syntax enable
 let g:neosnippet#snippets_directory='~/.config/nvim/snipets/'
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+let g:neosnippet#enable_completed_snippet = 1
+autocmd CompleteDone * call neosnippet#complete_done()
 
 "Use insert mode like emacs
 inoremap <C-d> <Del>
@@ -271,16 +274,13 @@ let g:go_info_mode='gopls'
 
 let g:LanguageClient_serverCommands = {
       \ 'go': ['gopls'],
-      \ 'rust': [
-      \   'rls' 
+      \ 'rust': ['rust-analyzer'],
+      \ 'dart': [
+      \   'dart',
+      \   '$DART_SDK/bin/snapshots/analysis_server.dart.snapshot',
+      \   '--lsp'
       \ ]
       \ }
-
-      "\ 'dart': [
-      "\   'dart',
-      "\   '$DART_SDK/bin/snapshots/analysis_server.dart.snapshot',
-      "\   '--lsp'
-      "\ ],
 
 "alias---------------------------
 let mapleader = "\<space>"

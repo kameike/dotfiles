@@ -135,6 +135,9 @@ tasks=[
 [git]
 manager=["brew"]
 
+[sqlite3]
+manager=["brew"]
+
 [docker]
 manager=["brew"]
 
@@ -171,6 +174,15 @@ manager=["brewcask"]
 brewname="docker"
 
 [iterm2]
+manager=["brewcask"]
+
+[db-browser-for-sqlite]
+manager=["brewcask"]
+
+[visual-studio-code]
+manager=["brewcask"]
+
+[sequel-pro]
 manager=["brewcask"]
 
 [clipy]
