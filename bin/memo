@@ -3,4 +3,6 @@
 
 set -eu
 
-touch ~/dev/note/tmp/`date +%Y%m%d_%H%M_`$1.md
+target=~/dev/note/tmp/`date +%Y%m%d_%H%M_`$1.md
+touch $target
+echo $target

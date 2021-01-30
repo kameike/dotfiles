@@ -1,0 +1,11 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+rm -rf ~/tmp/blog
+cp -r ~/dev/note/blog ~/tmp
+md-to-pdf ~/tmp/blog/**.md --as-html --stylesheet ~/dev/note/blog/test.css
+find ~/tmp/blog/**.md  | xargs rm
+scp ~/tmp/blog/**.html  kameike.net:~/note
+find ~/tmp/blog/**.html | sed  's/\/Users\/kei\/tmp\/blog\//https:\/\/note.kameike.net\//g'

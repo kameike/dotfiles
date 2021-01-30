@@ -63,4 +63,9 @@ if [ OS = 'Mac' ]; then
 fi
 export PATH="$HOME/.yarn/bin:$PATH"
 
+
+export KAME=toroasdfasd
+
 export TERM=xterm-256color
+
+source ~/.env
