@@ -1,0 +1,9 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+hash=`openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8`
+target=~/dev/note/blog/`date +%Y%m%d`_`echo $hash`_`echo $1`.md
+touch $target
+echo $target

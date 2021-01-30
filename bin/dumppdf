@@ -1,0 +1,11 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+cd ~/tmp
+rm -rf ./note
+cp -r ~/dev/note .
+md-to-pdf note/**/*.md
+find note/**/*.md  | xargs rm
+
