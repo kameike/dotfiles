@@ -23,6 +23,26 @@ tasks=[
   "touch $HOME/tmp/.check-neovimgoinstalled",
 ]
 
+# [rust]
+# manager=["phony"]
+# dependency=["tmp-dir"]
+# checkcommand="which rustc"
+# tasks=[
+#   "curl --proto '=https' --tlsv1.2 -o $HOME/tmp/rust.sh -sSf https://sh.rustup.rs",
+#   "sh &HOME/tmp/rust.sh",
+# ]
+# 
+# 
+# [rustlsp]
+# manager=["phony"]
+# dependency=["rust"]
+# checkcommand="which rls"
+# tasks=[
+#   "rustup component add rls rust-analysis rust-src",
+# ]
+
+
+
 # [pod]
 # manager=["phony"]
 # dependency=["git"]
@@ -46,6 +66,9 @@ tasks=[
 # tasks=[
 #   "flutter pub global activate dart_language_server",
 # ]
+
+[ffmpeg]
+manager=["brew"]
 
 [python]
 manager=["brew"]
@@ -148,6 +171,15 @@ manager=["brew"]
 
 # [iterm2]
 # manager=["brewcask"]
+
+[db-browser-for-sqlite]
+manager=["brewcask"]
+
+[visual-studio-code]
+manager=["brewcask"]
+
+[sequel-pro]
+manager=["brewcask"]
 
 [clipy]
 manager=["brewcask"]
