@@ -25,7 +25,7 @@ alias c="clear"
 alias addpackage="nvim ~/dotfiles/packages.toml && sacoche ~/dotfiles/packages.toml"
 
 alias sweep-remort-merged-branch="git branch -a  --merged | grep -v \* | grep -v develop | grep -v master | sed -e 's/remotes\/origin\///g' | xargs git push --delete origin"
-alias sweep-local-branch='git branch -D `git branch --merged | grep -v \* | xargs`'
+alias sweep-local-branch='git fetch --prune && git branch -D `git branch --merged | grep -v \* | xargs`'
 
 
 stty stop undef

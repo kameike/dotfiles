@@ -34,6 +34,7 @@ export CONFIG_PATH=$HOME/.config
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export DOTFILES_REPO_PATH=$HOME/dotfiles
+export AWS_SDK_LOAD_CONFIG=1
 
 
 # neovim python https://qiita.com/uasi/items/d91b77a55280e4002aae
