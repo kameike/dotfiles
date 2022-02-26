@@ -21,6 +21,7 @@ alias gch="git branch --all | fzf | xargs git checkout"
 alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
 alias c="clear"
+alias go="go1.18rc1"
 
 alias addpackage="nvim ~/dotfiles/packages.toml && sacoche ~/dotfiles/packages.toml"
 

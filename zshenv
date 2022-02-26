@@ -26,6 +26,10 @@ else
   exit 1
 fi
 
+
+# source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+# source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# 
 export TMP=$HOME/tmp
 export DEV=$HOME/dev
 export GOPATH=$HOME/go
