@@ -22,6 +22,7 @@ alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
 alias c="clear"
 alias go="go1.18rc1"
+alias syncchama="ssh min /home/kei/dev/chamasoft/prototype/server/scripts/deploylocal.sh"
 
 alias addpackage="nvim ~/dotfiles/packages.toml && sacoche ~/dotfiles/packages.toml"
 
@@ -33,3 +34,4 @@ stty stop undef
 stty start undef
 
 PROMPT="[%T]`echo $CPUARC` %c: "
+export PATH="/usr/local/opt/ruby/bin:$PATH"
