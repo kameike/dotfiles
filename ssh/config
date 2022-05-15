@@ -1,2 +1,9 @@
-AddKeysToAgent yes
-# UseKeychain yes
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+
+Host kameike.net
+    HostName kameike.net
+
+Host min
+    HostName 192.168.2.100
