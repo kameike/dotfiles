@@ -21,12 +21,12 @@ install()
   fi
 } 
 
-casklist=`brew cask list --full-name`
+casklist=`brew list --cask --full-name`
 cask_install()
 {
   
   if !(echo $casklist | grep -q $1); then
-    brew cask install $1
+    brew install --cask $1
   else
     echo $1 is already installed.
   fi
@@ -48,7 +48,7 @@ install readline
 install github/gh/gh
 install terraform
 
-cask_install docker
+# cask_install docker
 cask_install iterm2
 cask_install clipy
 cask_install google-chrome
