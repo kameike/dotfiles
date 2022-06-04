@@ -4,10 +4,8 @@
 
 
 if [ "$(uname -m)" = 'x86_64' ]; then
-  OS='Mac'
   export CPUARC='X86_64'
 elif [ "$(uname -m)" = 'arm64' ]; then
-  OS='Linux'
   export CPUARC='ARM64'
 else
   echo "Your cpu arc ($(uname -m)) is not supported."
