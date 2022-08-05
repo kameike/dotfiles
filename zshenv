@@ -38,6 +38,7 @@ export EDITOR="$VISUAL"
 export DOTFILES_REPO_PATH=$HOME/dotfiles
 export AWS_SDK_LOAD_CONFIG=1
 export DART_SDK=$HOME/.config/flutter/bin/cache/dart-sdk
+export LANG=en
 
 
 # neovim python https://qiita.com/uasi/items/d91b77a55280e4002aae
