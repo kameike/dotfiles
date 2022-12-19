@@ -4,6 +4,7 @@
 	email = kameike@users.noreply.github.com
 [core]
 	excludesfile = /Users/kei/.global.gitignore
+	pager = LESSCHARSET=utf-8 less
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

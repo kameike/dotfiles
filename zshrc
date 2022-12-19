@@ -23,6 +23,7 @@ alias gs="git status"
 alias c="clear"
 alias go="go1.18rc1"
 alias syncchama="ssh min /home/kei/dev/chamasoft/prototype/server/scripts/deploylocal.sh"
+alias md="date \"+%Y%m%d%H%M\" | xargs -I DATE code ~/tmp/DATE.md"
 
 alias addpackage="nvim ~/dotfiles/packages.toml && sacoche ~/dotfiles/packages.toml"
 

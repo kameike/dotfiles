@@ -3,6 +3,14 @@
 
 set -eu
 
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8 | tr '[:upper:]' '[:lower:]'
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8 | tr '[:upper:]' '[:lower:]'
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8 | tr '[:upper:]' '[:lower:]'
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8 | tr '[:upper:]' '[:lower:]'
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8 | tr '[:upper:]' '[:lower:]'
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8 | tr '[:upper:]' '[:lower:]'
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8 | tr '[:upper:]' '[:lower:]'
+openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -8 | tr '[:upper:]' '[:lower:]'
 openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -32
 openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -32 | tr '[:upper:]' '[:lower:]'
 openssl rand  -base64 512 | tr '\n' ' ' | sed 's/ //g' | cut -c -64
