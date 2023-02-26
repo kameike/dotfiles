@@ -5,6 +5,7 @@
 [core]
 	excludesfile = /Users/kei/.global.gitignore
 	pager = LESSCHARSET=utf-8 less
+	commentchar = ";"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

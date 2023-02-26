@@ -31,7 +31,7 @@ fi
 export TMP=$HOME/tmp
 export DEV=$HOME/dev
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec/
+# export GOROOT=/usr/local/opt/go/libexec/
 export CONFIG_PATH=$HOME/.config
 export VISUAL=nvim
 export EDITOR="$VISUAL"
