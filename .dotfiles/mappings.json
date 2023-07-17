@@ -1,8 +1,15 @@
 {
-	"nvimrc.vim": "~/.config/nvim/init.vim",
-	"gitignore": "~/.global.gitignore",
-	"bin": "~/.config/bin",
-	"gitconfig": "~/.gitconfig",
+
+	"nvim/nvimrc.vim": "~/.config/nvim/init.vim",
 	"nvim/snipets": "~/.config/nvim/snipets",
+
+	"gitignore": "~/.global.gitignore",
+	"gitconfig": "~/.gitconfig",
+
+
+	"zsh/zshrc": "~/.zshrc",
+	"zsh/zshenv": "~/.zshenv",
+
+	"bin": "~/.config/bin",
 	"iterm.plist": "~/.config/iterm2/com.googlecode.iterm2.plist"
 }
