@@ -1,6 +1,7 @@
 {
 
-	"nvim/nvimrc.vim": "~/.config/nvim/init.vim",
+	"nvim/nvimrc.vim": "~/.config/nvim/vimrc.vim",
+	"nvim/init.lua": "~/.config/nvim/init.lua",
 	"nvim/snipets": "~/.config/nvim/snipets",
 
 	"gitignore": "~/.global.gitignore",
