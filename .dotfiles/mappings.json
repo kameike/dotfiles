@@ -11,5 +11,6 @@
 	"zsh/zshenv": "~/.zshenv",
 
 	"bin": "~/.config/bin",
+
 	"iterm.plist": "~/.config/iterm2/com.googlecode.iterm2.plist"
 }
