@@ -2,7 +2,7 @@
 #vim: syntax=sh
 
 
-mkdir ~/tmp || echo "~/tmp already exist."
+# mkdir ~/tmp || echo "~/tmp already exist."
 
 target=~/tmp/email
 
@@ -17,3 +17,5 @@ echo "どうぞ引き続きよろしくお願いします。" >> $target
 echo "" >> $target
 echo "亀田" >> $target
 cat $target | pbcopy
+
+rm $target

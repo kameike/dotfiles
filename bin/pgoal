@@ -1,0 +1,15 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+
+target=~/tmp/pgoal
+
+echo "目標などを書く場所" > $target
+pbpaste >> $target
+echo "" >> $target
+echo "説明" >> $target
+echo "https://www.notion.so/250b0cd5e6244f95a637168d79beb1ba" >> $target
+cat $target | pbcopy
+
