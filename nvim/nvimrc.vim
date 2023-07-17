@@ -29,33 +29,8 @@ if dein#load_state(s:dein_cache_dir)
   " Required:
   call dein#begin(s:dein_cache_dir)
 
-
-  " call dein#add('fatih/vim-go')
-
-  " if !has('nvim')
-  "   call dein#add('roxma/nvim-yarp')
-  "   call dein#add('roxma/vim-hug-neovim-rpc')
-  " endif
-
-  "call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
-  " call dein#add('autozimu/LanguageClient-neovim', {
-  "   \ 'rev': 'next',
-  "   \ 'build': 'bash install.sh',
-  "   \ })
-
-
   "=== color scheime
-  call dein#add('altercation/vim-colors-solarized')
-  call dein#add('tomasr/molokai')
-  call dein#add('jpo/vim-railscasts-theme')
   call dein#add('NLKNguyen/papercolor-theme')
-" 
-"   "=== visualize
-"   call dein#add('itchyny/lightline.vim')
-"   call dein#add('nathanaelkane/vim-indent-guides')
-" 
-
-
 
   "=== Copilot
   call dein#add('github/copilot.vim')
@@ -65,6 +40,11 @@ if dein#load_state(s:dein_cache_dir)
 
   "=== ddc
   call dein#add('Shougo/ddc.vim')
+  call dein#add('Shougo/ddc-ui-native')
+  call dein#add('Shougo/ddc-source-around')
+  call dein#add('Shougo/ddc-filter-matcher_head')
+  call dein#add('Shougo/ddc-filter-sorter_rank')
+  call dein#add('Shougo/ddc-source-nvim-lsp')
 
 
   call dein#add('neovim/nvim-lspconfig')
@@ -143,12 +123,12 @@ syntax on
 highlight whiteSpace cterm=underline ctermfg=lightblue guibg=white
 match whiteSpace /__/
 
-let g:lightline = {'colorscheme': 'PaperColor'}
-
 set ignorecase
 set smartcase
 set incsearch
 set nohlsearch
+
+let $LANG = "en"
 
 
 " " ぴょこぴょこ出さない
@@ -172,9 +152,6 @@ nmap <c-p> :tabp <cr>
 let g:LanguageClient_loadSettings = 1
 
 nmap <Leader>br :bufdo e!<CR>
-nmap <Leader>ld :call LanguageClient#textDocument_definition()<CR><CR>
-nmap <Leader>ll :call LanguageClient#textDocument_hover()<CR> 
-nmap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
 nmap <Leader>pp "*p
 nmap <Leader>q :q<CR>
 nmap <Leader>so :so $MYVIMRC<CR>
@@ -186,7 +163,7 @@ nmap <Leader>rr :wa <CR>:!go run main.go<CR>
 
 
 "Commands-----------------------
-command! EditSource execute 'tabe ~/dotfiles/nvimrc.vim'
+command! EditSource execute 'tabe ~/dotfiles/nvim'
 command! EditSnipet execute 'vnew ~/.config/nvim/snipets'
 
 
@@ -195,6 +172,7 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 "Color Scripts-------------------------
 colorscheme PaperColor
+"colorscheme molokai
 set background=dark
 
 let $LANG = "en_US"
@@ -213,7 +191,6 @@ autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
 " NOTE: native ui
 " https://github.com/Shougo/ddc-ui-native
 call ddc#custom#patch_global('ui', 'native')
-
 " Use around source.
 " https://github.com/Shougo/ddc-source-around
 call ddc#custom#patch_global('sources', ['around'])
@@ -244,6 +221,26 @@ call ddc#custom#patch_filetype(['c', 'cpp'], 'sourceOptions', #{
 call ddc#custom#patch_filetype('markdown', 'sourceParams', #{
       \   around: #{ maxSize: 100 },
       \ })
+
+
+call ddc#custom#patch_global('sources', ['nvim-lsp'])
+call ddc#custom#patch_global('sourceOptions', #{
+      \   nvim-lsp: #{
+      \     mark: 'lsp',
+      \     forceCompletionPattern: '\.\w*|:\w*|->\w*',
+      \   },
+      \ })
+
+call ddc#custom#patch_global('sourceParams', #{
+      \   nvim-lsp: #{
+      \     snippetEngine: denops#callback#register({
+      \           body -> vsnip#anonymous(body)
+      \     }),
+      \     enableResolveItem: v:true,
+      \     enableAdditionalTextEdit: v:true,
+      \   }
+      \ })
+
 
 " Mappings
 
