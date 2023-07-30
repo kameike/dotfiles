@@ -1,5 +1,3 @@
-
-
 -- 旧vimrcの読み込み
 local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
 vim.cmd.source(vimrc)
@@ -20,8 +18,6 @@ lspconfig.rust_analyzer.setup {
     ['rust-analyzer'] = {},
   },
 }
-
-
 
 
 -- Global mappings.
@@ -70,6 +66,18 @@ require("lspconfig").denols.setup({
 
 -- for golang
 require'lspconfig'.gopls.setup{}
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('go', {}),
+  pattern = 'go',
+  callback = function(ev)
+
+    -- 対象のバッファのみに対して有効にする設定
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n','<Leader>tt', ':wa<CR>:!go test %:p:h<CR>', opts) -- テストを実行する
+    vim.keymap.set('n','<Leader>rr', ':wa<CR>:!cd %:p:h && go build -o out && rm out<CR>', opts) -- 試しにビルドして、バイナリを削除する
+  end,
+})
 
 
 -- for lua

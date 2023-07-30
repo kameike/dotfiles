@@ -145,21 +145,16 @@ nmap <c-p> :tabp <cr>
 nmap <Leader>br :bufdo e!<CR>
 nmap <Leader>pp "*p
 nmap <Leader>q :q<CR>
-nmap <Leader>so :so $MYVIMRC<CR>
 nmap <Leader>sp  :<C-u>setl spell! spell?<CR>
 nmap <Leader>yy "*yy
 vmap <Leader>yy "*y
 nmap <Leader>cc :wqa <CR>
-nmap <Leader>rr :wa <CR>:!go run .<CR>
 
 
 "Commands-----------------------
-command! EditSource execute 'tabe ~/dotfiles/nvim'
-command! EditSnipet execute 'vnew ~/.config/nvim/snipets'
+command! EditVimrc :tabe ~/.config/nvim/vimrc.vim | :tabe ~/.config/nvim/init.lua
+command! EditSnipet :tabe ~/.config/nvim/snipets
 
-
-" add jbuilder syntax highlighting
-au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 "Color Scripts-------------------------
 colorscheme PaperColor
@@ -170,7 +165,6 @@ let g:indent_guides_auto_colors = 0
 
 "Gitを編集するときにはスペルチェックする
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setl spell
-
 
 
 "===== dcc config
@@ -231,8 +225,6 @@ call ddc#custom#patch_global('sourceParams', #{
       \   }
       \ })
 
-
-" Mappings
 
 " <TAB>: completion.
 inoremap <silent><expr> <TAB>
