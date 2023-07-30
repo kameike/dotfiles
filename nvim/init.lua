@@ -4,6 +4,8 @@
 local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
 vim.cmd.source(vimrc)
 
+
+-- debug print
 print("Hello user! Welcome to Neovim!")
 
 

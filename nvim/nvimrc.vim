@@ -48,6 +48,10 @@ if dein#load_state(s:dein_cache_dir)
 
 
   call dein#add('neovim/nvim-lspconfig')
+  
+
+
+  call dein#add('mattn/vim-goimports')
 
 
 
@@ -62,8 +66,6 @@ endif
 " Required:
 filetype plugin indent on
 syntax enable
-
-
 
 "Use insert mode like emacs
 imap <C-d> <Del>
@@ -87,9 +89,6 @@ function! s:pasteFromCtrlK() abort
 endfunction
 
 
-"For cute commit message
-
-imap <C-g> <C-x><C-u>
 
 
 
@@ -129,27 +128,19 @@ set incsearch
 set nohlsearch
 
 let $LANG = "en"
+let $LANG = "en_US"
 
 
 " " ぴょこぴょこ出さない
 " :set completeopt=noinsert
 
 
-" $GOROOT/misc/vimLangClient
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-
-let g:LanguageClient_serverCommands = {
-      \ 'go': ['gopls'],
-      \ }
 
 "alias---------------------------
 let mapleader = "\<space>"
 nmap <c-n> :tabn <cr>
 nmap <c-p> :tabp <cr>
 
-
-let g:LanguageClient_loadSettings = 1
 
 nmap <Leader>br :bufdo e!<CR>
 nmap <Leader>pp "*p
@@ -159,7 +150,7 @@ nmap <Leader>sp  :<C-u>setl spell! spell?<CR>
 nmap <Leader>yy "*yy
 vmap <Leader>yy "*y
 nmap <Leader>cc :wqa <CR>
-nmap <Leader>rr :wa <CR>:!go run main.go<CR>
+nmap <Leader>rr :wa <CR>:!go run .<CR>
 
 
 "Commands-----------------------
@@ -175,7 +166,6 @@ colorscheme PaperColor
 "colorscheme molokai
 set background=dark
 
-let $LANG = "en_US"
 let g:indent_guides_auto_colors = 0
 
 "Gitを編集するときにはスペルチェックする

@@ -16,3 +16,5 @@
 	defaultBranch = main
 [commit]
 	gpgsign = true
+[credential]
+	helper = cache
