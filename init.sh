@@ -5,6 +5,72 @@ set -eu
 brewcmd='/opt/homebrew/bin/brew'
 gocmd='/opt/homebrew/bin/go'
 
+main()
+{
+  setup_repo
+  setup_brew
+
+  brew_tap neovim/neovim
+  pip3 install --upgrade pip
+  pip3 install neovim
+
+  #utils
+  brew_install go
+  brew_install git
+  brew_install docker
+  brew_install tmux
+  brew_install neovim
+  brew_install openssl
+  brew_install readline
+  brew_install terraform
+  brew_install imagemagick
+  brew_install gpg
+  # install github/gh/gh
+
+  # cask_install applicatons
+  cask_install iterm2
+  cask_install clipy
+  cask_install google-chrome
+  cask_install slack
+  cask_install 1password
+  cask_install notion
+  cask_install microsoft-word
+  cask_install microsoft-powerpoint
+  cask_install microsoft-excel
+  cask_install visual-studio-code
+
+  # install go toolchain
+  go_install fzf github.com/junegunn/fzf
+  go_install dotfiles github.com/rhysd/dotfiles
+
+  if_not_exist_then_copy './git/gitconfig_local' './git/gitconfig_local_template'
+
+  go_exec dotfiles link
+}
+
+if_not_exist_then_copy() {
+  # 第一引数はコピー先ファイル名
+  local target_file="$1"
+  # 第二引数はコピー元ファイル名
+  local source_file="$2"
+
+    # コピー先ファイルが存在しない場合にのみ処理を行う
+    if [ ! -f "$target_file" ]; then
+      # コピー元ファイルが存在するかを確認
+      if [ -f "$source_file" ]; then
+        # コピー元ファイルが存在する場合、コピーを実行
+        cp "$source_file" "$target_file"
+        echo "ファイルがコピーされました: $source_file -> $target_file"
+      else
+        # コピー元ファイルが存在しない場合、エラーメッセージを表示
+        echo "エラー: コピー元ファイルが存在しません: $source_file"
+      fi
+    else
+      # コピー先ファイルが既に存在する場合、警告メッセージを表示
+      echo "✅ $target_file"
+    fi
+}
+
 # setup brew
 setup_brew()
 {
@@ -86,41 +152,10 @@ installed_prompt()
   echo ✅ $1 is ready
 }
 
+setup_repo() {
+  xcode-select --install || echo "ok"
+  git -C ~/ clone https://github.com/kameike/dotfiles || echo "ok"
+  cd ~/dotfiles
+}
 
-### main
-setup_brew
-
-brew_tap neovim/neovim
-pip3 install --upgrade pip
-# pip3 install neovim
-
-#utils
-brew_install go
-brew_install git
-brew_install docker
-brew_install tmux
-brew_install neovim
-brew_install openssl
-brew_install readline
-brew_install terraform
-brew_install imagemagick
-brew_install gpg
-# install github/gh/gh
-
-# cask_install applicatons
-cask_install iterm2
-cask_install clipy
-cask_install google-chrome
-cask_install slack
-cask_install 1password
-cask_install notion
-cask_install macdown
-cask_install microsoft-word
-cask_install microsoft-powerpoint
-cask_install microsoft-excel
-
-# install go toolchain
-go_install fzf github.com/junegunn/fzf
-go_install dotfiles github.com/rhysd/dotfiles
-
-go_exec dotfiles link
+main

@@ -1,7 +1,0 @@
-#!/bin/sh
-#vim: syntax=sh
-
-set -eu
-
-git diff --name-only | grep .*.swift | xargs -ITARGET swiftlint autocorrect --format --path TARGET
-git diff --name-only | grep .*.swift | xargs -ITARGET swiftlint --path TARGET

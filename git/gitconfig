@@ -2,7 +2,6 @@
 [user]
 	name = kameike
 	email = kameike@users.noreply.github.com
-  signingkey = 5EEFEEB49184B585
 
 [core]
 	excludesfile = ~/.global.gitignore
@@ -17,3 +16,6 @@
 
 [credential]
 	helper = osxkeychain
+
+[include]
+  path = .gitconfig_local
