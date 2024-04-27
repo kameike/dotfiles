@@ -2,20 +2,7 @@
 list:
 	@grep '^[^#^(PHONY:.*)[:space:]].*:' Makefile | sed 's/://g'
 
-.PHONY: brew
-brew: 
-	@./scripts/brew.sh
+.PHONY: init
+init:
+	@./init.sh
 
-.PHONY: install-basic-toolchain
-install-basic-toolchain:
-	@./scripts/install_basic_toolchain.sh
-
-
-.PHONY: sync-dotfiles
-sync-dotfiles:
-	@./scripts/sync_dotfiles.sh
-
-
-.PHONY: install-biz-toolchain
-install-biz-toolchain:
-	@./scripts/install_biz_toolchain.sh

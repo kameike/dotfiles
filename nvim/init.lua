@@ -7,7 +7,6 @@ vim.cmd.source(vimrc)
 print("Hello user! Welcome to Neovim!")
 
 
-
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
@@ -58,11 +57,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- for autocomplection
-local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
-require("lspconfig").denols.setup({
-  capabilities = capabilities,
-})
+---- for autocomplection
+-- local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
+-- require("lspconfig").denols.setup({
+--   capabilities = capabilities,
+-- })
 
 -- for golang
 require'lspconfig'.gopls.setup{}

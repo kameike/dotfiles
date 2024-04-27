@@ -2,6 +2,9 @@
 # test ! -d ~/dev && mkdir ~/dev
 # test ! -d ~/go && mkdir ~/go
 
+# brew
+export PATH=$PATH:/opt/homebrew/bin
+
 
 if [ "$(uname -m)" = 'x86_64' ]; then
   export CPUARC='X86_64'
