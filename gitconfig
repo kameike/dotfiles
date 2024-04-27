@@ -5,7 +5,7 @@
   signingkey = 5EEFEEB49184B585
 
 [core]
-	excludesfile = /Users/kei/.global.gitignore
+	excludesfile = ~/.global.gitignore
 	pager = LESSCHARSET=utf-8 less
 	commentchar = ";"
 
