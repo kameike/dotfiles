@@ -35,7 +35,7 @@ ssb   cv25519/XXXXXXXXXXXXXXXX YYYY-MM-DD [SC]
 `git config --global user.signingkey xxxxxxxxxxxxxxxx` のコマンドでも設定が可能ですが、gitconfigに設定します。
 
 現在は署名用の鍵は端末ごとに設定しているため、個別に設定する必要があります。
-グローバルな、`gitconfig`から、かつ端末に設定される値を設定するための仕組みがあります。下記はその説明です。
+dotfilesには、グローバルな、`gitconfig`から、個別の端末に設定される値を設定するための仕組みがあります。下記はその説明です。
 `init.sh` を実行後に `git/gitconfig_local`というファイルが生まれます。
 これに `user.signingkey`のプロパティが準備されるため、これを設定することで端末個別に値を設定することができます。
 
