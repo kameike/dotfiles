@@ -2,8 +2,7 @@
 tmp/
 
 git/gitconfig_local
-
-
+zsh/zshenv_local
 
 
 nvim/.netrwhist

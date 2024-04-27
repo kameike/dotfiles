@@ -86,3 +86,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export KAME=toroasdfasd
 export TERM=xterm-256color
 
+# Load local
+
+source ~/.zshenv_local

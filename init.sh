@@ -20,12 +20,12 @@ main()
   brew_install docker
   brew_install tmux
   brew_install neovim
-  brew_install openssl
+  brew_install openssl@3
   brew_install readline
   brew_install terraform
   brew_install imagemagick
-  brew_install gpg
-  # install github/gh/gh
+  brew_install gnupg
+  brew_install gh
 
   # cask_install applicatons
   cask_install iterm2
@@ -44,6 +44,7 @@ main()
   go_install dotfiles github.com/rhysd/dotfiles
 
   if_not_exist_then_copy './git/gitconfig_local' './git/gitconfig_local_template'
+  if_not_exist_then_copy './zsh/zshenv_local' './zsh/zshenv_local_template'
 
   go_exec dotfiles link
 }
@@ -96,28 +97,16 @@ brewlist=`$brewcmd list --full-name`
 # install
 brew_install()
 {
-  if !(echo $brewlist | grep -q $1); then
+  if !(echo $brewlist | sed 's/ /\n/g' | grep -x $1 >/dev/null 2>&1); then
     $brewcmd install $1
   else
     installed_prompt $1
   fi
 } 
 
-casklist=`$brewcmd list --cask --full-name`
 cask_install()
 {
-  
-  if !(echo $casklist | grep -q $1); then
-    $brewcmd install --cask $1
-  else
-    installed_prompt $1
-  fi
-}
-
-cask_install()
-{
-  
-  if !(echo $casklist | grep -q $1); then
+  if !(echo $brewlist | sed 's/ /\n/g' | grep -x $1 >/dev/null 2>&1); then
     $brewcmd install --cask $1
   else
     installed_prompt $1

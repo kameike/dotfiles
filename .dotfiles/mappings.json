@@ -10,6 +10,7 @@
 
 	"zsh/zshrc": "~/.zshrc",
 	"zsh/zshenv": "~/.zshenv",
+	"zsh/zshenv_local": "~/.zshenv_local",
 
 	"bin": "~/.config/bin",
 
