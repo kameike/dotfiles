@@ -44,5 +44,3 @@ clone_repo() {
   gh repo list --limit 200 | fzf | awk '{print $1}' | xargs -I {} git clone https://github.com/{}
 }
 alias clone_repo='clone_repo'
-
-
