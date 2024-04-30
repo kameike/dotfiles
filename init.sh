@@ -10,6 +10,11 @@ main()
   setup_repo
   setup_brew
 
+
+  make_directory_if_not_exists ~/tmp
+  make_directory_if_not_exists ~/dev
+  make_directory_if_not_exists ~/.config
+
   brew_tap neovim/neovim
   pip3 install --upgrade pip
   pip3 install neovim
@@ -146,5 +151,15 @@ setup_repo() {
   git -C ~/ clone https://github.com/kameike/dotfiles || echo "ok"
   cd ~/dotfiles
 }
+
+# 関数定義
+make_directory_if_not_exists() {
+  local dir="$1"
+  
+  # 指定されたディレクトリが存在しなければ作成する
+  mkdir -p "$dir"
+}
+
+
 
 main

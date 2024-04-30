@@ -1,8 +1,0 @@
-#!/bin/bash -e
-
-test -d ~/Desktop/screen && exit 0
-
-mkdir ~/Desktop/screen
-defaults write com.apple.screencapture location ~/Desktop/screen/
-killall SystemUIServer
-

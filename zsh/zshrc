@@ -25,8 +25,8 @@ alias c="clear"
 alias syncchama="ssh min /home/kei/dev/chamasoft/prototype/server/scripts/deploylocal.sh"
 alias md="date \"+%Y%m%d%H%M\" | xargs -I DATE code ~/tmp/DATE.md"
 
-alias addpackage="nvim ~/dotfiles/packages.toml && sacoche ~/dotfiles/packages.toml"
 
+### ======
 alias sweep-remort-merged-branch="git branch -a  --merged | grep -v \* | grep -v develop | grep -v master | sed -e 's/remotes\/origin\///g' | xargs git push --delete origin"
 alias sweep-local-branch='git fetch --prune && git branch -D `git branch --merged | grep -v \* | xargs`'
 
@@ -36,3 +36,13 @@ stty start undef
 
 PROMPT="[%T]`echo $CPUARC` %c: "
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+
+### clone_repo =======
+clone_repo() {
+  cd $DEV
+  gh repo list --limit 200 | fzf | awk '{print $1}' | xargs -I {} git clone https://github.com/{}
+}
+alias clone_repo='clone_repo'
+
+
