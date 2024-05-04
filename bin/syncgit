@@ -1,0 +1,35 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+
+devpath="$HOME/dev"
+target=$((ls -d $devpath/*;echo "$HOME/dotfiles") | fzf --height 20% --border)
+echo $target
+cd $target
+branch=$(git remote show origin | grep 'HEAD branch' | awk '{print $NF}')
+
+git pull origin $branch
+
+
+# 未追跡のファイルも含めて差分があるか確認
+if git status --porcelain | grep -q '^\(\?\?\|M\|A\|D\|R\|C\|U\)'; then
+    echo "変更または未追跡のファイルが検出されました。コミットしますか？ (y/n)"
+    read answer
+    if [ "$answer" = "y" ]; then
+        echo "コミットメッセージを入力してください:"
+        read message
+
+        # 全ての変更と未追跡のファイルをステージング
+        git add -A
+        git commit -m "$message"
+        echo "コミットが完了しました。"
+        git push origin HEAD
+    else
+        echo "コミットはキャンセルされました。"
+    fi
+else
+    echo "差分はありません。"
+fi
+
