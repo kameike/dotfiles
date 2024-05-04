@@ -22,8 +22,9 @@ alias gch="git branch --all | fzf | xargs git switch --detach"
 alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
 alias c="clear"
-alias syncchama="ssh min /home/kei/dev/chamasoft/prototype/server/scripts/deploylocal.sh"
-alias md="date \"+%Y%m%d%H%M\" | xargs -I DATE code ~/tmp/DATE.md"
+
+# xargs -o で標準入力をzshに引き継いでいます
+alias todo='echo "gtd\ngtd_insert_routine\ntmpnote_new\ntmpnote_open\nopen_notion_root" | fzf --height 10% --border| xargs -o zsh -c'
 
 
 ### ======

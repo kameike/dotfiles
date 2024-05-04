@@ -1,0 +1,6 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+open https://www.notion.so/timee/ef5efd9be1f7458aac555eb8e4b6c5e4

@@ -1,0 +1,10 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+tmppath="$HOME/dev/note/tmp"
+
+target=$(ls $tmppath | sort -r |fzf)
+
+nvim "${tmppath}/${target}"

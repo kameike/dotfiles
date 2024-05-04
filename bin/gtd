@@ -1,0 +1,9 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+GTD_PATH="$HOME/dev/note/gtd_2024.md"
+
+toolcmd gtd $GTD_PATH
+nvim $GTD_PATH
