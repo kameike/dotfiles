@@ -4,12 +4,23 @@
 set -eu
 
 
+# git管理されているファイルが入るdir
 devpath="$HOME/dev"
-target=$((ls -d $devpath/*;echo "$HOME/dotfiles") | fzf --height 20% --border)
-echo $target
-cd $target
-branch=$(git remote show origin | grep 'HEAD branch' | awk '{print $NF}')
 
+# 引数があるかどうかチェック
+if [ $# -eq 1 ]; then
+    # 引数がある場合、それをターゲットとして使用
+    target="$1"
+else
+    # 引数がない場合、fzfでターゲットを選択
+    target=$( (ls -d $devpath/*; echo "$HOME/dotfiles") | fzf --height 20% --border )
+fi
+
+echo "Selected target: $target"
+cd "$target"
+
+# デフォルトブランチを取得し、mergeする
+branch=$(git remote show origin | grep 'HEAD branch' | awk '{print $NF}')
 git pull origin $branch
 
 
@@ -18,6 +29,7 @@ if git status --porcelain | grep -q '^\(\?\?\|M\|A\|D\|R\|C\|U\)'; then
     echo "変更または未追跡のファイルが検出されました。コミットしますか？ (y/n)"
     read answer
     if [ "$answer" = "y" ]; then
+        git status
         echo "コミットメッセージを入力してください:"
         read message
 
