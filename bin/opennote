@@ -1,0 +1,9 @@
+#!/bin/sh
+#vim: syntax=sh
+
+set -eu
+
+notepath="$HOME/dev/note"
+
+cd $notepath
+find **/*.md | fzf | xargs nvim

@@ -24,7 +24,7 @@ alias gs="git status"
 alias c="clear"
 
 # xargs -o で標準入力をzshに引き継いでいます
-alias todo='echo "gtd\ngtd_insert_routine\ntmpnote_new\ntmpnote_open\nopen_notion_root" | fzf --height 10% --border| xargs -o zsh -c'
+alias todo='echo "gtd\ngtd_insert_routine\ntmpnote_new\ntmpnote_open\nopen_notion_root\nopennote" | fzf --height 10% --border| xargs -o zsh -c'
 
 
 ### ======
