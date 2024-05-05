@@ -47,6 +47,7 @@ main()
   # install go toolchain
   go_install fzf github.com/junegunn/fzf
   go_install dotfiles github.com/rhysd/dotfiles
+  # go_install toolcmd github.com/kameike/tool/toolcmd
 
   if_not_exist_then_copy './git/gitconfig_local' './git/gitconfig_local_template'
   if_not_exist_then_copy './zsh/zshenv_local' './zsh/zshenv_local_template'
