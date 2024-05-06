@@ -15,7 +15,7 @@
 	gpgsign = true
 
 [credential]
-	helper = osxkeychain
+	helper = cache
 
 [include]
   path = .gitconfig_local
