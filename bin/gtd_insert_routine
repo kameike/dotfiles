@@ -1,11 +1,19 @@
 #!/bin/sh
 #vim: syntax=sh
-
 set -eu
 
 GTD_PATH="$HOME/dev/note/gtd_2024.md"
 ROUTINE_PATH="$HOME/dev/note/gtd_routine.md"
+TEMP_PATH="$HOME/dev/note/gtd_temp.md"
 
-cat $ROUTINE_PATH >> $GTD_PATH
+# ROUTINE_PATH の内容を一時ファイルに書き込み、その後に GTD_PATH の内容を追加
+cat $ROUTINE_PATH $GTD_PATH > $TEMP_PATH
+
+# 一時ファイルを元の GTD_PATH に置き換える
+mv $TEMP_PATH $GTD_PATH
+
+# toolcmd gtd を実行
 toolcmd gtd $GTD_PATH
+
+# nvim でファイルを開く
 nvim $GTD_PATH
