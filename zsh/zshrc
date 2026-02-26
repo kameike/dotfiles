@@ -22,6 +22,7 @@ alias gch="git branch --all | fzf | xargs git switch --detach"
 alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
 alias c="clear"
+alias ask="~/dev/prompt/ask.sh"
 
 # xargs -o で標準入力をzshに引き継いでいます
 alias todo='echo "gtd\ngtd_insert_routine\ntmpnote_new\ntmpnote_open\nopen_notion_root\nopennote" | fzf --height 10% --border| xargs -o zsh -c'
