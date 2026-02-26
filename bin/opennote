@@ -5,5 +5,5 @@ set -eu
 
 notepath="$HOME/dev/note"
 
-cd $notepath
-find **/*.md | fzf | xargs nvim
+cd "$notepath"
+find . -type f -name '*.md' | sed 's#^./##' | fzf | xargs -r nvim

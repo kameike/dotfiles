@@ -10,13 +10,13 @@ fi
 
 echo "Try to compress $1."
 
-pass=$(openssl rand -base64 40 | colrm 41)
+pass=$(openssl rand -base64 40 | tr -d '\n' | cut -c1-40)
 
-cd `dirname $1`
+cd "$(dirname "$1")"
 
-zip -re --password=$pass `basename $1`.zip `basename $1`
+zip -re --password="$pass" "$(basename "$1").zip" "$(basename "$1")"
 
-echo "$1 has been encrypted!" 
+echo "$1 has been encrypted!"
 echo "Password is $pass"
 
-echo $pass | pbcopy 
+printf '%s' "$pass" | pbcopy
