@@ -18,9 +18,10 @@ alias gp="git push \`git remote\` HEAD"
 alias gf="git fetch"
 alias gm="git branch --all | fzf | xargs git merge"
 alias gb="git branch --all"
-alias gch="git branch --all | fzf | xargs git switch --detach"
+alias gch="git branch --all | fzf | xargs git switch "
 alias gcp="git add --all && git commit &&  git push \`git remote\` HEAD"
 alias gs="git status"
+alias ask="~/dev/prompt/ask.sh"
 alias c="clear"
 
 # xargs -o で標準入力をzshに引き継いでいます
