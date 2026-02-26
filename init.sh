@@ -162,4 +162,32 @@ make_directory_if_not_exists() {
 
 
 
-main
+dev()
+{
+  # brew_install node
+  # brew_install python3
+  # brew_install ruby
+  # brew_install postgresql
+  # brew_install redis
+}
+
+agent()
+{
+  # brew_install python3
+  # pip3 install anthropic
+  # brew_install ollama
+  # brew_install jq
+  # go_install claude github.com/anthropics/claude-cli
+}
+
+env="${2:-main}"
+case "$env" in
+  main)  main  ;;
+  dev)   dev   ;;
+  agent) agent ;;
+  *)
+    echo "Unknown environment: $env"
+    echo "Usage: $0 [options] [main|dev|agent]"
+    exit 1
+    ;;
+esac
