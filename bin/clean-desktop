@@ -6,18 +6,18 @@ set -eu
 DESKTOP=$HOME/Desktop
 BUFFER_PATH=$DESKTOP/buf
 
-mkdir -p $DESKTOP/buf
+mkdir -p "$DESKTOP/buf"
 
 for file in ~/Desktop/*; do
   test "$file" = "$BUFFER_PATH" && continue
 
-  target=$BUFFER_PATH/`basename $file`
+  filename=$(basename "$file")
+  target=$BUFFER_PATH/$filename
 
   if [ -f "$target" ]; then
     time=$(date +%s%3)
-    mv "$file" "$BUFFER_PATH/$time`basename $file`"
+    mv "$file" "$BUFFER_PATH/${time}${filename}"
   else
-    mv "$file" "$BUFFER_PATH/`basename $file`"
+    mv "$file" "$BUFFER_PATH/$filename"
   fi
 done
-
