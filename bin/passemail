@@ -1,21 +1,22 @@
 #!/bin/sh
 #vim: syntax=sh
 
+set -eu
 
-# mkdir ~/tmp || echo "~/tmp already exist."
+target=$(mktemp "${TMPDIR:-/tmp}/email.XXXXXX")
 
-target=~/tmp/email
+{
+  echo "様"
+  echo ""
+  echo "お世話になります。タイミーの亀田です。"
+  echo "先程送信しました添付ファイルの解凍パスワードは以下になります"
+  echo ""
+  pbpaste
+  echo ""
+  echo "どうぞ引き続きよろしくお願いします。"
+  echo ""
+  echo "亀田"
+} > "$target"
 
-echo "様" > $target
-echo "" > $target
-echo "お世話になります。タイミーの亀田です。" >> $target
-echo "先程送信しました添付ファイルの解凍パスワードは以下になります" >> $target
-echo "" >> $target
-pbpaste >> $target
-echo "" >> $target
-echo "どうぞ引き続きよろしくお願いします。" >> $target
-echo "" >> $target
-echo "亀田" >> $target
-cat $target | pbcopy
-
-rm $target
+cat "$target" | pbcopy
+rm "$target"
