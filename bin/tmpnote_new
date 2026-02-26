@@ -3,7 +3,7 @@
 
 set -eu
 
-tmppath="$HOME/dev/note/tmp"
+tmppath="${OBSIDIAN_PATH:-$HOME/dev/note}/tmp"
 
 # 20230505_1030
 datetime=$(date "+%Y%m%d_%H%M")
@@ -13,5 +13,5 @@ read -p "Enter the title of the file: " title
 
 fullname="${tmppath}/${datetime}-${title}.md"
 
-touch $fullname
-nvim $fullname
+touch "$fullname"
+nvim "$fullname"

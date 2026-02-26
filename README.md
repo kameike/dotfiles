@@ -97,6 +97,7 @@ dotfiles/
 
 - `git/gitconfig_local` — git の署名鍵など端末固有の設定
 - `zsh/zshenv_local` — 端末固有の環境変数
+- `OBSIDIAN_PATH` を設定すると、`opennote` / `memo` / `tmpnote_*` / `gtd` が参照する Obsidian Vault の場所を切り替えられます（未設定時は `~/dev/note`）。
 
 ## Git コミット署名の設定
 

@@ -3,7 +3,7 @@
 
 set -eu
 
-GTD_PATH="$HOME/dev/note/gtd_2024.md"
+GTD_PATH="${OBSIDIAN_PATH:-$HOME/dev/note}/gtd_2024.md"
 
-toolcmd gtd $GTD_PATH
-nvim $GTD_PATH
+toolcmd gtd "$GTD_PATH"
+nvim "$GTD_PATH"

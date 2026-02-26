@@ -3,8 +3,8 @@
 
 set -eu
 
-tmppath="$HOME/dev/note/tmp"
+tmppath="${OBSIDIAN_PATH:-$HOME/dev/note}/tmp"
 
-target=$(ls $tmppath | sort -r |fzf)
+target=$(ls "$tmppath" | sort -r |fzf)
 
 nvim "${tmppath}/${target}"

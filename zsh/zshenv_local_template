@@ -1,1 +1,2 @@
 export TEST="hoge"
+# export OBSIDIAN_PATH="$HOME/path/to/your/obsidian-vault"

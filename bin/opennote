@@ -3,7 +3,7 @@
 
 set -eu
 
-notepath="$HOME/dev/note"
+notepath="${OBSIDIAN_PATH:-$HOME/dev/note}"
 
-cd $notepath
+cd "$notepath"
 find **/*.md | fzf | xargs nvim
