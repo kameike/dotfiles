@@ -7,6 +7,8 @@ gocmd='/opt/homebrew/bin/go'
 
 main()
 {
+  env_name="${2:-main}"
+
   setup_repo
   setup_brew
 
@@ -19,6 +21,34 @@ main()
   pip3 install --upgrade pip
   pip3 install neovim
 
+  install_for_env "$env_name"
+
+  if_not_exist_then_copy './git/gitconfig_local' './git/gitconfig_local_template'
+  if_not_exist_then_copy './zsh/zshenv_local' './zsh/zshenv_local_template'
+
+  go_exec dotfiles link
+}
+
+install_for_env() {
+  case "$1" in
+    main)
+      install_main
+      ;;
+    dev)
+      install_dev
+      ;;
+    agent)
+      install_agent
+      ;;
+    *)
+      echo "エラー: 不明な環境名です: $1"
+      echo "利用可能な環境: main, dev, agent"
+      exit 1
+      ;;
+  esac
+}
+
+install_main() {
   #utils
   brew_install go
   brew_install git
@@ -48,11 +78,24 @@ main()
   go_install fzf github.com/junegunn/fzf
   go_install dotfiles github.com/rhysd/dotfiles
   # go_install toolcmd github.com/kameike/tool/toolcmd
+}
 
-  if_not_exist_then_copy './git/gitconfig_local' './git/gitconfig_local_template'
-  if_not_exist_then_copy './zsh/zshenv_local' './zsh/zshenv_local_template'
+install_dev() {
+  # brew_install node
+  # brew_install python
+  # brew_install postgresql
+  # cask_install intellij-idea
+  # go_install gopls golang.org/x/tools/gopls
+  :
+}
 
-  go_exec dotfiles link
+install_agent() {
+  # brew_install jq
+  # brew_install ripgrep
+  # brew_install fd
+  # cask_install cursor
+  # go_install mockgen go.uber.org/mock/mockgen
+  :
 }
 
 if_not_exist_then_copy() {
@@ -162,4 +205,4 @@ make_directory_if_not_exists() {
 
 
 
-main
+main "$@"
