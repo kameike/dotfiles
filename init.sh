@@ -99,23 +99,22 @@ pip_install() {
 }
 
 
-brewlist=`$brewcmd list --full-name`
 # install
 brew_install()
 {
-  if !(echo $brewlist | sed 's/ /\n/g' | grep -x $1 >/dev/null 2>&1); then
-    $brewcmd install $1
+  if !("$brewcmd" list --formula | grep -qx "$1" >/dev/null 2>&1); then
+    "$brewcmd" install "$1"
   else
-    installed_prompt $1
+    installed_prompt "$1"
   fi
-} 
+}
 
 cask_install()
 {
-  if !(echo $brewlist | sed 's/ /\n/g' | grep -x $1 >/dev/null 2>&1); then
-    $brewcmd install --cask $1
+  if !("$brewcmd" list --cask | grep -qx "$1" >/dev/null 2>&1); then
+    "$brewcmd" install --cask "$1"
   else
-    installed_prompt $1
+    installed_prompt "$1"
   fi
 }
 
@@ -126,7 +125,7 @@ go_install()
   fi
 
   if !(type $1 > /dev/null 2>&1); then
-    echo "install dotfiles"
+    echo "install $1"
     go install $2@latest
   else
     installed_prompt $1
@@ -138,7 +137,7 @@ go_exec()
   gopath=$($gocmd env | grep ^GOPATH | sed "s/GOPATH='\(.*\)'/\1/g")
   cmd=$gopath/bin/$1
   shift
-  $cmd $@
+  $cmd "$@"
 }
 
 
