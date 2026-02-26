@@ -17,9 +17,8 @@ main()
   make_directory_if_not_exists ~/dev
   make_directory_if_not_exists ~/.config
 
-  brew_tap neovim/neovim
   pip3 install --upgrade pip
-  pip3 install neovim
+  pip3 install pynvim
 
   install_for_env "$env_name"
 
@@ -61,6 +60,9 @@ install_main() {
   brew_install imagemagick
   brew_install gnupg
   brew_install gh
+  brew_install jq
+  brew_install ripgrep
+  brew_install fzf
 
   # cask_install applicatons
   cask_install iterm2
@@ -75,7 +77,6 @@ install_main() {
   cask_install visual-studio-code
 
   # install go toolchain
-  go_install fzf github.com/junegunn/fzf
   go_install dotfiles github.com/rhysd/dotfiles
   # go_install toolcmd github.com/kameike/tool/toolcmd
 }
@@ -90,12 +91,11 @@ install_dev() {
 }
 
 install_agent() {
-  # brew_install jq
-  # brew_install ripgrep
-  # brew_install fd
+  brew_install jq
+  brew_install ripgrep
+  brew_install fd
   # cask_install cursor
   # go_install mockgen go.uber.org/mock/mockgen
-  :
 }
 
 if_not_exist_then_copy() {
@@ -163,11 +163,12 @@ cask_install()
 
 go_install()
 {
-  if !(type go > /dev/null 2>&1); then
+  if ! type go > /dev/null 2>&1; then
     echo "Need go env to run this script"
+    return 1
   fi
 
-  if !(type $1 > /dev/null 2>&1); then
+  if ! type $1 > /dev/null 2>&1; then
     echo "install $1"
     go install $2@latest
   else
