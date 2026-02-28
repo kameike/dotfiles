@@ -32,7 +32,10 @@ main()
   if_not_exist_then_copy './zsh/zshenv_local' './zsh/zshenv_local_template'
 
   section "🔗 Dotfiles Linking"
-  go_exec dotfiles link
+  go_exec dotfiles link | sed \
+    -e 's/^Exist:/🔗/g' \
+    -e 's/^Linked:/✅/g' \
+    -e 's/^Failed:/❌/g'
 }
 
 install_for_env() {
