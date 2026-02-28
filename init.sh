@@ -2,8 +2,13 @@
 
 set -eu
 
-brewcmd='/opt/homebrew/bin/brew'
-gocmd='/opt/homebrew/bin/go'
+brewcmd=$(command -v brew 2>/dev/null \
+  || ls /opt/homebrew/bin/brew /usr/local/bin/brew 2>/dev/null | head -1 \
+  || echo '/opt/homebrew/bin/brew')
+
+gocmd=$(command -v go 2>/dev/null \
+  || ls /opt/homebrew/bin/go /usr/local/go/bin/go 2>/dev/null | head -1 \
+  || echo 'go')
 
 main()
 {
@@ -23,6 +28,9 @@ main()
   section "🐍 Python Packages"
   pip3 install --upgrade pip > /dev/null 2>&1 && echo "✅ pip is ready"
   pip3 install pynvim > /dev/null 2>&1 && echo "✅ pynvim is ready"
+
+  section "🔧 Common Toolchain"
+  install_common
 
   section "📦 Packages"
   install_for_env "$env_name"
@@ -86,8 +94,6 @@ install_main() {
   cask_install microsoft-excel
   cask_install visual-studio-code
 
-  # install go toolchain
-  go_install dotfiles github.com/rhysd/dotfiles
   # go_install toolcmd github.com/kameike/tool/toolcmd
 }
 
@@ -182,9 +188,37 @@ go_install()
   fi
 }
 
+install_go() {
+  if command -v go > /dev/null 2>&1; then
+    gocmd=$(command -v go)
+    echo "✅ go is ready"
+    return
+  fi
+
+  echo "📦 Installing Go..."
+  if command -v brew > /dev/null 2>&1; then
+    brew_install go
+  elif command -v apt-get > /dev/null 2>&1; then
+    sudo apt-get install -y golang-go > /dev/null 2>&1
+  elif command -v dnf > /dev/null 2>&1; then
+    sudo dnf install -y golang > /dev/null 2>&1
+  else
+    echo "❌ Cannot install go: no supported package manager found"
+    return 1
+  fi
+
+  gocmd=$(command -v go 2>/dev/null || echo 'go')
+  echo "✅ go is ready"
+}
+
+install_common() {
+  install_go
+  go_install dotfiles github.com/rhysd/dotfiles
+}
+
 go_exec()
 {
-  gopath=$($gocmd env | grep ^GOPATH | sed "s/GOPATH='\(.*\)'/\1/g")
+  gopath=$($gocmd env GOPATH)
   cmd=$gopath/bin/$1
   shift
   $cmd "$@"
