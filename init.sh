@@ -94,6 +94,7 @@ install_agent() {
   brew_install jq
   brew_install ripgrep
   brew_install fd
+  brew_install openclaw-cli
   # cask_install cursor
   # go_install mockgen go.uber.org/mock/mockgen
 }
