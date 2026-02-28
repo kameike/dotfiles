@@ -12,7 +12,7 @@ elif [ "$(uname -m)" = 'arm64' ]; then
   export CPUARC='ARM64'
 else
   echo "Your cpu arc ($(uname -m)) is not supported."
-  exit 1
+  return 1
 fi
 
 
@@ -24,7 +24,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
   export OSTYPE='Linux'
 else
   echo "Your platform ($(uname -a)) is not supported."
-  exit 1
+  return 1
 fi
 
 
@@ -70,7 +70,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 # my shell scripts
 export PATH=$CONFIG_PATH/bin:$PATH
 
-if [ OS = 'Mac' ]; then
+if [ "$OS" = 'Mac' ]; then
   # js
   export PATH=$HOME/.nodebrew/current/bin:$PATH
   # ruby
