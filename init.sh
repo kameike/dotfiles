@@ -3,7 +3,7 @@
 set -eu
 
 brewcmd='/opt/homebrew/bin/brew'
-gocmd='/opt/homebrew/bin/go'
+gocmd=$(command -v go 2>/dev/null || echo '/opt/homebrew/bin/go')
 
 main()
 {
@@ -94,9 +94,11 @@ install_agent() {
   brew_install jq
   brew_install ripgrep
   brew_install fd
+  brew_install go
   brew_install openclaw-cli
   # cask_install cursor
   # go_install mockgen go.uber.org/mock/mockgen
+  go_install dotfiles github.com/rhysd/dotfiles
 }
 
 if_not_exist_then_copy() {
@@ -179,9 +181,17 @@ go_install()
 
 go_exec()
 {
-  gopath=$($gocmd env | grep ^GOPATH | sed "s/GOPATH='\(.*\)'/\1/g")
+  if ! "$gocmd" version > /dev/null 2>&1; then
+    echo "go is not installed, skipping: $*"
+    return 0
+  fi
+  gopath=$($gocmd env GOPATH)
   cmd=$gopath/bin/$1
   shift
+  if [ ! -x "$cmd" ]; then
+    echo "Command not found: $cmd"
+    return 1
+  fi
   $cmd "$@"
 }
 
