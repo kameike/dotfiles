@@ -7,7 +7,7 @@ gocmd='/opt/homebrew/bin/go'
 
 main()
 {
-  env_name="${2:-main}"
+  env_name="${1:-main}"
 
   setup_repo
   setup_brew

@@ -21,15 +21,23 @@ macOS 環境のセットアップ用 dotfiles リポジトリです。
 **ワンライナー（新しい Mac に初めてセットアップする場合）:**
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kameike/dotfiles/master/init.sh)"
+# main（デフォルト）
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kameike/dotfiles/master/init.sh)" bash
+
+# 環境を指定する場合
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kameike/dotfiles/master/init.sh)" bash main
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kameike/dotfiles/master/init.sh)" bash dev
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kameike/dotfiles/master/init.sh)" bash agent
 ```
 
 **リポジトリをクローン済みの場合:**
 
 ```sh
-git clone https://github.com/kameike/dotfiles ~/dotfiles
 cd ~/dotfiles
-make init
+./init.sh        # main（デフォルト）
+./init.sh main
+./init.sh dev
+./init.sh agent
 ```
 
 インストールされるもの:
@@ -46,7 +54,7 @@ make init
 デフォルトはコメントアウト済みのため、`init.sh` の `install_dev()` を編集して必要なものを有効化してから実行します。
 
 ```sh
-./init.sh _ dev
+./init.sh dev
 ```
 
 `install_dev()` のカスタマイズ例 (`init.sh`):
@@ -69,7 +77,7 @@ AI エージェントや CI/CD など自動化環境向けの最小構成です�
 GUI アプリは含まず、スクリプト処理に必要なツールのみをインストールします。
 
 ```sh
-./init.sh _ agent
+./init.sh agent
 ```
 
 インストールされるもの:
