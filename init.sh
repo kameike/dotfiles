@@ -9,22 +9,29 @@ main()
 {
   env_name="${1:-main}"
 
+  section "🔧 環境セットアップ"
   setup_repo
+
+  section "🍺 Homebrew"
   setup_brew
 
-
+  section "📁 ディレクトリ作成"
   make_directory_if_not_exists ~/tmp
   make_directory_if_not_exists ~/dev
   make_directory_if_not_exists ~/.config
 
-  pip3 install --upgrade pip
-  pip3 install pynvim
+  section "🐍 Python パッケージ"
+  pip3 install --upgrade pip > /dev/null 2>&1 && echo "✅ pip is ready"
+  pip3 install pynvim > /dev/null 2>&1 && echo "✅ pynvim is ready"
 
+  section "📦 パッケージインストール"
   install_for_env "$env_name"
 
+  section "⚙️  設定ファイル"
   if_not_exist_then_copy './git/gitconfig_local' './git/gitconfig_local_template'
   if_not_exist_then_copy './zsh/zshenv_local' './zsh/zshenv_local_template'
 
+  section "🔗 dotfiles リンク"
   go_exec dotfiles link
 }
 
@@ -40,8 +47,8 @@ install_for_env() {
       install_agent
       ;;
     *)
-      echo "エラー: 不明な環境名です: $1"
-      echo "利用可能な環境: main, dev, agent"
+      echo "❌ エラー: 不明な環境名です: $1"
+      echo "   利用可能な環境: main, dev, agent"
       exit 1
       ;;
   esac
@@ -100,37 +107,32 @@ install_agent() {
 }
 
 if_not_exist_then_copy() {
-  # 第一引数はコピー先ファイル名
   local target_file="$1"
-  # 第二引数はコピー元ファイル名
   local source_file="$2"
 
-    # コピー先ファイルが存在しない場合にのみ処理を行う
-    if [ ! -f "$target_file" ]; then
-      # コピー元ファイルが存在するかを確認
-      if [ -f "$source_file" ]; then
-        # コピー元ファイルが存在する場合、コピーを実行
-        cp "$source_file" "$target_file"
-        echo "ファイルがコピーされました: $source_file -> $target_file"
-      else
-        # コピー元ファイルが存在しない場合、エラーメッセージを表示
-        echo "エラー: コピー元ファイルが存在しません: $source_file"
-      fi
+  if [ ! -f "$target_file" ]; then
+    if [ -f "$source_file" ]; then
+      cp "$source_file" "$target_file"
+      echo "📋 コピー完了: $source_file -> $target_file"
     else
-      # コピー先ファイルが既に存在する場合、警告メッセージを表示
-      echo "✅ $target_file"
+      echo "❌ エラー: テンプレートが見つかりません: $source_file"
     fi
+  else
+    echo "✅ $target_file"
+  fi
 }
 
 # setup brew
 setup_brew()
 {
-
   if type brew > /dev/null 2>&1; then
-    installed_prompt brew
-    $brewcmd update
+    printf "🍺 Homebrew アップデート中... "
+    $brewcmd update > /dev/null 2>&1
+    echo "✅ brew is ready"
   else
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "🍺 Homebrew をインストール中..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "✅ Homebrew インストール完了"
   fi
 }
 
@@ -170,7 +172,7 @@ go_install()
   fi
 
   if ! type $1 > /dev/null 2>&1; then
-    echo "install $1"
+    echo "📦 インストール中: $1"
     go install $2@latest
   else
     installed_prompt $1
@@ -188,21 +190,44 @@ go_exec()
 
 installed_prompt()
 {
-  echo ✅ $1 is ready
+  echo "✅ $1 is ready"
+}
+
+section()
+{
+  echo ""
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo "  $1"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 }
 
 setup_repo() {
-  xcode-select --install || echo "ok"
-  git -C ~/ clone https://github.com/kameike/dotfiles || echo "ok"
+  printf "🛠️  Xcode CLI tools... "
+  if xcode-select --install > /dev/null 2>&1; then
+    echo "✅ インストール完了"
+  else
+    echo "✅ インストール済み"
+  fi
+
+  printf "📂 dotfiles リポジトリ... "
+  if git -C ~/ clone https://github.com/kameike/dotfiles > /dev/null 2>&1; then
+    echo "✅ クローン完了"
+  else
+    echo "✅ 既に存在します"
+  fi
+
   cd ~/dotfiles
 }
 
 # 関数定義
 make_directory_if_not_exists() {
   local dir="$1"
-  
-  # 指定されたディレクトリが存在しなければ作成する
-  mkdir -p "$dir"
+  if [ ! -d "$dir" ]; then
+    mkdir -p "$dir"
+    echo "📁 作成: $dir"
+  else
+    echo "✅ $dir"
+  fi
 }
 
 
