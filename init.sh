@@ -214,6 +214,7 @@ install_go() {
 install_common() {
   install_go
   go_install dotfiles github.com/rhysd/dotfiles
+  brew_install fzf
 }
 
 go_exec()
