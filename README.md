@@ -90,6 +90,7 @@ dotfiles/
 | `passemail` | メールアドレスをペースト |
 | `rand` | ランダム文字列を生成 |
 | `editbin` | bin/ 内のスクリプトを編集 |
+| `localenv` | fzf で `~/.zshenv_local` の環境変数を選択・更新（追加時にテンプレート更新も確認） |
 
 ## ローカル設定
 
