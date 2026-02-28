@@ -2,15 +2,29 @@
 
 macOS 環境のセットアップ用 dotfiles リポジトリです。
 
+## 環境の種類
+
+| 環境名 | 用途 |
+|---|---|
+| `main` | 個人 Mac のフル環境（デフォルト） |
+| `dev` | 開発用途に絞った軽量環境 |
+| `agent` | AI エージェント・自動化用途の環境 |
+
+---
+
 ## セットアップ
 
-新しい Mac に以下のコマンドを実行するだけで環境を構築できます。
+### main 環境（個人 Mac・デフォルト）
+
+個人 Mac に全ツールとアプリをインストールします。
+
+**ワンライナー（新しい Mac に初めてセットアップする場合）:**
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/kameike/dotfiles/master/init.sh)"
 ```
 
-または、リポジトリをクローン後に `make init` を実行します。
+**リポジトリをクローン済みの場合:**
 
 ```sh
 git clone https://github.com/kameike/dotfiles ~/dotfiles
@@ -18,36 +32,70 @@ cd ~/dotfiles
 make init
 ```
 
-環境名を指定したい場合は、`init.sh` の第2引数に `main` / `dev` / `agent` を渡します。
+インストールされるもの:
+
+- **CLI ツール**: go, git, docker, tmux, neovim, openssl, terraform, imagemagick, gnupg, gh, jq, ripgrep, fzf
+- **アプリ**: iTerm2, Clipy, Google Chrome, Slack, 1Password, Notion, Microsoft Office (Word / PowerPoint / Excel), VS Code
+- **Go ツール**: [rhysd/dotfiles](https://github.com/rhysd/dotfiles)（シンボリックリンク管理）
+
+---
+
+### dev 環境（開発用）
+
+言語ランタイムや開発ツールを追加インストールする環境です。
+デフォルトはコメントアウト済みのため、`init.sh` の `install_dev()` を編集して必要なものを有効化してから実行します。
 
 ```sh
 ./init.sh _ dev
 ```
 
-> 第2引数未指定時は `main` として実行されます。
+`install_dev()` のカスタマイズ例 (`init.sh`):
 
+```sh
+install_dev() {
+  brew_install node
+  brew_install python
+  brew_install postgresql
+  cask_install intellij-idea
+  go_install gopls golang.org/x/tools/gopls
+}
+```
 
-## init.sh が行うこと
+---
 
-## インストールプロファイル
+### agent 環境（AI エージェント・自動化用）
 
-- `main` (デフォルト): 既存のインストール内容をそのまま実行
-- `dev`: コメントアウト済みのサンプル 5 行のみ（必要なものを有効化して利用）
-- `agent`: コメントアウト済みのサンプル 5 行のみ（必要なものを有効化して利用）
+AI エージェントや CI/CD など自動化環境向けの最小構成です。
+GUI アプリは含まず、スクリプト処理に必要なツールのみをインストールします。
+
+```sh
+./init.sh _ agent
+```
+
+インストールされるもの:
+
+- **CLI ツール**: jq, ripgrep, fd
+
+オプション（コメントアウトを外して有効化）:
+
+- `cursor` (cask)
+- `mockgen` (go tool)
+
+---
+
+## init.sh が行うこと（共通）
+
+環境を問わず以下の処理が実行されます。
 
 1. Xcode Command Line Tools のインストール
 2. [Homebrew](https://brew.sh/) のインストール・更新
-3. 以下のツールを brew でインストール:
-   - go, git, docker, tmux, neovim, openssl, terraform, imagemagick, gnupg, gh
-4. 以下のアプリを brew cask でインストール:
-   - iTerm2, Clipy, Google Chrome, Slack, 1Password, Notion
-   - Microsoft Word / PowerPoint / Excel
-   - Visual Studio Code
-5. Go 製ツールのインストール:
-   - [fzf](https://github.com/junegunn/fzf)
-   - [rhysd/dotfiles](https://github.com/rhysd/dotfiles) (シンボリックリンク管理)
-6. `git/gitconfig_local` と `zsh/zshenv_local` のローカル設定ファイルを生成
+3. ディレクトリの作成: `~/tmp`, `~/dev`, `~/.config`
+4. `pip3 install pynvim` の実行
+5. 環境ごとのパッケージインストール（上記参照）
+6. `git/gitconfig_local` と `zsh/zshenv_local` のローカル設定ファイルを生成（未存在時のみ）
 7. `dotfiles link` でシンボリックリンクを作成
+
+---
 
 ## ディレクトリ構成
 
@@ -72,6 +120,8 @@ dotfiles/
 └── Makefile
 ```
 
+---
+
 ## ユーティリティスクリプト (`bin/`)
 
 | スクリプト | 説明 |
@@ -91,12 +141,16 @@ dotfiles/
 | `rand` | ランダム文字列を生成 |
 | `editbin` | bin/ 内のスクリプトを編集 |
 
+---
+
 ## ローカル設定
 
 端末ごとに異なる設定は以下のファイルで管理します。これらは `init.sh` 実行時にテンプレートからコピーされます。
 
 - `git/gitconfig_local` — git の署名鍵など端末固有の設定
 - `zsh/zshenv_local` — 端末固有の環境変数
+
+---
 
 ## Git コミット署名の設定
 
@@ -120,6 +174,7 @@ gpg --list-secret-keys --keyid-format LONG
 ```
 
 出力例:
+
 ```
 sec   ed25519/xxxxxxxxxxxxxxxx YYYY-MM-DD [SC]
       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -136,6 +191,8 @@ gpg --armor --export xxxxxxxxxxxxxxxx
 ```
 
 表示された公開鍵を [GitHub GPG keys 設定](https://github.com/settings/gpg/new) に追加します。
+
+---
 
 ## iTerm2 の設定
 
