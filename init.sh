@@ -83,6 +83,7 @@ install_main() {
   cask_install notion
   cask_install microsoft-word
   cask_install microsoft-powerpoint
+  cask_install claude-code
   cask_install microsoft-excel
   cask_install visual-studio-code
 
